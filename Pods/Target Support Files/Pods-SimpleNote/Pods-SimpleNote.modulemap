@@ -1,0 +1,6 @@
+framework module Pods_SimpleNote {
+  umbrella header "Pods-SimpleNote-umbrella.h"
+
+  export *
+  module * { export * }
+}
