@@ -26,9 +26,6 @@
 		085033C8273E4648006CBBB2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C7273E4648006CBBB2 /* FirebaseAuth */; };
 		085033CA273E4648006CBBB2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C9273E4648006CBBB2 /* FirebaseFirestore */; };
 		085033CC273E4648006CBBB2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 085033CB273E4648006CBBB2 /* FirebaseStorage */; };
-		C0D27C05056BCE9BA1C7CF4A /* Pods_SimpleNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B077DE920813CFCC6969C776 /* Pods_SimpleNote.framework */; };
-		DB90158BBF49875416229D41 /* Pods_SimpleNote_SimpleNoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3359A638C272C52544690DE0 /* Pods_SimpleNote_SimpleNoteUITests.framework */; };
-		FDE48A608A8097AC5B32E091 /* Pods_SimpleNoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF94246FB254F98A2BF9CAF /* Pods_SimpleNoteTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,15 +66,6 @@
 		085033B5273E4480006CBBB2 /* SimpleNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITests.swift; sourceTree = "<group>"; };
 		085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		085033C4273E459F006CBBB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0B104027F0FBC390B6F57AD0 /* Pods-SimpleNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleNote.release.xcconfig"; path = "Target Support Files/Pods-SimpleNote/Pods-SimpleNote.release.xcconfig"; sourceTree = "<group>"; };
-		0BF94246FB254F98A2BF9CAF /* Pods_SimpleNoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleNoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3359A638C272C52544690DE0 /* Pods_SimpleNote_SimpleNoteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleNote_SimpleNoteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		727E79119C282B6C1AA3BEAC /* Pods-SimpleNoteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleNoteTests.debug.xcconfig"; path = "Target Support Files/Pods-SimpleNoteTests/Pods-SimpleNoteTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8A8E05191C6C7CA4A69892AB /* Pods-SimpleNote-SimpleNoteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleNote-SimpleNoteUITests.release.xcconfig"; path = "Target Support Files/Pods-SimpleNote-SimpleNoteUITests/Pods-SimpleNote-SimpleNoteUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B077DE920813CFCC6969C776 /* Pods_SimpleNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B67642B70B311E395C57CCC6 /* Pods-SimpleNoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleNoteTests.release.xcconfig"; path = "Target Support Files/Pods-SimpleNoteTests/Pods-SimpleNoteTests.release.xcconfig"; sourceTree = "<group>"; };
-		E09EA8A83919105AC7F8BBF7 /* Pods-SimpleNote-SimpleNoteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleNote-SimpleNoteUITests.debug.xcconfig"; path = "Target Support Files/Pods-SimpleNote-SimpleNoteUITests/Pods-SimpleNote-SimpleNoteUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		EFC2B9064BF97118D87CE8E0 /* Pods-SimpleNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleNote.debug.xcconfig"; path = "Target Support Files/Pods-SimpleNote/Pods-SimpleNote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +76,6 @@
 				085033C8273E4648006CBBB2 /* FirebaseAuth in Frameworks */,
 				085033CA273E4648006CBBB2 /* FirebaseFirestore in Frameworks */,
 				085033CC273E4648006CBBB2 /* FirebaseStorage in Frameworks */,
-				C0D27C05056BCE9BA1C7CF4A /* Pods_SimpleNote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDE48A608A8097AC5B32E091 /* Pods_SimpleNoteTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +90,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB90158BBF49875416229D41 /* Pods_SimpleNote_SimpleNoteUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +159,6 @@
 				085033B4273E4480006CBBB2 /* SimpleNoteUITests */,
 				0850338F273E4477006CBBB2 /* Products */,
 				BCBB1C5E63D0EDBC8E1F5268 /* Pods */,
-				56C6DD5DFFFA3EFBBE586EEE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,25 +227,9 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		56C6DD5DFFFA3EFBBE586EEE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B077DE920813CFCC6969C776 /* Pods_SimpleNote.framework */,
-				3359A638C272C52544690DE0 /* Pods_SimpleNote_SimpleNoteUITests.framework */,
-				0BF94246FB254F98A2BF9CAF /* Pods_SimpleNoteTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		BCBB1C5E63D0EDBC8E1F5268 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EFC2B9064BF97118D87CE8E0 /* Pods-SimpleNote.debug.xcconfig */,
-				0B104027F0FBC390B6F57AD0 /* Pods-SimpleNote.release.xcconfig */,
-				E09EA8A83919105AC7F8BBF7 /* Pods-SimpleNote-SimpleNoteUITests.debug.xcconfig */,
-				8A8E05191C6C7CA4A69892AB /* Pods-SimpleNote-SimpleNoteUITests.release.xcconfig */,
-				727E79119C282B6C1AA3BEAC /* Pods-SimpleNoteTests.debug.xcconfig */,
-				B67642B70B311E395C57CCC6 /* Pods-SimpleNoteTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -273,11 +241,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 085033BB273E4481006CBBB2 /* Build configuration list for PBXNativeTarget "SimpleNote" */;
 			buildPhases = (
-				EDF50505181B695494042CF8 /* [CP] Check Pods Manifest.lock */,
 				0850338A273E4477006CBBB2 /* Sources */,
 				0850338B273E4477006CBBB2 /* Frameworks */,
 				0850338C273E4477006CBBB2 /* Resources */,
-				702E375CDA76E811A272B52C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -297,7 +263,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 085033BE273E4481006CBBB2 /* Build configuration list for PBXNativeTarget "SimpleNoteTests" */;
 			buildPhases = (
-				D289664CF266DA73166CF0B1 /* [CP] Check Pods Manifest.lock */,
 				085033A3273E4480006CBBB2 /* Sources */,
 				085033A4273E4480006CBBB2 /* Frameworks */,
 				085033A5273E4480006CBBB2 /* Resources */,
@@ -316,11 +281,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 085033C1273E4481006CBBB2 /* Build configuration list for PBXNativeTarget "SimpleNoteUITests" */;
 			buildPhases = (
-				A371095F0F97A39A82E8CCE6 /* [CP] Check Pods Manifest.lock */,
 				085033AD273E4480006CBBB2 /* Sources */,
 				085033AE273E4480006CBBB2 /* Frameworks */,
 				085033AF273E4480006CBBB2 /* Resources */,
-				634E34522A218411A0DFB7CD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -365,7 +328,7 @@
 			);
 			mainGroup = 08503385273E4477006CBBB2;
 			packageReferences = (
-				085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */,
 			);
 			productRefGroup = 0850338F273E4477006CBBB2 /* Products */;
 			projectDirPath = "";
@@ -405,109 +368,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		634E34522A218411A0DFB7CD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimpleNote-SimpleNoteUITests/Pods-SimpleNote-SimpleNoteUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimpleNote-SimpleNoteUITests/Pods-SimpleNote-SimpleNoteUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleNote-SimpleNoteUITests/Pods-SimpleNote-SimpleNoteUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		702E375CDA76E811A272B52C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimpleNote/Pods-SimpleNote-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimpleNote/Pods-SimpleNote-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleNote/Pods-SimpleNote-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A371095F0F97A39A82E8CCE6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SimpleNote-SimpleNoteUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D289664CF266DA73166CF0B1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SimpleNoteTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EDF50505181B695494042CF8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SimpleNote-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0850338A273E4477006CBBB2 /* Sources */ = {
@@ -696,7 +556,6 @@
 		};
 		085033BC273E4481006CBBB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFC2B9064BF97118D87CE8E0 /* Pods-SimpleNote.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -724,7 +583,6 @@
 		};
 		085033BD273E4481006CBBB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B104027F0FBC390B6F57AD0 /* Pods-SimpleNote.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -752,7 +610,6 @@
 		};
 		085033BF273E4481006CBBB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 727E79119C282B6C1AA3BEAC /* Pods-SimpleNoteTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -777,7 +634,6 @@
 		};
 		085033C0273E4481006CBBB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B67642B70B311E395C57CCC6 /* Pods-SimpleNoteTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -802,7 +658,6 @@
 		};
 		085033C2273E4481006CBBB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E09EA8A83919105AC7F8BBF7 /* Pods-SimpleNote-SimpleNoteUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -825,7 +680,6 @@
 		};
 		085033C3273E4481006CBBB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A8E05191C6C7CA4A69892AB /* Pods-SimpleNote-SimpleNoteUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -888,7 +742,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -901,17 +755,17 @@
 /* Begin XCSwiftPackageProductDependency section */
 		085033C7273E4648006CBBB2 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseAuth;
 		};
 		085033C9273E4648006CBBB2 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseFirestore;
 		};
 		085033CB273E4648006CBBB2 /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */

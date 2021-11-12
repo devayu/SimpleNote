@@ -1,6 +1,0 @@
-framework module Pods_SimpleNote_SimpleNoteUITests {
-  umbrella header "Pods-SimpleNote-SimpleNoteUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
