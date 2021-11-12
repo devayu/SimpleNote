@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0801055F273E53C700BD432E /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0801055E273E53C700BD432E /* LoginRequest.swift */; };
+		08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08010562273E540200BD432E /* FirebaseAuthentication.swift */; };
+		08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08010564273E541400BD432E /* FirebaseCRUD.swift */; };
+		08010568273E545D00BD432E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08010567273E545D00BD432E /* LoginViewModel.swift */; };
+		0801056B273E548100BD432E /* LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0801056A273E548100BD432E /* LoginValidation.swift */; };
 		08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503391273E4478006CBBB2 /* AppDelegate.swift */; };
 		08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503393273E4478006CBBB2 /* SceneDelegate.swift */; };
-		08503396273E4478006CBBB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503395273E4478006CBBB2 /* ViewController.swift */; };
+		08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503395273E4478006CBBB2 /* LoginViewController.swift */; };
 		08503399273E4478006CBBB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08503397273E4478006CBBB2 /* Main.storyboard */; };
 		0850339C273E4478006CBBB2 /* SimpleNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0850339A273E4478006CBBB2 /* SimpleNote.xcdatamodeld */; };
 		0850339E273E4480006CBBB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0850339D273E4480006CBBB2 /* Assets.xcassets */; };
@@ -44,10 +49,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0801055E273E53C700BD432E /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		08010562273E540200BD432E /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
+		08010564273E541400BD432E /* FirebaseCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCRUD.swift; sourceTree = "<group>"; };
+		08010567273E545D00BD432E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0801056A273E548100BD432E /* LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidation.swift; sourceTree = "<group>"; };
 		0850338E273E4477006CBBB2 /* SimpleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08503391273E4478006CBBB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08503393273E4478006CBBB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		08503395273E4478006CBBB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		08503395273E4478006CBBB2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		08503398273E4478006CBBB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0850339B273E4478006CBBB2 /* SimpleNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleNote.xcdatamodel; sourceTree = "<group>"; };
 		0850339D273E4480006CBBB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +111,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0801055C273E539700BD432E /* LoginModel */ = {
+			isa = PBXGroup;
+			children = (
+				0801055E273E53C700BD432E /* LoginRequest.swift */,
+			);
+			path = LoginModel;
+			sourceTree = "<group>";
+		};
+		0801055D273E53A300BD432E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		08010560273E53E000BD432E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				08010567273E545D00BD432E /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		08010561273E53ED00BD432E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				08010562273E540200BD432E /* FirebaseAuthentication.swift */,
+				08010564273E541400BD432E /* FirebaseCRUD.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		08010566273E544800BD432E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		08010569273E547500BD432E /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				0801056A273E548100BD432E /* LoginValidation.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		0801056C273E548E00BD432E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0850339A273E4478006CBBB2 /* SimpleNote.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		08503385273E4477006CBBB2 = {
 			isa = PBXGroup;
 			children = (
@@ -126,17 +191,20 @@
 		08503390273E4478006CBBB2 /* SimpleNote */ = {
 			isa = PBXGroup;
 			children = (
-				085033CE273E487D006CBBB2 /* View */,
 				085033CD273E4877006CBBB2 /* Model */,
+				085033CE273E487D006CBBB2 /* View */,
+				08503395273E4478006CBBB2 /* LoginViewController.swift */,
+				08010560273E53E000BD432E /* ViewModel */,
+				0801056C273E548E00BD432E /* CoreData */,
+				08010569273E547500BD432E /* Validation */,
+				08010566273E544800BD432E /* Extensions */,
+				08010561273E53ED00BD432E /* Services */,
 				08503391273E4478006CBBB2 /* AppDelegate.swift */,
 				08503393273E4478006CBBB2 /* SceneDelegate.swift */,
-				08503395273E4478006CBBB2 /* ViewController.swift */,
-				08503397273E4478006CBBB2 /* Main.storyboard */,
 				0850339D273E4480006CBBB2 /* Assets.xcassets */,
 				0850339F273E4480006CBBB2 /* LaunchScreen.storyboard */,
 				085033A2273E4480006CBBB2 /* Info.plist */,
 				085033C4273E459F006CBBB2 /* GoogleService-Info.plist */,
-				0850339A273E4478006CBBB2 /* SimpleNote.xcdatamodeld */,
 			);
 			path = SimpleNote;
 			sourceTree = "<group>";
@@ -161,6 +229,7 @@
 		085033CD273E4877006CBBB2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0801055C273E539700BD432E /* LoginModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,6 +237,8 @@
 		085033CE273E487D006CBBB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				08503397273E4478006CBBB2 /* Main.storyboard */,
+				0801055D273E53A300BD432E /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -443,9 +514,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08503396273E4478006CBBB2 /* ViewController.swift in Sources */,
+				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
 				08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */,
+				08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */,
+				08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */,
+				0801056B273E548100BD432E /* LoginValidation.swift in Sources */,
+				08010568273E545D00BD432E /* LoginViewModel.swift in Sources */,
 				08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */,
+				0801055F273E53C700BD432E /* LoginRequest.swift in Sources */,
 				0850339C273E4478006CBBB2 /* SimpleNote.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
