@@ -12,6 +12,7 @@
 		08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08010564273E541400BD432E /* FirebaseCRUD.swift */; };
 		08010568273E545D00BD432E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08010567273E545D00BD432E /* LoginViewModel.swift */; };
 		0801056B273E548100BD432E /* LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0801056A273E548100BD432E /* LoginValidation.swift */; };
+		0811E9A72741733500CB6A18 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0811E9A62741733500CB6A18 /* .gitignore */; };
 		08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503391273E4478006CBBB2 /* AppDelegate.swift */; };
 		08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503393273E4478006CBBB2 /* SceneDelegate.swift */; };
 		08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503395273E4478006CBBB2 /* LoginViewController.swift */; };
@@ -51,6 +52,7 @@
 		08010564273E541400BD432E /* FirebaseCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCRUD.swift; sourceTree = "<group>"; };
 		08010567273E545D00BD432E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0801056A273E548100BD432E /* LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidation.swift; sourceTree = "<group>"; };
+		0811E9A62741733500CB6A18 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0850338E273E4477006CBBB2 /* SimpleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08503391273E4478006CBBB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08503393273E4478006CBBB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,9 +153,18 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		0811E9A32741728600CB6A18 /* Git */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9A62741733500CB6A18 /* .gitignore */,
+			);
+			path = Git;
+			sourceTree = "<group>";
+		};
 		08503385273E4477006CBBB2 = {
 			isa = PBXGroup;
 			children = (
+				0811E9A32741728600CB6A18 /* Git */,
 				08503390273E4478006CBBB2 /* SimpleNote */,
 				085033AA273E4480006CBBB2 /* SimpleNoteTests */,
 				085033B4273E4480006CBBB2 /* SimpleNoteUITests */,
@@ -328,7 +339,7 @@
 			);
 			mainGroup = 08503385273E4477006CBBB2;
 			packageReferences = (
-				085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */,
+				085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0850338F273E4477006CBBB2 /* Products */;
 			projectDirPath = "";
@@ -346,6 +357,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0811E9A72741733500CB6A18 /* .gitignore in Resources */,
 				085033A1273E4480006CBBB2 /* LaunchScreen.storyboard in Resources */,
 				085033C5273E45A0006CBBB2 /* GoogleService-Info.plist in Resources */,
 				0850339E273E4480006CBBB2 /* Assets.xcassets in Resources */,
@@ -742,7 +754,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {
+		085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -755,17 +767,17 @@
 /* Begin XCSwiftPackageProductDependency section */
 		085033C7273E4648006CBBB2 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
 		085033C9273E4648006CBBB2 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
 		085033CB273E4648006CBBB2 /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
