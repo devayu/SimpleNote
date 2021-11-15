@@ -8,12 +8,17 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    // Outlets
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        passTextField.enablePasswordToggle()
     }
-
-
+    @IBAction func signInBtn(_ sender: Any) {
+    }
+    
 }
 

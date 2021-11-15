@@ -13,6 +13,9 @@
 		08010568273E545D00BD432E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08010567273E545D00BD432E /* LoginViewModel.swift */; };
 		0801056B273E548100BD432E /* LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0801056A273E548100BD432E /* LoginValidation.swift */; };
 		0811E9A72741733500CB6A18 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0811E9A62741733500CB6A18 /* .gitignore */; };
+		0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */; };
+		0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */; };
+		0811E9B22742283F00CB6A18 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9B12742283F00CB6A18 /* Alerts.swift */; };
 		08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503391273E4478006CBBB2 /* AppDelegate.swift */; };
 		08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503393273E4478006CBBB2 /* SceneDelegate.swift */; };
 		08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503395273E4478006CBBB2 /* LoginViewController.swift */; };
@@ -53,6 +56,9 @@
 		08010567273E545D00BD432E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0801056A273E548100BD432E /* LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidation.swift; sourceTree = "<group>"; };
 		0811E9A62741733500CB6A18 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIVCExtensions.swift; path = SimpleNote/Extensions/UIVCExtensions.swift; sourceTree = SOURCE_ROOT; };
+		0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UITextFieldExtensions.swift; path = SimpleNote/Extensions/UITextFieldExtensions.swift; sourceTree = SOURCE_ROOT; };
+		0811E9B12742283F00CB6A18 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		0850338E273E4477006CBBB2 /* SimpleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08503391273E4478006CBBB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08503393273E4478006CBBB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,13 +136,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		08010566273E544800BD432E /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		08010569273E547500BD432E /* Validation */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +160,23 @@
 			path = Git;
 			sourceTree = "<group>";
 		};
+		0811E9B02742282E00CB6A18 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9B12742283F00CB6A18 /* Alerts.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0811E9B327424D2700CB6A18 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */,
+				0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		08503385273E4477006CBBB2 = {
 			isa = PBXGroup;
 			children = (
@@ -169,7 +185,6 @@
 				085033AA273E4480006CBBB2 /* SimpleNoteTests */,
 				085033B4273E4480006CBBB2 /* SimpleNoteUITests */,
 				0850338F273E4477006CBBB2 /* Products */,
-				BCBB1C5E63D0EDBC8E1F5268 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,13 +201,14 @@
 		08503390273E4478006CBBB2 /* SimpleNote */ = {
 			isa = PBXGroup;
 			children = (
+				0811E9B327424D2700CB6A18 /* Extensions */,
+				0811E9B02742282E00CB6A18 /* Common */,
 				085033CD273E4877006CBBB2 /* Model */,
 				085033CE273E487D006CBBB2 /* View */,
 				08503395273E4478006CBBB2 /* LoginViewController.swift */,
 				08010560273E53E000BD432E /* ViewModel */,
 				0801056C273E548E00BD432E /* CoreData */,
 				08010569273E547500BD432E /* Validation */,
-				08010566273E544800BD432E /* Extensions */,
 				08010561273E53ED00BD432E /* Services */,
 				08503391273E4478006CBBB2 /* AppDelegate.swift */,
 				08503393273E4478006CBBB2 /* SceneDelegate.swift */,
@@ -236,13 +252,6 @@
 				0801055D273E53A300BD432E /* Cells */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		BCBB1C5E63D0EDBC8E1F5268 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,12 +397,15 @@
 			files = (
 				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
 				08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */,
+				0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */,
+				0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */,
 				08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */,
 				08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */,
 				0801056B273E548100BD432E /* LoginValidation.swift in Sources */,
 				08010568273E545D00BD432E /* LoginViewModel.swift in Sources */,
 				08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */,
 				0801055F273E53C700BD432E /* LoginRequest.swift in Sources */,
+				0811E9B22742283F00CB6A18 /* Alerts.swift in Sources */,
 				0850339C273E4478006CBBB2 /* SimpleNote.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
