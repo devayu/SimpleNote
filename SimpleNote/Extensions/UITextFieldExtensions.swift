@@ -26,7 +26,6 @@ extension UITextField {
         button.addTarget(self, action: #selector(self.togglePasswordView), for: .touchUpInside)
         self.rightView = button
         self.rightViewMode = .whileEditing
-        
     }
     @IBAction func togglePasswordView(_ sender: Any) {
         self.isSecureTextEntry.toggle()
@@ -38,11 +37,6 @@ extension UITextField {
                         replace(textRange, withText: existingText)
                     }
                 }
-                if let existingSelectedTextRange = self.selectedTextRange {
-                    selectedTextRange = nil
-                    selectedTextRange = existingSelectedTextRange
-                }
-
         DispatchQueue.main.async {
             self.tintColor = existingTintColor
         }
