@@ -8,12 +8,19 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var signEmailTextField: UITextField!
+    @IBOutlet weak var signPassTextField: UITextField!
+    @IBOutlet weak var rePassTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
+        signPassTextField.enablePasswordToggle()
+        rePassTextField.enablePasswordToggle()
+    }    
     
 
     /*
