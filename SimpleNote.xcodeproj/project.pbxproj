@@ -16,6 +16,13 @@
 		0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */; };
 		0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */; };
 		0811E9B22742283F00CB6A18 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9B12742283F00CB6A18 /* Alerts.swift */; };
+		0811E9B527425A7900CB6A18 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9B427425A7800CB6A18 /* LoginResponse.swift */; };
+		0811E9BA27425BE100CB6A18 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9B927425BE100CB6A18 /* ValidationResult.swift */; };
+		0811E9C8274377C800CB6A18 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9C7274377C800CB6A18 /* Validation.swift */; };
+		0811E9CB2743788700CB6A18 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9CA2743788700CB6A18 /* CustomTextField.swift */; };
+		0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9CC274378C600CB6A18 /* SignupModel.swift */; };
+		0811E9CF274378D600CB6A18 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9CE274378D600CB6A18 /* SignupVC.swift */; };
+		0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9D0274378E800CB6A18 /* SignupViewModel.swift */; };
 		08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503391273E4478006CBBB2 /* AppDelegate.swift */; };
 		08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503393273E4478006CBBB2 /* SceneDelegate.swift */; };
 		08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503395273E4478006CBBB2 /* LoginViewController.swift */; };
@@ -59,6 +66,13 @@
 		0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIVCExtensions.swift; path = SimpleNote/Extensions/UIVCExtensions.swift; sourceTree = SOURCE_ROOT; };
 		0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UITextFieldExtensions.swift; path = SimpleNote/Extensions/UITextFieldExtensions.swift; sourceTree = SOURCE_ROOT; };
 		0811E9B12742283F00CB6A18 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		0811E9B427425A7800CB6A18 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		0811E9B927425BE100CB6A18 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
+		0811E9C7274377C800CB6A18 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		0811E9CA2743788700CB6A18 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		0811E9CC274378C600CB6A18 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
+		0811E9CE274378D600CB6A18 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		0811E9D0274378E800CB6A18 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		0850338E273E4477006CBBB2 /* SimpleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08503391273E4478006CBBB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08503393273E4478006CBBB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,29 +118,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0801055C273E539700BD432E /* LoginModel */ = {
-			isa = PBXGroup;
-			children = (
-				0801055E273E53C700BD432E /* LoginRequest.swift */,
-			);
-			path = LoginModel;
-			sourceTree = "<group>";
-		};
-		0801055D273E53A300BD432E /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		08010560273E53E000BD432E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				08010567273E545D00BD432E /* LoginViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		08010561273E53ED00BD432E /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +154,7 @@
 		0811E9B02742282E00CB6A18 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0811E9C92743784200CB6A18 /* CustomComponents */,
 				0811E9B12742283F00CB6A18 /* Alerts.swift */,
 			);
 			path = Common;
@@ -175,6 +167,110 @@
 				0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0811E9BB274375DC00CB6A18 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9C02743761C00CB6A18 /* Signup */,
+				0811E9BC274375E700CB6A18 /* Login */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		0811E9BC274375E700CB6A18 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9BD274375ED00CB6A18 /* Model */,
+				0811E9BE274375F200CB6A18 /* View */,
+				0811E9BF274375F700CB6A18 /* ViewModel */,
+				08010569273E547500BD432E /* Validation */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0811E9BD274375ED00CB6A18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9B927425BE100CB6A18 /* ValidationResult.swift */,
+				0801055E273E53C700BD432E /* LoginRequest.swift */,
+				0811E9B427425A7800CB6A18 /* LoginResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0811E9BE274375F200CB6A18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08503395273E4478006CBBB2 /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0811E9BF274375F700CB6A18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				08010567273E545D00BD432E /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0811E9C02743761C00CB6A18 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9C12743762700CB6A18 /* Model */,
+				0811E9C22743762B00CB6A18 /* View */,
+				0811E9C32743762F00CB6A18 /* ViewModel */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		0811E9C12743762700CB6A18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9CC274378C600CB6A18 /* SignupModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0811E9C22743762B00CB6A18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9CE274378D600CB6A18 /* SignupVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0811E9C32743762F00CB6A18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9D0274378E800CB6A18 /* SignupViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0811E9C42743777800CB6A18 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9C5274377A600CB6A18 /* Validation */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0811E9C5274377A600CB6A18 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9C7274377C800CB6A18 /* Validation.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		0811E9C92743784200CB6A18 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9CA2743788700CB6A18 /* CustomTextField.swift */,
+			);
+			path = CustomComponents;
 			sourceTree = "<group>";
 		};
 		08503385273E4477006CBBB2 = {
@@ -201,18 +297,16 @@
 		08503390273E4478006CBBB2 /* SimpleNote */ = {
 			isa = PBXGroup;
 			children = (
+				0811E9BB274375DC00CB6A18 /* Modules */,
 				0811E9B327424D2700CB6A18 /* Extensions */,
 				0811E9B02742282E00CB6A18 /* Common */,
-				085033CD273E4877006CBBB2 /* Model */,
-				085033CE273E487D006CBBB2 /* View */,
-				08503395273E4478006CBBB2 /* LoginViewController.swift */,
-				08010560273E53E000BD432E /* ViewModel */,
 				0801056C273E548E00BD432E /* CoreData */,
-				08010569273E547500BD432E /* Validation */,
 				08010561273E53ED00BD432E /* Services */,
+				0811E9C42743777800CB6A18 /* Utilities */,
 				08503391273E4478006CBBB2 /* AppDelegate.swift */,
 				08503393273E4478006CBBB2 /* SceneDelegate.swift */,
 				0850339D273E4480006CBBB2 /* Assets.xcassets */,
+				08503397273E4478006CBBB2 /* Main.storyboard */,
 				0850339F273E4480006CBBB2 /* LaunchScreen.storyboard */,
 				085033A2273E4480006CBBB2 /* Info.plist */,
 				085033C4273E459F006CBBB2 /* GoogleService-Info.plist */,
@@ -235,23 +329,6 @@
 				085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */,
 			);
 			path = SimpleNoteUITests;
-			sourceTree = "<group>";
-		};
-		085033CD273E4877006CBBB2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				0801055C273E539700BD432E /* LoginModel */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		085033CE273E487D006CBBB2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				08503397273E4478006CBBB2 /* Main.storyboard */,
-				0801055D273E53A300BD432E /* Cells */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,16 +473,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
+				0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */,
 				08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */,
+				0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */,
 				0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */,
 				0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */,
+				0811E9CB2743788700CB6A18 /* CustomTextField.swift in Sources */,
 				08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */,
 				08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */,
+				0811E9B527425A7900CB6A18 /* LoginResponse.swift in Sources */,
 				0801056B273E548100BD432E /* LoginValidation.swift in Sources */,
+				0811E9BA27425BE100CB6A18 /* ValidationResult.swift in Sources */,
 				08010568273E545D00BD432E /* LoginViewModel.swift in Sources */,
+				0811E9CF274378D600CB6A18 /* SignupVC.swift in Sources */,
 				08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */,
 				0801055F273E53C700BD432E /* LoginRequest.swift in Sources */,
 				0811E9B22742283F00CB6A18 /* Alerts.swift in Sources */,
+				0811E9C8274377C800CB6A18 /* Validation.swift in Sources */,
 				0850339C273E4478006CBBB2 /* SimpleNote.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
