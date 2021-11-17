@@ -17,7 +17,7 @@ extension UITextField {
             button.setImage(UIImage(named: "ic_show_password"), for: .normal)
         }
     }
-
+    
     func enablePasswordToggle(){
         var config = UIButton.Configuration.plain()
         config.imagePadding = CGFloat(1)
@@ -31,15 +31,16 @@ extension UITextField {
         self.isSecureTextEntry.toggle()
         let existingTintColor = self.tintColor
         self.tintColor = .clear
-                if let existingText = self.text , self.isSecureTextEntry {
-                    deleteBackward()
-                    if let textRange = textRange(from: beginningOfDocument, to: endOfDocument){
-                        replace(textRange, withText: existingText)
-                    }
-                }
+        if let existingText = self.text , self.isSecureTextEntry {
+            deleteBackward()
+            if let textRange = textRange(from: beginningOfDocument, to: endOfDocument){
+                replace(textRange, withText: existingText)
+            }
+        }
         DispatchQueue.main.async {
             self.tintColor = existingTintColor
         }
         setPasswordToggleBtnImage(sender as! UIButton)
     }
+    
 }

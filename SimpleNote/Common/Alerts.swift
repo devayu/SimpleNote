@@ -27,7 +27,7 @@ class Alerts : UIAlertController {
     }
     
     func dismissAlert(alert: UIAlertController){
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
             alert.dismiss(animated: true, completion: nil)
         }
        

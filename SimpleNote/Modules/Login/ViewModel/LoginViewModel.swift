@@ -6,6 +6,7 @@
 // 
 
 import Foundation
+import SwiftUI
 
 
 class LoginViewModel {
@@ -14,14 +15,25 @@ class LoginViewModel {
     
     func loginUser(request: LoginRequest, completion : @escaping (_ result : LoginResponse)->()){
         
-        let validationResult = Validation.shared.loginValidation(loginRequest: request)
+        FirebaseAuthentication.shared.signInWithEmailAndPassword(request: request) { user, error in
+            print(user)
+            print(error)
+        }
+    }
+    
+    
+    func validateLoginFields(for request: LoginRequest)->ValidationResult{
+        if(request.email.isEmpty){
+            return ValidationResult(success: false, error: "Please enter your email.",forField: .email)
+        }
+        if(request.password.isEmpty){
+            return ValidationResult(success: false, error: "Please enter your password.",forField: .password)
+        }
         
-        if validationResult.success {
-        // make Firebase login call
+        if(!Validation.shared.isValidEmail(email: request.email)){
+            return ValidationResult(success: false, error: "Please enter your email in the format: yourname@example.com",forField: .email)
         }
-        else {
-            let loginResponse = LoginResponse(success: nil, error: validationResult.error)
-            _ = completion(loginResponse)
-        }
+        
+        return ValidationResult(success: true, error: "",forField: nil)
     }
 }
