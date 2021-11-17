@@ -32,10 +32,11 @@ class FirebaseCrud
                 }
                 
             }
+            print("-----------------------", result!, "-----------------------")
         }
         
-        let landingPage = SignUpViewController()
-        landingPage.toWelcomePage()
+//        let landingPage = SignUpViewController()
+//        landingPage.toLandingPage()
         
     }
 }

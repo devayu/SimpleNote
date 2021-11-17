@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class WelcomeViewController: UIViewController {
+class LandingPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -37,9 +37,11 @@
 		085033C8273E4648006CBBB2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C7273E4648006CBBB2 /* FirebaseAuth */; };
 		085033CA273E4648006CBBB2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C9273E4648006CBBB2 /* FirebaseFirestore */; };
 		085033CC273E4648006CBBB2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 085033CB273E4648006CBBB2 /* FirebaseStorage */; };
-		36DE87122743A18D0001FC35 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE87112743A18D0001FC35 /* WelcomeViewController.swift */; };
+		36DE87122743A18D0001FC35 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE87112743A18D0001FC35 /* LandingPageViewController.swift */; };
 		36DE87152743A9640001FC35 /* SignupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE87142743A9640001FC35 /* SignupExtension.swift */; };
 		36DE87182743C34E0001FC35 /* SignUpValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE87172743C34D0001FC35 /* SignUpValidation.swift */; };
+		36DE871A2744E4150001FC35 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE87192744E4150001FC35 /* Constants.swift */; };
+		36DE871C27457D300001FC35 /* SignUpTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE871B27457D300001FC35 /* SignUpTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,9 +93,11 @@
 		085033B5273E4480006CBBB2 /* SimpleNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITests.swift; sourceTree = "<group>"; };
 		085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		085033C4273E459F006CBBB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		36DE87112743A18D0001FC35 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		36DE87112743A18D0001FC35 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		36DE87142743A9640001FC35 /* SignupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupExtension.swift; sourceTree = "<group>"; };
 		36DE87172743C34D0001FC35 /* SignUpValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidation.swift; sourceTree = "<group>"; };
+		36DE87192744E4150001FC35 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		36DE871B27457D300001FC35 /* SignUpTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 			children = (
 				0811E9C92743784200CB6A18 /* CustomComponents */,
 				0811E9B12742283F00CB6A18 /* Alerts.swift */,
+				36DE87192744E4150001FC35 /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -245,7 +250,7 @@
 			children = (
 				36DE87132743A9450001FC35 /* Extensions */,
 				0811E9CE274378D600CB6A18 /* SignupVC.swift */,
-				36DE87112743A18D0001FC35 /* WelcomeViewController.swift */,
+				36DE87112743A18D0001FC35 /* LandingPageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				36DE87142743A9640001FC35 /* SignupExtension.swift */,
+				36DE871B27457D300001FC35 /* SignUpTableVC.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -498,11 +504,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
-				36DE87122743A18D0001FC35 /* WelcomeViewController.swift in Sources */,
+				36DE87122743A18D0001FC35 /* LandingPageViewController.swift in Sources */,
 				36DE87152743A9640001FC35 /* SignupExtension.swift in Sources */,
 				0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */,
 				08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */,
+				36DE871C27457D300001FC35 /* SignUpTableVC.swift in Sources */,
 				0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */,
+				36DE871A2744E4150001FC35 /* Constants.swift in Sources */,
 				0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */,
 				0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */,
 				0811E9CB2743788700CB6A18 /* CustomTextField.swift in Sources */,

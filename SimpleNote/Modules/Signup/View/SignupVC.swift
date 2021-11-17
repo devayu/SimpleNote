@@ -16,25 +16,36 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signEmailTextField: UITextField!
     @IBOutlet weak var signPassTextField: UITextField!
     @IBOutlet weak var signRePassTextField: UITextField!
+    @IBOutlet weak var signErrorLabel: UILabel!
     
     
-    let newUserVm = newUserVM()
-    
+    let verifyUserVm = verifyUserVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //signPassTextField.enablePasswordToggle()
-        //signRePassTextField.enablePasswordToggle()
+        signPassTextField.enablePasswordToggle()
+        signRePassTextField.enablePasswordToggle()
         
     }
     
     @IBAction func SignUpTap(_ sender: Any){
-        newUserVm.addUser(fname: signFirstNameTextField.text!, lname: signLastNameTextField.text!, email: signEmailTextField.text!, pass: signPassTextField.text!)
+        let validFields = verifyUserVm.verifyUser(fname: signFirstNameTextField.text!, lname: signLastNameTextField.text!, email: signEmailTextField.text!, pass: signPassTextField.text!, repass: signRePassTextField.text!)
+        
+        if validFields != ""{
+            //verifyUserVm.addError(error: "validFields")
+            signErrorLabel.text = validFields
+            signErrorLabel.textColor = UIColor.red
+        }
+        else{
+            signErrorLabel.text = ""
+            verifyUserVm.createAccount(email: signEmailTextField.text!, pass: signPassTextField.text!, fname: signFirstNameTextField.text!, lname: signLastNameTextField.text!)
+        }
+        
     }
     
-    func toWelcomePage()
+    func toLandingPage()
     {
-        guard let WP = storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController else{return}
+        guard let WP = storyboard?.instantiateViewController(withIdentifier: "LandingPageController") as? LandingPageViewController else{return}
         
         navigationController?.pushViewController(WP, animated: true)
     }

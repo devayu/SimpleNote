@@ -169,12 +169,19 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0v8-6o-3vA">
+                                                <rect key="frame" x="0.0" y="275" width="414" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="HE9-kh-p0t" firstAttribute="top" secondItem="hTC-ei-fe3" secondAttribute="bottom" constant="15" id="3QW-6b-ooS"/>
                                             <constraint firstItem="hTC-ei-fe3" firstAttribute="leading" secondItem="pN8-H1-hWY" secondAttribute="leading" constant="5" id="3hW-SB-Q2K"/>
                                             <constraint firstItem="N8U-As-TJs" firstAttribute="leading" secondItem="pN8-H1-hWY" secondAttribute="leading" constant="5" id="5Ga-Ke-gKb"/>
+                                            <constraint firstAttribute="trailing" secondItem="0v8-6o-3vA" secondAttribute="trailing" id="86U-in-MFr"/>
                                             <constraint firstAttribute="trailing" secondItem="nY5-cV-K9e" secondAttribute="trailing" constant="5" id="9WH-MO-rAE"/>
                                             <constraint firstAttribute="trailing" secondItem="N8U-As-TJs" secondAttribute="trailing" id="DCF-1u-hBv"/>
                                             <constraint firstItem="nY5-cV-K9e" firstAttribute="leading" secondItem="pN8-H1-hWY" secondAttribute="leading" constant="5" id="DGF-Wc-sNx"/>
@@ -184,6 +191,8 @@
                                             <constraint firstAttribute="trailing" secondItem="FGs-6w-ATM" secondAttribute="trailing" constant="5" id="Ovv-bg-2Zn"/>
                                             <constraint firstAttribute="trailing" secondItem="hTC-ei-fe3" secondAttribute="trailing" constant="5" id="Ox4-bS-SNW"/>
                                             <constraint firstItem="nY5-cV-K9e" firstAttribute="top" secondItem="N8U-As-TJs" secondAttribute="bottom" constant="15" id="Pnq-y9-piu"/>
+                                            <constraint firstItem="0v8-6o-3vA" firstAttribute="top" secondItem="FGs-6w-ATM" secondAttribute="bottom" constant="10" id="aGa-6D-6HC"/>
+                                            <constraint firstItem="0v8-6o-3vA" firstAttribute="leading" secondItem="pN8-H1-hWY" secondAttribute="leading" id="f40-2D-kAW"/>
                                             <constraint firstItem="HE9-kh-p0t" firstAttribute="leading" secondItem="pN8-H1-hWY" secondAttribute="leading" constant="5" id="nGz-S4-Ysf"/>
                                             <constraint firstItem="FGs-6w-ATM" firstAttribute="leading" secondItem="pN8-H1-hWY" secondAttribute="leading" constant="5" id="sh4-PY-kd9"/>
                                             <constraint firstItem="N8U-As-TJs" firstAttribute="centerX" secondItem="pN8-H1-hWY" secondAttribute="centerX" id="ucl-Vv-nyc"/>
@@ -235,6 +244,7 @@
                     </view>
                     <connections>
                         <outlet property="signEmailTextField" destination="N8U-As-TJs" id="pru-hI-4ML"/>
+                        <outlet property="signErrorLabel" destination="0v8-6o-3vA" id="RHB-OD-j3y"/>
                         <outlet property="signFirstNameTextField" destination="hTC-ei-fe3" id="bbR-nz-9VZ"/>
                         <outlet property="signLastNameTextField" destination="HE9-kh-p0t" id="0EQ-qt-Lwt"/>
                         <outlet property="signPassTextField" destination="nY5-cV-K9e" id="9Xn-va-dHS"/>
@@ -245,10 +255,46 @@
             </objects>
             <point key="canvasLocation" x="1727.536231884058" y="-77.445652173913047"/>
         </scene>
-        <!--Welcome View Controller-->
+        <!--View Controller-->
+        <scene sceneID="3OM-B5-MCP">
+            <objects>
+                <viewController id="hnh-al-qHW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qe3-yI-sdF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BOW-36-JXv">
+                                <rect key="frame" x="0.0" y="20" width="414" height="480"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="95" id="fv1-Mz-ge9">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fv1-Mz-ge9" id="gNA-PU-m16">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IK0-d4-3iZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BOW-36-JXv" firstAttribute="leading" secondItem="IK0-d4-3iZ" secondAttribute="leading" id="4ex-Cl-tJA"/>
+                            <constraint firstItem="BOW-36-JXv" firstAttribute="top" secondItem="IK0-d4-3iZ" secondAttribute="top" id="86G-pB-fay"/>
+                            <constraint firstItem="IK0-d4-3iZ" firstAttribute="trailing" secondItem="BOW-36-JXv" secondAttribute="trailing" id="8D1-pd-DAf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V2H-mg-7Lq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1727.536231884058" y="634.23913043478262"/>
+        </scene>
+        <!--Landing Page View Controller-->
         <scene sceneID="7Y1-AE-yrO">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" id="OVA-YC-hXy" customClass="WelcomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LandingPageViewController" id="OVA-YC-hXy" customClass="LandingPageViewController" customModule="SimpleNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eZO-n3-MiK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
