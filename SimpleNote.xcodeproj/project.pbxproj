@@ -127,13 +127,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		08010569273E547500BD432E /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Validation;
-			sourceTree = "<group>";
-		};
 		0801056C273E548E00BD432E /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +177,6 @@
 				0811E9BD274375ED00CB6A18 /* Model */,
 				0811E9BE274375F200CB6A18 /* View */,
 				0811E9BF274375F700CB6A18 /* ViewModel */,
-				08010569273E547500BD432E /* Validation */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -268,9 +260,17 @@
 		0811E9C92743784200CB6A18 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0811E9CA2743788700CB6A18 /* CustomTextField.swift */,
+				0811E9D8274624F200CB6A18 /* CustomComponents */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0811E9D8274624F200CB6A18 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9CA2743788700CB6A18 /* CustomTextField.swift */,
+			);
+			path = CustomComponents;
 			sourceTree = "<group>";
 		};
 		08503385273E4477006CBBB2 = {
@@ -341,6 +341,7 @@
 				0850338A273E4477006CBBB2 /* Sources */,
 				0850338B273E4477006CBBB2 /* Frameworks */,
 				0850338C273E4477006CBBB2 /* Resources */,
+				0811E9D9274639F800CB6A18 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -466,6 +467,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0811E9D9274639F800CB6A18 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0850338A273E4477006CBBB2 /* Sources */ = {

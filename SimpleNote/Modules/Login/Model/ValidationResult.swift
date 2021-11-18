@@ -12,7 +12,7 @@ enum TextFields {
     case email
 }
 struct ValidationResult {
-    let success : Bool
-    let error : String?
-    let forField : TextFields?
+    let success: Bool
+    let error: String?
+    let forField: TextFields?
 }
