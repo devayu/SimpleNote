@@ -7,8 +7,8 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 struct LoginResponse {
-    
-    let success : Data?
-    let error : String?
+    let success: User?
+    let error: Error?
 }
