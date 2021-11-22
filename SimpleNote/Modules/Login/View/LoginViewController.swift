@@ -9,16 +9,22 @@ import UIKit
 import Firebase
 class LoginViewController: UIViewController, LoginViewModelDelegate {
     // Outlets
+    @IBOutlet weak var loginScrollView: UIScrollView!
     @IBOutlet weak var emailTextField: CustomTextField!
     @IBOutlet weak var passTextField: CustomTextField!
+    @IBOutlet weak var signupBtn: UIButton!
+    var isViewExpanded: Bool = false
     private let loginViewModel = LoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         loginViewModel.delegate = self
         passTextField.enablePasswordToggle()
+        setupKeyboardObservers()
     }
-    @IBAction func signInBtn(_ sender: Any) {
-        let request = LoginRequest(email: emailTextField.text!, password: passTextField.text!)
+    @IBAction func signInBtnTapped(_ sender: Any) {
+        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let request = LoginRequest(email: email, password: password)
         let validationRes = loginViewModel.validateLoginFields(for: request)
         if !validationRes.success {
             switch validationRes.forField {
@@ -30,6 +36,8 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
                 break
             }
          } else {
+            emailTextField.resignFirstResponder()
+            passTextField.resignFirstResponder()
             loginViewModel.loginUser(request: request)
         }
     }
