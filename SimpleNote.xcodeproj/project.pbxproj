@@ -11,7 +11,7 @@
 		08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08010562273E540200BD432E /* FirebaseAuthentication.swift */; };
 		08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08010564273E541400BD432E /* FirebaseCRUD.swift */; };
 		08010568273E545D00BD432E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08010567273E545D00BD432E /* LoginViewModel.swift */; };
-		0801056B273E548100BD432E /* LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0801056A273E548100BD432E /* LoginValidation.swift */; };
+		080BE6F4274B9AC50068EC5E /* LoginVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080BE6F3274B9AC50068EC5E /* LoginVCExtension.swift */; };
 		0811E9A72741733500CB6A18 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0811E9A62741733500CB6A18 /* .gitignore */; };
 		0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */; };
 		0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */; };
@@ -23,6 +23,7 @@
 		0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9CC274378C600CB6A18 /* SignupModel.swift */; };
 		0811E9CF274378D600CB6A18 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9CE274378D600CB6A18 /* SignupVC.swift */; };
 		0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9D0274378E800CB6A18 /* SignupViewModel.swift */; };
+		0811E9D32743AD9300CB6A18 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9D22743AD9300CB6A18 /* Constants.swift */; };
 		08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503391273E4478006CBBB2 /* AppDelegate.swift */; };
 		08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503393273E4478006CBBB2 /* SceneDelegate.swift */; };
 		08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503395273E4478006CBBB2 /* LoginViewController.swift */; };
@@ -37,15 +38,6 @@
 		085033C8273E4648006CBBB2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C7273E4648006CBBB2 /* FirebaseAuth */; };
 		085033CA273E4648006CBBB2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C9273E4648006CBBB2 /* FirebaseFirestore */; };
 		085033CC273E4648006CBBB2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 085033CB273E4648006CBBB2 /* FirebaseStorage */; };
-		36CDDAF6274C208100817C73 /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CDDAF5274C208100817C73 /* FieldTableViewCell.swift */; };
-		36CDDAFA274C209100817C73 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CDDAF7274C209000817C73 /* ButtonTableViewCell.xib */; };
-		36CDDAFB274C209100817C73 /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CDDAF8274C209100817C73 /* FieldTableViewCell.xib */; };
-		36CDDAFC274C209100817C73 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CDDAF9274C209100817C73 /* ButtonTableViewCell.swift */; };
-		36DE87122743A18D0001FC35 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE87112743A18D0001FC35 /* LandingPageViewController.swift */; };
-		36DE87152743A9640001FC35 /* SignupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE87142743A9640001FC35 /* SignupExtension.swift */; };
-		36DE87182743C34E0001FC35 /* SignUpValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE87172743C34D0001FC35 /* SignUpValidation.swift */; };
-		36DE871A2744E4150001FC35 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE87192744E4150001FC35 /* Constants.swift */; };
-		36DE871C27457D300001FC35 /* SignUpTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE871B27457D300001FC35 /* SignUpTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +62,7 @@
 		08010562273E540200BD432E /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
 		08010564273E541400BD432E /* FirebaseCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCRUD.swift; sourceTree = "<group>"; };
 		08010567273E545D00BD432E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		0801056A273E548100BD432E /* LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidation.swift; sourceTree = "<group>"; };
+		080BE6F3274B9AC50068EC5E /* LoginVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCExtension.swift; sourceTree = "<group>"; };
 		0811E9A62741733500CB6A18 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIVCExtensions.swift; path = SimpleNote/Extensions/UIVCExtensions.swift; sourceTree = SOURCE_ROOT; };
 		0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UITextFieldExtensions.swift; path = SimpleNote/Extensions/UITextFieldExtensions.swift; sourceTree = SOURCE_ROOT; };
@@ -82,6 +74,7 @@
 		0811E9CC274378C600CB6A18 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		0811E9CE274378D600CB6A18 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		0811E9D0274378E800CB6A18 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		0811E9D22743AD9300CB6A18 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0850338E273E4477006CBBB2 /* SimpleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08503391273E4478006CBBB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08503393273E4478006CBBB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,15 +90,6 @@
 		085033B5273E4480006CBBB2 /* SimpleNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITests.swift; sourceTree = "<group>"; };
 		085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		085033C4273E459F006CBBB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		36CDDAF5274C208100817C73 /* FieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
-		36CDDAF7274C209000817C73 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
-		36CDDAF8274C209100817C73 /* FieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FieldTableViewCell.xib; sourceTree = "<group>"; };
-		36CDDAF9274C209100817C73 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
-		36DE87112743A18D0001FC35 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
-		36DE87142743A9640001FC35 /* SignupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupExtension.swift; sourceTree = "<group>"; };
-		36DE87172743C34D0001FC35 /* SignUpValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidation.swift; sourceTree = "<group>"; };
-		36DE87192744E4150001FC35 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		36DE871B27457D300001FC35 /* SignUpTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,14 +129,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		08010569273E547500BD432E /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-				0801056A273E548100BD432E /* LoginValidation.swift */,
-			);
-			path = Validation;
-			sourceTree = "<group>";
-		};
 		0801056C273E548E00BD432E /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,9 +148,9 @@
 		0811E9B02742282E00CB6A18 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0811E9C92743784200CB6A18 /* CustomComponents */,
+				0811E9C92743784200CB6A18 /* View */,
 				0811E9B12742283F00CB6A18 /* Alerts.swift */,
-				36DE87192744E4150001FC35 /* Constants.swift */,
+				0811E9D22743AD9300CB6A18 /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -184,6 +160,7 @@
 			children = (
 				0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */,
 				0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */,
+				080BE6F3274B9AC50068EC5E /* LoginVCExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -203,7 +180,6 @@
 				0811E9BD274375ED00CB6A18 /* Model */,
 				0811E9BE274375F200CB6A18 /* View */,
 				0811E9BF274375F700CB6A18 /* ViewModel */,
-				08010569273E547500BD432E /* Validation */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -237,10 +213,9 @@
 		0811E9C02743761C00CB6A18 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
-				0811E9C32743762F00CB6A18 /* ViewModel */,
 				0811E9C12743762700CB6A18 /* Model */,
 				0811E9C22743762B00CB6A18 /* View */,
-				36DE87162743C21B0001FC35 /* Validation */,
+				0811E9C32743762F00CB6A18 /* ViewModel */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -256,11 +231,7 @@
 		0811E9C22743762B00CB6A18 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				36CDDAF4274C203800817C73 /* Cells */,
-				36DE87132743A9450001FC35 /* Extensions */,
 				0811E9CE274378D600CB6A18 /* SignupVC.swift */,
-				36DE871B27457D300001FC35 /* SignUpTableVC.swift */,
-				36DE87112743A18D0001FC35 /* LandingPageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,7 +260,15 @@
 			path = Validation;
 			sourceTree = "<group>";
 		};
-		0811E9C92743784200CB6A18 /* CustomComponents */ = {
+		0811E9C92743784200CB6A18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9D8274624F200CB6A18 /* CustomComponents */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0811E9D8274624F200CB6A18 /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
 				0811E9CA2743788700CB6A18 /* CustomTextField.swift */,
@@ -355,33 +334,6 @@
 			path = SimpleNoteUITests;
 			sourceTree = "<group>";
 		};
-		36CDDAF4274C203800817C73 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				36CDDAF5274C208100817C73 /* FieldTableViewCell.swift */,
-				36CDDAF8274C209100817C73 /* FieldTableViewCell.xib */,
-				36CDDAF9274C209100817C73 /* ButtonTableViewCell.swift */,
-				36CDDAF7274C209000817C73 /* ButtonTableViewCell.xib */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		36DE87132743A9450001FC35 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				36DE87142743A9640001FC35 /* SignupExtension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		36DE87162743C21B0001FC35 /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-				36DE87172743C34D0001FC35 /* SignUpValidation.swift */,
-			);
-			path = Validation;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -392,7 +344,7 @@
 				0850338A273E4477006CBBB2 /* Sources */,
 				0850338B273E4477006CBBB2 /* Frameworks */,
 				0850338C273E4477006CBBB2 /* Resources */,
-				3610D0F6274ADF4B00593C73 /* ShellScript */,
+				0811E9D9274639F800CB6A18 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -495,9 +447,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36CDDAFB274C209100817C73 /* FieldTableViewCell.xib in Resources */,
 				0811E9A72741733500CB6A18 /* .gitignore in Resources */,
-				36CDDAFA274C209100817C73 /* ButtonTableViewCell.xib in Resources */,
 				085033A1273E4480006CBBB2 /* LaunchScreen.storyboard in Resources */,
 				085033C5273E45A0006CBBB2 /* GoogleService-Info.plist in Resources */,
 				0850339E273E4480006CBBB2 /* Assets.xcassets in Resources */,
@@ -522,7 +472,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3610D0F6274ADF4B00593C73 /* ShellScript */ = {
+		0811E9D9274639F800CB6A18 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -537,8 +487,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -548,29 +497,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
-				36DE87122743A18D0001FC35 /* LandingPageViewController.swift in Sources */,
-				36DE87152743A9640001FC35 /* SignupExtension.swift in Sources */,
 				0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */,
 				08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */,
-				36DE871C27457D300001FC35 /* SignUpTableVC.swift in Sources */,
 				0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */,
-				36DE871A2744E4150001FC35 /* Constants.swift in Sources */,
 				0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */,
 				0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */,
 				0811E9CB2743788700CB6A18 /* CustomTextField.swift in Sources */,
 				08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */,
 				08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */,
 				0811E9B527425A7900CB6A18 /* LoginResponse.swift in Sources */,
-				36DE87182743C34E0001FC35 /* SignUpValidation.swift in Sources */,
-				36CDDAFC274C209100817C73 /* ButtonTableViewCell.swift in Sources */,
-				0801056B273E548100BD432E /* LoginValidation.swift in Sources */,
 				0811E9BA27425BE100CB6A18 /* ValidationResult.swift in Sources */,
 				08010568273E545D00BD432E /* LoginViewModel.swift in Sources */,
+				080BE6F4274B9AC50068EC5E /* LoginVCExtension.swift in Sources */,
 				0811E9CF274378D600CB6A18 /* SignupVC.swift in Sources */,
 				08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */,
+				0811E9D32743AD9300CB6A18 /* Constants.swift in Sources */,
 				0801055F273E53C700BD432E /* LoginRequest.swift in Sources */,
 				0811E9B22742283F00CB6A18 /* Alerts.swift in Sources */,
-				36CDDAF6274C208100817C73 /* FieldTableViewCell.swift in Sources */,
 				0811E9C8274377C800CB6A18 /* Validation.swift in Sources */,
 				0850339C273E4478006CBBB2 /* SimpleNote.xcdatamodeld in Sources */,
 			);
@@ -756,6 +699,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -783,6 +727,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
