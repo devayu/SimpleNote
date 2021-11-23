@@ -37,6 +37,10 @@
 		085033C8273E4648006CBBB2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C7273E4648006CBBB2 /* FirebaseAuth */; };
 		085033CA273E4648006CBBB2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C9273E4648006CBBB2 /* FirebaseFirestore */; };
 		085033CC273E4648006CBBB2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 085033CB273E4648006CBBB2 /* FirebaseStorage */; };
+		36CDDAF6274C208100817C73 /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CDDAF5274C208100817C73 /* FieldTableViewCell.swift */; };
+		36CDDAFA274C209100817C73 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CDDAF7274C209000817C73 /* ButtonTableViewCell.xib */; };
+		36CDDAFB274C209100817C73 /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CDDAF8274C209100817C73 /* FieldTableViewCell.xib */; };
+		36CDDAFC274C209100817C73 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CDDAF9274C209100817C73 /* ButtonTableViewCell.swift */; };
 		36DE87122743A18D0001FC35 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE87112743A18D0001FC35 /* LandingPageViewController.swift */; };
 		36DE87152743A9640001FC35 /* SignupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE87142743A9640001FC35 /* SignupExtension.swift */; };
 		36DE87182743C34E0001FC35 /* SignUpValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE87172743C34D0001FC35 /* SignUpValidation.swift */; };
@@ -93,6 +97,10 @@
 		085033B5273E4480006CBBB2 /* SimpleNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITests.swift; sourceTree = "<group>"; };
 		085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		085033C4273E459F006CBBB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		36CDDAF5274C208100817C73 /* FieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
+		36CDDAF7274C209000817C73 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
+		36CDDAF8274C209100817C73 /* FieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FieldTableViewCell.xib; sourceTree = "<group>"; };
+		36CDDAF9274C209100817C73 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		36DE87112743A18D0001FC35 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		36DE87142743A9640001FC35 /* SignupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupExtension.swift; sourceTree = "<group>"; };
 		36DE87172743C34D0001FC35 /* SignUpValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidation.swift; sourceTree = "<group>"; };
@@ -248,8 +256,10 @@
 		0811E9C22743762B00CB6A18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				36CDDAF4274C203800817C73 /* Cells */,
 				36DE87132743A9450001FC35 /* Extensions */,
 				0811E9CE274378D600CB6A18 /* SignupVC.swift */,
+				36DE871B27457D300001FC35 /* SignUpTableVC.swift */,
 				36DE87112743A18D0001FC35 /* LandingPageViewController.swift */,
 			);
 			path = View;
@@ -345,11 +355,21 @@
 			path = SimpleNoteUITests;
 			sourceTree = "<group>";
 		};
+		36CDDAF4274C203800817C73 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				36CDDAF5274C208100817C73 /* FieldTableViewCell.swift */,
+				36CDDAF8274C209100817C73 /* FieldTableViewCell.xib */,
+				36CDDAF9274C209100817C73 /* ButtonTableViewCell.swift */,
+				36CDDAF7274C209000817C73 /* ButtonTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		36DE87132743A9450001FC35 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				36DE87142743A9640001FC35 /* SignupExtension.swift */,
-				36DE871B27457D300001FC35 /* SignUpTableVC.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -372,6 +392,7 @@
 				0850338A273E4477006CBBB2 /* Sources */,
 				0850338B273E4477006CBBB2 /* Frameworks */,
 				0850338C273E4477006CBBB2 /* Resources */,
+				3610D0F6274ADF4B00593C73 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -474,7 +495,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36CDDAFB274C209100817C73 /* FieldTableViewCell.xib in Resources */,
 				0811E9A72741733500CB6A18 /* .gitignore in Resources */,
+				36CDDAFA274C209100817C73 /* ButtonTableViewCell.xib in Resources */,
 				085033A1273E4480006CBBB2 /* LaunchScreen.storyboard in Resources */,
 				085033C5273E45A0006CBBB2 /* GoogleService-Info.plist in Resources */,
 				0850339E273E4480006CBBB2 /* Assets.xcassets in Resources */,
@@ -498,6 +521,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3610D0F6274ADF4B00593C73 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0850338A273E4477006CBBB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -518,6 +562,7 @@
 				08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */,
 				0811E9B527425A7900CB6A18 /* LoginResponse.swift in Sources */,
 				36DE87182743C34E0001FC35 /* SignUpValidation.swift in Sources */,
+				36CDDAFC274C209100817C73 /* ButtonTableViewCell.swift in Sources */,
 				0801056B273E548100BD432E /* LoginValidation.swift in Sources */,
 				0811E9BA27425BE100CB6A18 /* ValidationResult.swift in Sources */,
 				08010568273E545D00BD432E /* LoginViewModel.swift in Sources */,
@@ -525,6 +570,7 @@
 				08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */,
 				0801055F273E53C700BD432E /* LoginRequest.swift in Sources */,
 				0811E9B22742283F00CB6A18 /* Alerts.swift in Sources */,
+				36CDDAF6274C208100817C73 /* FieldTableViewCell.swift in Sources */,
 				0811E9C8274377C800CB6A18 /* Validation.swift in Sources */,
 				0850339C273E4478006CBBB2 /* SimpleNote.xcdatamodeld in Sources */,
 			);

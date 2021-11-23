@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 struct LoginResponse {
-    
-    let success : Data?
-    let error : String?
+    let success: Data?
+    let error: String?
 }

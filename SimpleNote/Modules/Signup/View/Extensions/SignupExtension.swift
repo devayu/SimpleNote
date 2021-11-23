@@ -5,7 +5,7 @@
 //  Created by Mphrx. on 16/11/21.
 //
 
-class signUpValidation
+class SignUpValidation
 {
     
 }

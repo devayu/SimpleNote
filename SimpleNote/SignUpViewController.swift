@@ -20,9 +20,7 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
         signPassTextField.enablePasswordToggle()
         rePassTextField.enablePasswordToggle()
-    }    
-    
-
+    }
     /*
     // MARK: - Navigation
 

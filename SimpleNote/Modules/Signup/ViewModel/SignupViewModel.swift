@@ -13,18 +13,18 @@ import UIKit
 let firemodel = FirebaseCrud()
 let validator = Validator()
 
-class verifyUserVM
+class VerifyUserVM
 {
-    func verifyUser(fname: String, lname: String, email: String, pass: String, repass: String) -> String
+    func verifyUser(userInfo: [String]) -> String
     {
         
-        let emptyWarning = validateEmptyFields(fname: fname, lname: lname, email: email, pass: pass, repass: repass)
+        let emptyWarning = validateEmptyFields(fname: userInfo[0], lname: userInfo[1], email: userInfo[2], pass: userInfo[3], repass: userInfo[4])
         
         if emptyWarning != ""{
             return emptyWarning
         }
         
-        let formatWarning = validator.passEmailValidation(pass: pass, repass: repass, email: email)
+        let formatWarning = validator.passEmailValidation(pass: userInfo[3], repass: userInfo[4], email: userInfo[2])
         
         if formatWarning != ""{
             return formatWarning

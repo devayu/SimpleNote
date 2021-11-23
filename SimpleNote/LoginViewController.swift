@@ -19,12 +19,9 @@ class LoginViewController: UIViewController {
     }
     @IBAction func signInBtn(_ sender: Any) {
     }
-    
-    @IBAction func didTapSignUp(){
+    @IBAction func didTapSignUp() {
         guard let SU = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController else{return}
-        
         navigationController?.pushViewController(SU, animated: true)
     }
     
 }
-
