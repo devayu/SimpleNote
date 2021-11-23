@@ -13,6 +13,7 @@ class SignUpTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var table: UITableView!
     
     var args: [String] = []
+    private let signUpViewModel = VerifyUserVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +39,34 @@ class SignUpTableViewController: UIViewController, UITableViewDelegate, UITableV
     func signUpTap2() {
         for i in 1...5 {
         let index = IndexPath(row: i, section: 0)
-        args.append((table.cellForRow(at: index) as! FieldTableViewCell).field.text ?? "")
+            args.append((table.cellForRow(at: index) as! FieldTableViewCell).field.text!.trimmingCharacters(in: .whitespacesAndNewlines))
         }
         print(args)
+        
+        let isValid = signUpViewModel.validateEmptyFields(info: args)
+        if !isValid.success {
+            args = []
+            switch isValid.forField {
+            case .fname:
+                let index = IndexPath(row: 1, section: 0)
+                (table.cellForRow(at: index) as! FieldTableViewCell).field.setError(errorMessage: isValid.error!)
+            case .email:
+                let index = IndexPath(row: 3, section: 0)
+                (table.cellForRow(at: index) as! FieldTableViewCell).field.setError(errorMessage: isValid.error!)
+            case .pass:
+                let index = IndexPath(row: 4, section: 0)
+                (table.cellForRow(at: index) as! FieldTableViewCell).field.setError(errorMessage: isValid.error!)
+            case .repass:
+                let index = IndexPath(row: 5, section: 0)
+                (table.cellForRow(at: index) as! FieldTableViewCell).field.setError(errorMessage: isValid.error!)
+            case .none:
+                break
+            }
+         }
+        else{
+            
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,7 +118,6 @@ class SignUpTableViewController: UIViewController, UITableViewDelegate, UITableV
             }
            return fieldCell
         }
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
             for: indexPath)
         cell.textLabel?.text = "Check"

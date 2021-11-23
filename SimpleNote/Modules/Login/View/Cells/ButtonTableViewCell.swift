@@ -9,7 +9,7 @@ import UIKit
 
 class ButtonTableViewCell: UITableViewCell {
     
-    var svc = ViewController()
+    var svc = SignUpTableViewController()
     
     static let identifier = "ButtonTableViewCell"
     @IBOutlet var button: UIButton!

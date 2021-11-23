@@ -18,11 +18,11 @@ class VerifyUserVM
     func verifyUser(userInfo: [String]) -> String
     {
         
-        let emptyWarning = validateEmptyFields(fname: userInfo[0], lname: userInfo[1], email: userInfo[2], pass: userInfo[3], repass: userInfo[4])
+        let emptyWarning = validateEmptyFields(info: userInfo)
         
-        if emptyWarning != ""{
-            return emptyWarning
-        }
+//        if emptyWarning != ""{
+//            return emptyWarning
+//        }
         
         let formatWarning = validator.passEmailValidation(pass: userInfo[3], repass: userInfo[4], email: userInfo[2])
         
@@ -40,22 +40,29 @@ class VerifyUserVM
         firemodel.newUser(email: email, pass: pass, fname: fname, lname: lname)
     }
     
-    private func validateEmptyFields(fname: String, lname: String, email: String, pass: String, repass: String) -> String
+    func validateEmptyFields(info: [String]) -> ValidationResults
     {
-        if fname.isEmpty{
-            return "Please enter a name "
+        if info[0].isEmpty{
+            return ValidationResults(success: false, error: "Please enter a name ", forField: .fname)
         }
-        else if email.isEmpty{
-            return "Please enter your Email ID"
+        else if info[2].isEmpty{
+            return ValidationResults(success: false, error: "Please enter your Email ID ", forField: .email)
         }
-        else if pass.isEmpty{
-            return "Password can not be empty"
+        
+        else if info[3].isEmpty{
+            return ValidationResults(success: false, error: "Password cannot be empty ", forField: .pass)
         }
-        else if repass.isEmpty{
-            return "Password do not match, please try again"
+        else if info[3].count < 8{
+            return ValidationResults(success: false, error: "Password cannot be less than 8 characters ", forField: .pass)
+        }
+        else if info[4].isEmpty{
+            return ValidationResults(success: false, error: "Passwords do not match, please try again ", forField: .repass)
+        }
+        else if info[3] != info[4]{
+            return ValidationResults(success: false, error: "Passwords do not match ", forField: .repass)
         }
         else{
-            return ""
+            return ValidationResults(success: true, error: "", forField: .email)
         }
     }
     

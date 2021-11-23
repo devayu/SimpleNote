@@ -38,8 +38,8 @@ class SignUpViewController: UIViewController {
             verifyUserVm.createAccount(email: signEmailTextField.text!, pass: signPassTextField.text!, fname: signFirstNameTextField.text!, lname: signLastNameTextField.text!)
         }
     }
-    func toLandingPage() {
-        guard let WP = storyboard?.instantiateViewController(withIdentifier: "LandingPageController") as? LandingPageViewController else{return}
-        navigationController?.pushViewController(WP, animated: true)
-    }
+//    func toLandingPage() {
+//        guard let WP = storyboard?.instantiateViewController(withIdentifier: "LandingPageController") as? LandingPageViewController else{return}
+//        navigationController?.pushViewController(WP, animated: true)
+//    }
 }

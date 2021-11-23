@@ -15,7 +15,7 @@ class FieldTableViewCell: UITableViewCell, UITextFieldDelegate {
         return UINib(nibName: "FieldTableViewCell", bundle: nil)
     }
     
-    @IBOutlet weak var field: UITextField!
+    @IBOutlet weak var field: CustomTextField!
 
     override func awakeFromNib() {
         super.awakeFromNib()
