@@ -35,7 +35,7 @@ class SignUpViewController: UIViewController {
         }
         else{
             signErrorLabel.text = ""
-            verifyUserVm.createAccount(email: signEmailTextField.text!, pass: signPassTextField.text!, fname: signFirstNameTextField.text!, lname: signLastNameTextField.text!)
+//            verifyUserVm.createAccount(email: signEmailTextField.text!, pass: signPassTextField.text!, fname: signFirstNameTextField.text!, lname: signLastNameTextField.text!)
         }
     }
 //    func toLandingPage() {

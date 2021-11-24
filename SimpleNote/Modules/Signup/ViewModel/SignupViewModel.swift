@@ -35,9 +35,9 @@ class VerifyUserVM
 //        firemodel.newUser(email: email, pass: pass, fname: fname, lname: lname)
     }
     
-    func createAccount(email: String, pass: String, fname: String, lname: String)
+    func createAccount(userInfo: [String])
     {
-        firemodel.newUser(email: email, pass: pass, fname: fname, lname: lname)
+        firemodel.newUser(email: userInfo[2], pass: userInfo[3], fname: userInfo[0], lname: userInfo[1])
     }
     
     func validateEmptyFields(info: [String]) -> ValidationResults
@@ -48,12 +48,17 @@ class VerifyUserVM
         else if info[2].isEmpty{
             return ValidationResults(success: false, error: "Please enter your Email ID ", forField: .email)
         }
-        
+        else if !validator.isValidEmail(email: info[2]){
+            return ValidationResults(success: false, error: "Please follow the correct email format: name@example.com", forField: .email)
+        }
         else if info[3].isEmpty{
             return ValidationResults(success: false, error: "Password cannot be empty ", forField: .pass)
         }
         else if info[3].count < 8{
             return ValidationResults(success: false, error: "Password cannot be less than 8 characters ", forField: .pass)
+        }
+        else if !validator.isValidPassword(password: info[3]){
+            return ValidationResults(success: false, error: "Please follow the correct password format ", forField: .pass)
         }
         else if info[4].isEmpty{
             return ValidationResults(success: false, error: "Passwords do not match, please try again ", forField: .repass)

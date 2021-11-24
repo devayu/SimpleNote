@@ -42,7 +42,6 @@
 		36D78194274CBF18001FBDA9 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D78190274CBF18001FBDA9 /* ButtonTableViewCell.xib */; };
 		36D78195274CBF18001FBDA9 /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D78191274CBF18001FBDA9 /* FieldTableViewCell.xib */; };
 		36D78196274CBF18001FBDA9 /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D78192274CBF18001FBDA9 /* FieldTableViewCell.swift */; };
-		36D78198274CBF29001FBDA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D78197274CBF29001FBDA9 /* ViewController.swift */; };
 		36D7819A274CBFE6001FBDA9 /* SignUpTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D78199274CBFE6001FBDA9 /* SignUpTableVC.swift */; };
 		36D7819F274CCB1A001FBDA9 /* SignUpValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D7819E274CCB1A001FBDA9 /* SignUpValidation.swift */; };
 		36D781A1274CDE5F001FBDA9 /* ValidationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D781A0274CDE5F001FBDA9 /* ValidationResults.swift */; };
@@ -102,7 +101,6 @@
 		36D78190274CBF18001FBDA9 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
 		36D78191274CBF18001FBDA9 /* FieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FieldTableViewCell.xib; sourceTree = "<group>"; };
 		36D78192274CBF18001FBDA9 /* FieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
-		36D78197274CBF29001FBDA9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		36D78199274CBFE6001FBDA9 /* SignUpTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableVC.swift; sourceTree = "<group>"; };
 		36D7819E274CCB1A001FBDA9 /* SignUpValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpValidation.swift; sourceTree = "<group>"; };
 		36D781A0274CDE5F001FBDA9 /* ValidationResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResults.swift; sourceTree = "<group>"; };
@@ -251,7 +249,6 @@
 			children = (
 				36D7818E274CBEE9001FBDA9 /* Cells */,
 				0811E9CE274378D600CB6A18 /* SignupVC.swift */,
-				36D78197274CBF29001FBDA9 /* ViewController.swift */,
 				36D78199274CBFE6001FBDA9 /* SignUpTableVC.swift */,
 			);
 			path = View;
@@ -549,7 +546,6 @@
 				36D7819A274CBFE6001FBDA9 /* SignUpTableVC.swift in Sources */,
 				0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */,
 				0811E9CB2743788700CB6A18 /* CustomTextField.swift in Sources */,
-				36D78198274CBF29001FBDA9 /* ViewController.swift in Sources */,
 				08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */,
 				08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */,
 				0811E9B527425A7900CB6A18 /* LoginResponse.swift in Sources */,

@@ -13,6 +13,7 @@ class SignUpTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var table: UITableView!
     
     var args: [String] = []
+    let cellTypes: [String] = ["Label", "fname", "lname", "email", "pass", "repass", "Button"]
     private let signUpViewModel = VerifyUserVM()
     
     override func viewDidLoad() {
@@ -32,10 +33,9 @@ class SignUpTableViewController: UIViewController, UITableViewDelegate, UITableV
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                 table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
             }
-        let index = IndexPath(row: 1, section: 0)
-        print((table.cellForRow(at: index) as! FieldTableViewCell).field.text ?? "")
     }
     
+   
     func signUpTap2() {
         for i in 1...5 {
         let index = IndexPath(row: i, section: 0)
@@ -64,13 +64,13 @@ class SignUpTableViewController: UIViewController, UITableViewDelegate, UITableV
             }
          }
         else{
-            
+            signUpViewModel.createAccount(userInfo: args)
         }
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        7
+        cellTypes.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
