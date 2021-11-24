@@ -20,6 +20,8 @@ class SignUpTableViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         
         table.register(FieldTableViewCell.nib(), forCellReuseIdentifier: FieldTableViewCell.identifier)
         table.register(ButtonTableViewCell.nib(), forCellReuseIdentifier: ButtonTableViewCell.identifier)
@@ -28,14 +30,17 @@ class SignUpTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
-        
-        print("---------")
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
             }
     }
     
-   
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            }
+    }
+    
     func signUpTap2() {
         for i in 1...5 {
         let index = IndexPath(row: i, section: 0)
@@ -82,7 +87,7 @@ class SignUpTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < 1{
+        if cellTypes[indexPath.row] == "Label"{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
                 for: indexPath)
             cell.textLabel?.textAlignment = NSTextAlignment.center
@@ -91,33 +96,40 @@ class SignUpTableViewController: UIViewController, UITableViewDelegate, UITableV
             return cell
         }
         
-        if indexPath.row == 6{
+        if cellTypes[indexPath.row] == "Button"{
             let buttonCell = tableView.dequeueReusableCell(withIdentifier: ButtonTableViewCell.identifier, for: indexPath) as! ButtonTableViewCell
             buttonCell.svc = self
             return buttonCell
         }
         
-        if indexPath.row < 6{
+        if cellTypes[indexPath.row] == "fname"{
             let fieldCell = tableView.dequeueReusableCell(withIdentifier: FieldTableViewCell.identifier, for: indexPath) as! FieldTableViewCell
-            if indexPath.row == 1{
-                fieldCell.field.placeholder = "First name"
-            }
-            if indexPath.row == 2{
-                fieldCell.field.placeholder = "Last name"
-            }
-            if indexPath.row == 3{
-                fieldCell.field.placeholder = "Email"
-            }
-            if indexPath.row == 4{
-                fieldCell.field.placeholder = "Password"
-                fieldCell.field.enablePasswordToggle()
-            }
-            if indexPath.row == 5{
-                fieldCell.field.placeholder = "Re Enter password"
-                fieldCell.field.enablePasswordToggle()
-            }
-           return fieldCell
+            fieldCell.field.placeholder = "First name"
+            return fieldCell
         }
+        
+        if cellTypes[indexPath.row] == "lname"{
+            let fieldCell = tableView.dequeueReusableCell(withIdentifier: FieldTableViewCell.identifier, for: indexPath) as! FieldTableViewCell
+            fieldCell.field.placeholder = "Last name"
+            return fieldCell
+        }
+        if cellTypes[indexPath.row] == "email"{
+            let fieldCell = tableView.dequeueReusableCell(withIdentifier: FieldTableViewCell.identifier, for: indexPath) as! FieldTableViewCell
+            fieldCell.field.placeholder = "Email"
+            return fieldCell
+        }
+        if cellTypes[indexPath.row] == "pass"{
+            let fieldCell = tableView.dequeueReusableCell(withIdentifier: FieldTableViewCell.identifier, for: indexPath) as! FieldTableViewCell
+            fieldCell.field.placeholder = "Password"
+            return fieldCell
+        }
+        if cellTypes[indexPath.row] == "repass"{
+            let fieldCell = tableView.dequeueReusableCell(withIdentifier: FieldTableViewCell.identifier, for: indexPath) as! FieldTableViewCell
+            fieldCell.field.placeholder = "Re-enter Password"
+            return fieldCell
+        }
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
             for: indexPath)
         cell.textLabel?.text = "Check"
