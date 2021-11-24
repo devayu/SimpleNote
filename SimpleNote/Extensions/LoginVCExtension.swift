@@ -17,13 +17,14 @@ extension LoginViewController {
                                                name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     @objc private func keyboardWillShow(notification: NSNotification) {
-        let screenSize = UIScreen.main.bounds.height
-        let scrollSize = loginScrollView.contentSize.height
         if !isViewExpanded {
         if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let bStackMaximumY = bottomStackView.frame.maxY
+            let keyboardFrameMinimumY = keyboardFrame.cgRectValue.minY
             let keyboardHeight = keyboardFrame.cgRectValue.height
-            if screenSize < scrollSize {
+            if bStackMaximumY > keyboardFrameMinimumY {
                 self.view.frame.origin.y -= keyboardHeight
+                
             } else {
                 self.view.frame.origin.y -= signupBtn.frame.height
             }

@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     @IBOutlet weak var emailTextField: CustomTextField!
     @IBOutlet weak var passTextField: CustomTextField!
     @IBOutlet weak var signupBtn: UIButton!
+    @IBOutlet weak var bottomStackView: UIStackView!
     var isViewExpanded: Bool = false
     private let loginViewModel = LoginViewModel()
     override func viewDidLoad() {
@@ -43,13 +44,18 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     }
     func didRecieveData(data: User?) {
         if data != nil {
-            // navigate to homescreen
-            print(data)
+            self.transitionToHomeScreen(user: data)
         }
     }
     func didRecieveError(error: Error?) {
         let alert = Alerts.shared.showAlert(message: error!.localizedDescription, title: "")
         self.present(alert, animated: true)
         Alerts.shared.dismissAlert(alert: alert)
+    }
+    private func transitionToHomeScreen(user: User?) {
+        let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        homeViewController?.user = user
+        view.window?.rootViewController = homeViewController
+        view.window?.makeKeyAndVisible()
     }
 }
