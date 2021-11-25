@@ -42,20 +42,11 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     }
     func didLogoutUser(isLogoutSuccess: Bool, error: Error?) {
         if isLogoutSuccess {
-            transitionToLoginScreen()
             launchVC.navigateToScreen(to: LoginViewController.self, identifier: Constants.Storyboard.loginViewController, storyboard: storyboard!)
         } else {
             let alert = Alerts.shared.showAlert(message: error?.localizedDescription ?? "", title: "")
             self.present(alert, animated: true)
             Alerts.shared.dismissAlert(alert: alert)
         }
-    }
-    private func transitionToLoginScreen() {
-        let loginViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.loginViewController) as? LoginViewController
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScene = scenes.first as? UIWindowScene
-        let window = windowScene?.windows.first
-        window?.rootViewController = loginViewController
-        window?.makeKeyAndVisible()
     }
 }
