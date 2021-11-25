@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 protocol HomeViewModelDelegate: AnyObject {
     func didRecieveData(data: [String])
+    func didLogoutUser(isLogoutSuccess: Bool, error: Error?)
 }
 
 class HomeViewModel {
@@ -17,11 +18,15 @@ class HomeViewModel {
     var dummyDataSource2 = ["test2", "test2", "test2"]
     func getData(for index: Int) {
         delegate?.didRecieveData(data: dummyDataSource)
-        
-        //        if index == 0 {
-        //            delegate?.didRecieveData(data: dummyDataSource)
-        //        } else {
-        //            delegate?.didRecieveData(data: dummyDataSource2)
-        //        }
+    }
+    func signOutUser() {
+        FirebaseAuthentication.shared.signOutUser { isLogoutSuccess, error in
+            switch isLogoutSuccess {
+            case true:
+                self.delegate?.didLogoutUser(isLogoutSuccess: true, error: nil)
+            case false:
+                self.delegate?.didLogoutUser(isLogoutSuccess: false, error: error)
+            }
+        }
     }
 }

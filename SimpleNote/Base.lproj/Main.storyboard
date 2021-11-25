@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5nX-18-MXa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HAf-Yh-lWx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!-- -->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="SimpleNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" title="Login View Controller" id="BYZ-38-t0r" customClass="LoginViewController" customModule="SimpleNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,14 +146,34 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PQV-88-8ho">
                                 <rect key="frame" x="0.0" y="114" width="414" height="748"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="YhU-sy-NLW">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Log out"/>
+                                    <connections>
+                                        <action selector="signoutBtnTapped:" destination="Z8c-ho-6WY" eventType="touchUpInside" id="Djb-9n-z0m"/>
+                                    </connections>
+                                </button>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zoa-R2-CO5" customClass="FloatingActionUIButton" customModule="SimpleNote" customModuleProvider="target">
+                                <rect key="frame" x="338" y="786" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="6rK-R6-t04"/>
+                                    <constraint firstAttribute="width" constant="60" id="ay2-ge-5Nh"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YNr-oc-5vx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KuE-xW-DVH" firstAttribute="top" secondItem="YNr-oc-5vx" secondAttribute="top" constant="10" id="1Bb-ao-Vmv"/>
                             <constraint firstItem="YNr-oc-5vx" firstAttribute="trailing" secondItem="KuE-xW-DVH" secondAttribute="trailing" constant="16" id="9SV-xJ-4ju"/>
+                            <constraint firstItem="Zoa-R2-CO5" firstAttribute="bottom" secondItem="YNr-oc-5vx" secondAttribute="bottom" constant="-16" id="GWW-b4-YZp"/>
                             <constraint firstItem="YNr-oc-5vx" firstAttribute="bottom" secondItem="PQV-88-8ho" secondAttribute="bottom" id="K2K-gF-NON"/>
+                            <constraint firstItem="YNr-oc-5vx" firstAttribute="trailing" secondItem="Zoa-R2-CO5" secondAttribute="trailing" constant="16" id="PZh-nK-OeU"/>
                             <constraint firstItem="PQV-88-8ho" firstAttribute="top" secondItem="KuE-xW-DVH" secondAttribute="bottom" constant="10" id="bl8-uu-W2l"/>
                             <constraint firstItem="PQV-88-8ho" firstAttribute="leading" secondItem="YNr-oc-5vx" secondAttribute="leading" id="jcs-5I-M22"/>
                             <constraint firstItem="YNr-oc-5vx" firstAttribute="trailing" secondItem="PQV-88-8ho" secondAttribute="trailing" id="l7y-tZ-jY5"/>
@@ -161,6 +181,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addNoteBtn" destination="Zoa-R2-CO5" id="gr0-qn-I9K"/>
                         <outlet property="segmentedController" destination="KuE-xW-DVH" id="CI2-OD-mQS"/>
                         <outlet property="tableView" destination="PQV-88-8ho" id="NZm-Xf-KvH"/>
                     </connections>
@@ -168,6 +189,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IJp-vM-8bF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="361" y="-232"/>
+        </scene>
+        <!--Launch Screen -->
+        <scene sceneID="KSg-vU-zky">
+            <objects>
+                <viewController title="Launch Screen " id="HAf-Yh-lWx" customClass="LaunchScreenViewController" customModule="SimpleNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WXc-K7-nep">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9JL-Fu-g62"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rCJ-73-iDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="-221"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q1B-CZ-qrU">

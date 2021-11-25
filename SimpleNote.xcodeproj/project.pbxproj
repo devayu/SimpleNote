@@ -39,9 +39,12 @@
 		085033C8273E4648006CBBB2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C7273E4648006CBBB2 /* FirebaseAuth */; };
 		085033CA273E4648006CBBB2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C9273E4648006CBBB2 /* FirebaseFirestore */; };
 		085033CC273E4648006CBBB2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 085033CB273E4648006CBBB2 /* FirebaseStorage */; };
+		08C082BC274F735900E02F31 /* FloatingActionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082BB274F735900E02F31 /* FloatingActionUIButton.swift */; };
+		08C082BE274F7F3100E02F31 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082BD274F7F3100E02F31 /* LaunchScreenViewController.swift */; };
 		08E9C73A274CE27C00A7324C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C738274CE27C00A7324C /* CustomTableViewCell.swift */; };
 		08E9C73B274CE27C00A7324C /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */; };
 		08E9C73F274CF8E300A7324C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C73E274CF8E300A7324C /* HomeViewModel.swift */; };
+		08E9C742274E295100A7324C /* HomeVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C741274E295100A7324C /* HomeVCExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,9 +98,12 @@
 		085033B5273E4480006CBBB2 /* SimpleNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITests.swift; sourceTree = "<group>"; };
 		085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		085033C4273E459F006CBBB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08C082BB274F735900E02F31 /* FloatingActionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionUIButton.swift; sourceTree = "<group>"; };
+		08C082BD274F7F3100E02F31 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		08E9C738274CE27C00A7324C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		08E9C73E274CF8E300A7324C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		08E9C741274E295100A7324C /* HomeVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 		080BE6F5274CC4500068EC5E /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				08E9C740274E294000A7324C /* Extensions */,
 				080BE6F8274CC4700068EC5E /* ViewModel */,
 				080BE6F7274CC46A0068EC5E /* View */,
 				080BE6F6274CC4650068EC5E /* Model */,
@@ -190,6 +197,7 @@
 		0811E9B02742282E00CB6A18 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				08C082BF274F915A00E02F31 /* ViewModel */,
 				0811E9C92743784200CB6A18 /* View */,
 				0811E9B12742283F00CB6A18 /* Alerts.swift */,
 				0811E9D22743AD9300CB6A18 /* Constants.swift */,
@@ -307,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				0811E9D8274624F200CB6A18 /* CustomComponents */,
+				08C082BD274F7F3100E02F31 /* LaunchScreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				0811E9CA2743788700CB6A18 /* CustomTextField.swift */,
+				08C082BB274F735900E02F31 /* FloatingActionUIButton.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -377,6 +387,13 @@
 			path = SimpleNoteUITests;
 			sourceTree = "<group>";
 		};
+		08C082BF274F915A00E02F31 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		08E9C737274CE24C00A7324C /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +401,14 @@
 				08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */,
 			);
 			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		08E9C740274E294000A7324C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08E9C741274E295100A7324C /* HomeVCExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -563,8 +588,10 @@
 				0811E9B527425A7900CB6A18 /* LoginResponse.swift in Sources */,
 				0811E9BA27425BE100CB6A18 /* ValidationResult.swift in Sources */,
 				08010568273E545D00BD432E /* LoginViewModel.swift in Sources */,
+				08C082BE274F7F3100E02F31 /* LaunchScreenViewController.swift in Sources */,
 				080BE6F4274B9AC50068EC5E /* LoginVCExtension.swift in Sources */,
 				0811E9CF274378D600CB6A18 /* SignupVC.swift in Sources */,
+				08C082BC274F735900E02F31 /* FloatingActionUIButton.swift in Sources */,
 				08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */,
 				0811E9D32743AD9300CB6A18 /* Constants.swift in Sources */,
 				0801055F273E53C700BD432E /* LoginRequest.swift in Sources */,
@@ -572,6 +599,7 @@
 				0811E9C8274377C800CB6A18 /* Validation.swift in Sources */,
 				0850339C273E4478006CBBB2 /* SimpleNote.xcdatamodeld in Sources */,
 				080BE6FA274CC4B30068EC5E /* HomeViewController.swift in Sources */,
+				08E9C742274E295100A7324C /* HomeVCExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
