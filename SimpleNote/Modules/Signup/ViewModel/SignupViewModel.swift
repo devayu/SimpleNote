@@ -18,12 +18,6 @@ class VerifyUserVM
     func verifyUser(userInfo: [String]) -> String
     {
         
-        let emptyWarning = validateEmptyFields(info: userInfo)
-        
-//        if emptyWarning != ""{
-//            return emptyWarning
-//        }
-        
         let formatWarning = validator.passEmailValidation(pass: userInfo[3], repass: userInfo[4], email: userInfo[2])
         
         if formatWarning != ""{
@@ -34,36 +28,40 @@ class VerifyUserVM
         
 //        firemodel.newUser(email: email, pass: pass, fname: fname, lname: lname)
     }
-    
-    func createAccount(userInfo: [String])
+    weak var delegate: RecievedUserFromFirebase?
+    func createAccount(userInfo: [String:String])
     {
-        firemodel.newUser(email: userInfo[2], pass: userInfo[3], fname: userInfo[0], lname: userInfo[1])
+        FirebaseAuthentication.shared.signUpWithEmailAndPassword(email: userInfo["email"]!, pass: userInfo["pass"]!, fname: userInfo["fname"]!, lname: userInfo["lname"]!) {
+            user, err in
+            print("------------------")
+            self.delegate?.didRecieveUser(data: user, error: err)
+        }
     }
     
-    func validateEmptyFields(info: [String]) -> ValidationResults
+    func validateEmptyFields(info: [String: String]) -> ValidationResults
     {
-        if info[0].isEmpty{
+        if info["fname"]!.isEmpty{
             return ValidationResults(success: false, error: "Please enter a name ", forField: .fname)
         }
-        else if info[2].isEmpty{
+        else if info["email"]!.isEmpty{
             return ValidationResults(success: false, error: "Please enter your Email ID ", forField: .email)
         }
-        else if !validator.isValidEmail(email: info[2]){
+        else if !validator.isValidEmail(email: info["email"]!){
             return ValidationResults(success: false, error: "Please follow the correct email format: name@example.com", forField: .email)
         }
-        else if info[3].isEmpty{
+        else if info["pass"]!.isEmpty{
             return ValidationResults(success: false, error: "Password cannot be empty ", forField: .pass)
         }
-        else if info[3].count < 8{
+        else if info["pass"]!.count < 8{
             return ValidationResults(success: false, error: "Password cannot be less than 8 characters ", forField: .pass)
         }
-        else if !validator.isValidPassword(password: info[3]){
+        else if !validator.isValidPassword(password: info["pass"]!){
             return ValidationResults(success: false, error: "Please follow the correct password format ", forField: .pass)
         }
-        else if info[4].isEmpty{
+        else if info["repass"]!.isEmpty{
             return ValidationResults(success: false, error: "Passwords do not match, please try again ", forField: .repass)
         }
-        else if info[3] != info[4]{
+        else if info["pass"]! != info["repass"]!{
             return ValidationResults(success: false, error: "Passwords do not match ", forField: .repass)
         }
         else{

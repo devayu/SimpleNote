@@ -14,9 +14,11 @@ class ButtonTableViewCell: UITableViewCell {
     static let identifier = "ButtonTableViewCell"
     @IBOutlet var button: UIButton!
     
+    var onButtonTapped: (() -> Void)?
+    
     @IBAction func signUpTap(_ sender: Any) {
-        svc.signUpTap2()
-        print("Check")
+        self.onButtonTapped?()
+        //svc.signUpTap2()
     }
     
     static func nib() -> UINib {
