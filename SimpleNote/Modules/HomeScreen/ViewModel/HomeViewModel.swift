@@ -21,12 +21,7 @@ class HomeViewModel {
     }
     func signOutUser() {
         FirebaseAuthentication.shared.signOutUser { isLogoutSuccess, error in
-            switch isLogoutSuccess {
-            case true:
-                self.delegate?.didLogoutUser(isLogoutSuccess: true, error: nil)
-            case false:
-                self.delegate?.didLogoutUser(isLogoutSuccess: false, error: error)
-            }
+            self.delegate?.didLogoutUser(isLogoutSuccess: isLogoutSuccess, error: error)
         }
     }
 }

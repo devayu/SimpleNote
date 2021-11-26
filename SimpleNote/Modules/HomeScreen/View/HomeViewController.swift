@@ -13,10 +13,10 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addNoteBtn: FloatingActionUIButton!
     @IBOutlet weak var segmentedController: UISegmentedControl!
-    private let launchVC = LaunchScreenViewController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNoteBtn.createFloatingActionButton(color: .systemBlue)
+        addNoteBtn.createFloatingActionButton(color: .systemBlue, imageToSet: nil)
         tableView.delegate = self
         tableView.dataSource = self
         homeViewModel.delegate = self
@@ -29,9 +29,11 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         homeViewModel.getData(for: index)
     }
 
-//    private func segementedControllerHandler (){
-//        segmentedController.addTarget(self, action: #selector(<#T##@objc method#>), for:.valueChanged)
-//    }
+    private func segementedControllerHandler() {
+        segmentedController.addTarget(self, action: #selector(changeTableDataSource), for: .valueChanged)
+    }
+    @objc func changeTableDataSource() {
+    }
     func didRecieveData(data: [String]) {
         dataPoints = data
         tableView.reloadData()
@@ -42,7 +44,7 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     }
     func didLogoutUser(isLogoutSuccess: Bool, error: Error?) {
         if isLogoutSuccess {
-            launchVC.navigateToScreen(to: LoginViewController.self, identifier: Constants.Storyboard.loginViewController, storyboard: storyboard!)
+            NavigationHelper.shared.navigateToCleanStack(to: LoginViewController.self, identifier: Constants.Storyboard.loginViewController, storyboard: storyboard!)
         } else {
             let alert = Alerts.shared.showAlert(message: error?.localizedDescription ?? "", title: "")
             self.present(alert, animated: true)

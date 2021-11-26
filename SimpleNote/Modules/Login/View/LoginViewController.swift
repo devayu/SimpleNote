@@ -14,7 +14,6 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     @IBOutlet weak var passTextField: CustomTextField!
     @IBOutlet weak var signupBtn: UIButton!
     @IBOutlet weak var bottomStackView: UIStackView!
-    private let launchVC = LaunchScreenViewController()
     var isViewExpanded: Bool = false
     private let loginViewModel = LoginViewModel()
     override func viewDidLoad() {
@@ -45,7 +44,7 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     }
     func didRecieveData(data: User?) {
         if data != nil {
-            launchVC.navigateToScreen(to: HomeViewController.self, identifier: Constants.Storyboard.homeViewController, storyboard: storyboard!)
+            NavigationHelper.shared.navigateToCleanStack(to: HomeViewController.self, identifier: Constants.Storyboard.homeViewController, storyboard: storyboard!)
         }
     }
     func didRecieveError(error: Error?) {
