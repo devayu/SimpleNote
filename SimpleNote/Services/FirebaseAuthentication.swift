@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import CoreData
 class FirebaseAuthentication {
     static let shared = FirebaseAuthentication()
     func signInWithEmailAndPassword(request: LoginRequest, completion: @escaping AuthResultCallback) {
@@ -17,5 +18,15 @@ class FirebaseAuthentication {
             }
             completion(authResult?.user, nil)
         }
+    }
+    
+    func signOutUser(completion: @escaping (Bool, Error?) -> Void) {
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            completion(false, error)
+            return
+        }
+        completion(true, nil)
     }
 }

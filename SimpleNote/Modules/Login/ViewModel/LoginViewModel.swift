@@ -26,7 +26,6 @@ class LoginViewModel {
             }
         }
     }
-
     func validateLoginFields(for request: LoginRequest) -> ValidationResult {
         if request.email.isEmpty {
             return ValidationResult(success: false, error: "Please enter your email.", forField: .email)
