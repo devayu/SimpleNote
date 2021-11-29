@@ -9,6 +9,13 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var authorLabelTxt: UILabel!
+    @IBOutlet weak var dateLabelTxt: UILabel!
+    @IBOutlet weak var importanceLabelTxt: UILabel!
+    @IBOutlet weak var descLabelTxt: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var importanceLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

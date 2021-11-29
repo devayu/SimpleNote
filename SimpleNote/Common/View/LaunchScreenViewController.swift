@@ -16,9 +16,9 @@ class LaunchScreenViewController: UIViewController {
     private func checkIfUserExists() {
         let currentUser = Auth.auth().currentUser
         if currentUser != nil {
-            NavigationHelper.shared.navigateToCleanStack(to: HomeViewController.self, identifier: Constants.Storyboard.homeViewController, storyboard: storyboard!)
+            NavigationHelper.shared.navigateToCleanStack(to: HomeViewController.self, identifier: Constants.Storyboard.homeVC, storyboard: storyboard!)
         } else {
-            NavigationHelper.shared.navigateToCleanStack(to: LoginViewController.self, identifier: Constants.Storyboard.loginViewController, storyboard: storyboard!)
+            NavigationHelper.shared.navigateToCleanStack(to: LoginViewController.self, identifier: Constants.Storyboard.loginVC, storyboard: storyboard!)
         }
     }
 }
