@@ -30,10 +30,56 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
     
     @IBOutlet weak var table: UITableView!
     
-    var data = ["fname":"", "lname":"", "email":"", "pass":"", "repass":""]
+    var data = ["Label":"","fname":"", "lname":"", "email":"", "pass":"", "repass":"", "Button":""]
     //var args: [String] = []
-    //let cellTypes: [String] = ["Label","fname", "lname", "email", "pass", "repass", "Button"]
-    let cellsType: [TypesOfCells.Type] = [Label.self, Fname.self, Lname.self,Email.self, Pass.self,Repass.self, Button.self,]
+//    let cellTypes: [String] = ["Label","fname", "lname", "email", "pass", "repass", "Button"]
+    var types = [
+        [
+            "type": "Label",
+            "text": "Sign Up",
+            "tag": 1011,
+            "passwordToggle": false
+        ],
+        [
+            "type": "text",
+            "text": "First name",
+            "tag": 1012,
+            "passwordToggle": false
+        ],
+        [
+            "type": "text",
+            "text": "Last Name",
+            "tag": 1013,
+            "passwordToggle": false
+        ],
+        [
+            "type": "text",
+            "text": "Email",
+            "tag": 1014,
+            "passwordToggle": false
+        ],
+        [
+            "type": "text",
+            "text": "Password",
+            "tag": 1015,
+            "passwordToggle": true
+        ],
+        [
+            "type": "text",
+            "text": "Re Enter Password",
+            "tag": 1016,
+            "passwordToggle": true
+        ],
+        [
+            "type": "button",
+            "text": "Sign Up",
+            "tag": 1017,
+            "passwordToggle": false
+            
+        ]
+    ]
+    //let cellsType: [TypesOfCells.Type] = [Label.self, Text.self]
+    
     private let signUpViewModel = VerifyUserVM()
     
     override func viewDidLoad() {
@@ -91,7 +137,10 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
         if !isValid.success {
             switch isValid.forField {
             case .fname:
+                print("Error in first name ")
+                print(isValid.error)
                 (table.viewWithTag(1012) as! FieldTableViewCell).field.setError(errorMessage: isValid.error!)
+                (table.viewWithTag(1012) as! FieldTableViewCell).field.enablePasswordToggle()
             case .email:
                 (table.viewWithTag(1014) as! FieldTableViewCell).field.setError(errorMessage: isValid.error!)
             case .pass:

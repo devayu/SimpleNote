@@ -154,14 +154,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fIs-Fk-4Hb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="16" y="44" width="382" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Var-t0-UxS">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="382" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Var-t0-UxS" id="Kja-1e-XKW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -171,9 +171,9 @@
                         <viewLayoutGuide key="safeArea" id="H92-BT-mxi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fIs-Fk-4Hb" firstAttribute="leading" secondItem="H92-BT-mxi" secondAttribute="leading" id="MQZ-b0-0VD"/>
+                            <constraint firstItem="fIs-Fk-4Hb" firstAttribute="leading" secondItem="H92-BT-mxi" secondAttribute="leading" constant="16" id="MQZ-b0-0VD"/>
                             <constraint firstItem="fIs-Fk-4Hb" firstAttribute="bottom" secondItem="H92-BT-mxi" secondAttribute="bottom" id="SiS-IB-XzA"/>
-                            <constraint firstItem="H92-BT-mxi" firstAttribute="trailing" secondItem="fIs-Fk-4Hb" secondAttribute="trailing" id="ctr-n3-bQC"/>
+                            <constraint firstItem="H92-BT-mxi" firstAttribute="trailing" secondItem="fIs-Fk-4Hb" secondAttribute="trailing" constant="16" id="ctr-n3-bQC"/>
                             <constraint firstItem="fIs-Fk-4Hb" firstAttribute="top" secondItem="H92-BT-mxi" secondAttribute="top" id="hdi-TJ-Y8B"/>
                         </constraints>
                     </view>

@@ -40,6 +40,7 @@ class VerifyUserVM
     
     func validateEmptyFields(info: [String: String]) -> ValidationResults
     {
+        print("Validating.....")
         if info["fname"]!.isEmpty{
             return ValidationResults(success: false, error: "Please enter a name ", forField: .fname)
         }

@@ -14,5 +14,5 @@ protocol RecievedUserFromFirebase: AnyObject {
     
 }
 protocol TypesOfCells {
-    static func create(_ tableView: UITableView, index: IndexPath, text: String) -> UITableViewCell
+    static func create(_ tableView: UITableView, index: IndexPath, text: String, tag: Int) -> UITableViewCell
 }
