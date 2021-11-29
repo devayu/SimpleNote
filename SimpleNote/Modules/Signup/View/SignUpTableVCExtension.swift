@@ -35,47 +35,6 @@ extension SignUpTableViewController: UITableViewDelegate, UITableViewDataSource{
             }
             return buttonCell
         }
-
-//        return Label.self.create(tableView, index: indexPath, text: types[indexPath.row]["text"] as! String, tag: types[indexPath.row]["tag"] as! Int)
-//    }
-        
-//        if cellsType[indexPath.row] == Label.self{
-//            let cell = cellsType[indexPath.row].create(tableView, index: indexPath, text: "Sign Up")
-//                return cell
-//            }
-//
-//                let buttonCell = tableView.dequeueReusableCell(withIdentifier: ButtonTableViewCell.identifier, for: indexPath) as! ButtonTableViewCell
-//                buttonCell.onButtonTapped = { [weak self] in
-//                    self!.signUpTap2()
-//                }
-//                return buttonCell
-//            }
-//
-//        if cellsType[indexPath.row] == Fname.self {
-//                let fieldCell = cellsType[indexPath.row].create(tableView, index: indexPath, text: "First Name")
-//                return fieldCell
-//            }
-//
-//        if cellsType[indexPath.row] == Lname.self {
-//                let fieldCell = cellsType[indexPath.row].create(tableView, index: indexPath, text: "Last Name")
-//                return fieldCell
-//            }
-//        if cellsType[indexPath.row] == Email.self {
-//                let fieldCell = cellsType[indexPath.row].create(tableView, index: indexPath, text: "Email")
-//                return fieldCell
-//            }
-//        if cellsType[indexPath.row] == Pass.self {
-//                let fieldCell = cellsType[indexPath.row].create(tableView, index: indexPath, text: "Password")
-//                return fieldCell
-//            }
-//        if cellsType[indexPath.row] == Repass.self {
-//                let fieldCell = cellsType[indexPath.row].create(tableView, index: indexPath, text: "Re Enter Password")
-//                return fieldCell
-//            }
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
-//                for: indexPath)
-//            cell.textLabel?.text = "Check"
-//            return cell
-        }
+    }
 
 
