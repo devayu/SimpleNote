@@ -140,7 +140,6 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
                 print("Error in first name ")
                 print(isValid.error)
                 (table.viewWithTag(1012) as! FieldTableViewCell).field.setError(errorMessage: isValid.error!)
-                (table.viewWithTag(1012) as! FieldTableViewCell).field.enablePasswordToggle()
             case .email:
                 (table.viewWithTag(1014) as! FieldTableViewCell).field.setError(errorMessage: isValid.error!)
             case .pass:
