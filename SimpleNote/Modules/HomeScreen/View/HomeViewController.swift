@@ -31,6 +31,7 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
         segementedControllerHandler()
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: addNoteBtn.frame.size.height, right: 0)
     }
     @IBAction func signoutBtnTapped(_ sender: Any) {
         homeViewModel.signOutUser()
