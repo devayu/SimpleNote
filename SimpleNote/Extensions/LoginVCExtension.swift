@@ -24,7 +24,6 @@ extension LoginViewController {
             let keyboardHeight = keyboardFrame.cgRectValue.height
             if bStackMaximumY > keyboardFrameMinimumY {
                 self.view.frame.origin.y -= keyboardHeight
-                
             } else {
                 self.view.frame.origin.y -= signupBtn.frame.height
             }
