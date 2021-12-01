@@ -42,6 +42,10 @@
 		08AF6CE12754B35C00AFFCF4 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */; };
 		08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */; };
 		08AF6CFB27560DCD00AFFCF4 /* AddNoteVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */; };
+		08AF6CFE2757464A00AFFCF4 /* HttpUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFD2757464900AFFCF4 /* HttpUtility.swift */; };
+		08AF6D0027574C3900AFFCF4 /* AddNoteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFF27574C3900AFFCF4 /* AddNoteRequest.swift */; };
+		08AF6D0227574F4A00AFFCF4 /* NoteValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6D0127574F4A00AFFCF4 /* NoteValidationResult.swift */; };
+		08AF6D042757543700AFFCF4 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6D032757543700AFFCF4 /* CustomTextView.swift */; };
 		08C082BC274F735900E02F31 /* FloatingActionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082BB274F735900E02F31 /* FloatingActionUIButton.swift */; };
 		08C082BE274F7F3100E02F31 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082BD274F7F3100E02F31 /* LaunchScreenViewController.swift */; };
 		08C082C72750B0B900E02F31 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082C62750B0B900E02F31 /* NavigationHelper.swift */; };
@@ -106,6 +110,10 @@
 		08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
 		08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteVCExtension.swift; sourceTree = "<group>"; };
+		08AF6CFD2757464900AFFCF4 /* HttpUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpUtility.swift; sourceTree = "<group>"; };
+		08AF6CFF27574C3900AFFCF4 /* AddNoteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteRequest.swift; sourceTree = "<group>"; };
+		08AF6D0127574F4A00AFFCF4 /* NoteValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteValidationResult.swift; sourceTree = "<group>"; };
+		08AF6D032757543700AFFCF4 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		08C082BB274F735900E02F31 /* FloatingActionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionUIButton.swift; sourceTree = "<group>"; };
 		08C082BD274F7F3100E02F31 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		08C082C62750B0B900E02F31 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
@@ -311,6 +319,7 @@
 		0811E9C42743777800CB6A18 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				08AF6CFC2757463900AFFCF4 /* Http */,
 				0811E9C5274377A600CB6A18 /* Validation */,
 			);
 			path = Utilities;
@@ -338,6 +347,7 @@
 			children = (
 				0811E9CA2743788700CB6A18 /* CustomTextField.swift */,
 				08C082BB274F735900E02F31 /* FloatingActionUIButton.swift */,
+				08AF6D032757543700AFFCF4 /* CustomTextView.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -430,6 +440,8 @@
 		08AF6CDF2754B33D00AFFCF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				08AF6CFF27574C3900AFFCF4 /* AddNoteRequest.swift */,
+				08AF6D0127574F4A00AFFCF4 /* NoteValidationResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -440,6 +452,14 @@
 				08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		08AF6CFC2757463900AFFCF4 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CFD2757464900AFFCF4 /* HttpUtility.swift */,
+			);
+			path = Http;
 			sourceTree = "<group>";
 		};
 		08C082BF274F915A00E02F31 /* ViewModel */ = {
@@ -637,6 +657,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08AF6CFE2757464A00AFFCF4 /* HttpUtility.swift in Sources */,
+				08AF6D0227574F4A00AFFCF4 /* NoteValidationResult.swift in Sources */,
 				08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */,
 				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
 				0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */,
@@ -644,7 +666,9 @@
 				08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */,
 				0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */,
 				08E9C73F274CF8E300A7324C /* HomeViewModel.swift in Sources */,
+				08AF6D0027574C3900AFFCF4 /* AddNoteRequest.swift in Sources */,
 				0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */,
+				08AF6D042757543700AFFCF4 /* CustomTextView.swift in Sources */,
 				0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */,
 				0811E9CB2743788700CB6A18 /* CustomTextField.swift in Sources */,
 				08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */,

@@ -6,11 +6,11 @@
 //
 import UIKit
 class AddNoteViewController: UIViewController {
-    @IBOutlet weak var authorTxt: UITextField!
+    @IBOutlet weak var authorTxt: CustomTextField!
     @IBOutlet weak var importanceTxt: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var descriptionTxt: UITextView!
-    @IBOutlet weak var titleTxt: UITextField!
+    @IBOutlet weak var descriptionTxt: CustomTextView!
+    @IBOutlet weak var titleTxt: CustomTextField!
     @IBOutlet weak var importanceDropdown: UIButton!
     @IBOutlet weak var selectedImgTxt: UILabel!
     @IBOutlet weak var selectedFileTxt: UILabel!
@@ -39,8 +39,21 @@ class AddNoteViewController: UIViewController {
         ]
     ]
     @IBAction func addBtnTapped(_ sender: Any) {
-        FirebaseCRUD.shared.uploadFiles(fileUrl: imgUrl!)
-        FirebaseCRUD.shared.uploadFiles(fileUrl: fileUrl!)
+        let noteId = UUID().uuidString
+        let request = AddNoteRequest(noteId: noteId, title: titleTxt.text ?? "", author: authorTxt.text ?? "", date: datePicker.date, importance: importanceTxt.text!, description: descriptionTxt.text ?? "", imgUrl: imgUrl, fileUrl: fileUrl)
+        let validationResult =  addNoteVM.validateFields(title: request.title, author: request.author, description: request.description)
+        if !validationResult.success {
+            switch validationResult.forField {
+            case .title:
+                self.titleTxt.setError(errorMessage: validationResult.error!)
+            case .author:
+                self.authorTxt.setError(errorMessage: validationResult.error!)
+            case .description:
+                self.descriptionTxt.setError(errorMessage: validationResult.error!)
+            case .none:
+                break
+            }
+        }
     }
     @IBAction func deleteBtnTapped(_ sender: Any) {
     }

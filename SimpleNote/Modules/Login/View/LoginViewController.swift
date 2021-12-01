@@ -24,6 +24,8 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
         loginViewModel.delegate = self
         passTextField.enablePasswordToggle()
         setupKeyboardObservers()
+        passTextField.addBottomBorder()
+        emailTextField.addBottomBorder()
         navigationController?.navigationBar.isHidden = true
     }
     @IBAction func signInBtnTapped(_ sender: Any) {
