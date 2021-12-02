@@ -6,13 +6,11 @@
 //
 
 import Foundation
-struct AddNoteRequest {
+struct AddNoteModel {
     let noteId: String
     let title: String
     let author: String
     let date: Date
     let importance: String
     let description: String
-    let imgUrl: URL?
-    let fileUrl: URL?
 }

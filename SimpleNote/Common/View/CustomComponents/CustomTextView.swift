@@ -7,17 +7,19 @@
 
 import Foundation
 import UIKit
-class CustomTextView: UITextView {
+class CustomTextView: UITextView, UITextViewDelegate {
     private let errorLabel = UILabel()
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.layer.borderWidth = 0.25
+        self.layer.borderColor = UIColor.gray.cgColor
     }
     func setError(errorMessage: String) {
         errorLabel.text = errorMessage
         errorLabel.textColor = UIColor.red
         errorLabel.numberOfLines = 0
         errorLabel.font = UIFont.systemFont(ofSize: 14)
-        errorLabel.frame = CGRect(x: self.frame.minX+10, y: self.frame.minY+10,
+        errorLabel.frame = CGRect(x: self.frame.minX, y: self.frame.maxY,
                                   width: self.frame.width, height: self.frame.height)
         errorLabel.sizeToFit()
         errorLabel.isHidden = false
@@ -31,8 +33,8 @@ class CustomTextView: UITextView {
         DispatchQueue.main.asyncAfter(deadline: .now()+3) {
             self.errorLabel.text = ""
             self.errorLabel.isHidden = true
-            self.layer.borderColor = UIColor.white.cgColor
-            self.layer.borderWidth = 0.0
+            self.layer.borderColor = UIColor.gray.cgColor
+            self.layer.borderWidth = 0.20
         }
     }
 }

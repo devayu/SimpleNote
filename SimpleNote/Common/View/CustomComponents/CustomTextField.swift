@@ -35,10 +35,6 @@ class CustomTextField: UITextField {
                                   width: self.frame.width, height: self.frame.height/2)
         errorLabel.sizeToFit()
         errorLabel.isHidden = false
-        self.borderStyle = .roundedRect
-        self.layer.borderColor = UIColor.red.cgColor
-        self.layer.borderWidth = 2.0
-        self.borderBottom.isHidden = true
         self.superview?.addSubview(errorLabel)
         self.becomeFirstResponder()
         clearError()
@@ -47,10 +43,6 @@ class CustomTextField: UITextField {
         DispatchQueue.main.asyncAfter(deadline: .now()+3) {
             self.errorLabel.text = ""
             self.errorLabel.isHidden = true
-            self.borderStyle = .none
-            self.borderBottom.isHidden = false
-            self.layer.borderColor = UIColor.white.cgColor
-            self.layer.borderWidth = 0.0
         }
     }
 

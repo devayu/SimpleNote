@@ -22,9 +22,9 @@ class Alerts: UIAlertController {
         alert.view.addSubview(indicator	)
         return alert
     }
-    func dismissAlert(alert: UIAlertController) {
+    func dismissAlert(alert: UIAlertController, completion: (()->Void)?) {
         DispatchQueue.main.asyncAfter(deadline: .now()+3) {
-            alert.dismiss(animated: true, completion: nil)
+            alert.dismiss(animated: true, completion: completion)
         }
     }
 }

@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         } else {
             let alert = Alerts.shared.showAlert(message: error?.localizedDescription ?? "", title: "")
             self.present(alert, animated: true)
-            Alerts.shared.dismissAlert(alert: alert)
+            Alerts.shared.dismissAlert(alert: alert, completion: nil)
         }
     }
 }

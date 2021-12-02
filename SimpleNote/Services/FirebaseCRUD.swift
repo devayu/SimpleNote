@@ -9,21 +9,45 @@ import Foundation
 import Firebase
 class FirebaseCRUD {
     static let shared = FirebaseCRUD()
-    func addNoteToFirebase(reuqest: AddNoteRequest) {
-    }
-    func uploadFiles(fileUrl: URL, completion: @escaping (Bool,Error?)->Void) {
-        let storage = Storage.storage().reference()
+    func addNoteToFirebase(request: AddNoteModel, completion: @escaping (Bool, Error?) -> Void) {
+        let dbRef = Firestore.firestore()
         if let currentUser = Auth.auth().currentUser?.uid {
-            storage.child("\(currentUser)/\(fileUrl.lastPathComponent)").putFile(from: fileUrl, metadata: nil) { _, error in
+            let dataToAdd = ["noteId": request.noteId, "noteTitle": request.title, "noteAuthor": request.author, "noteDate": request.date, "noteImportance": request.importance, "noteDesc": request.description] as [String: Any]
+            dbRef.collection("users").document("\(currentUser)").updateData(["notes": FieldValue.arrayUnion([dataToAdd])]) { error in
                 guard error == nil else {
-                    completion(false,error)
+                    completion(false, error)
                     return
                 }
-                completion(true,nil)
+                completion(true, nil)
             }
         }
     }
-    func downloadFiles(fileName: String, completion: @escaping (Result<Data,Error>)->Void) {
+    func readData(completion: @escaping (NSArray,Error?)->Void) {
+        let dbRef = Firestore.firestore()
+        if let currentUser = Auth.auth().currentUser?.uid {
+            dbRef.collection("users").document("\(currentUser)").getDocument { snapshot, error in
+                guard error == nil else {
+                    completion([], error)
+                    return
+                }
+                let notes = snapshot?.get("notes")
+                completion((notes as! NSArray), nil)
+            }
+        }
+    }
+    func uploadFiles(fileUrl: URL, noteId: String, completion: @escaping (Bool, Error?) -> Void) {
+        let storage = Storage.storage().reference()
+        if let currentUser = Auth.auth().currentUser?.uid {
+            storage.child("\(currentUser)/\(noteId)/\(fileUrl.lastPathComponent)").putFile(from: fileUrl, metadata: nil) { _, error in
+                guard error == nil else {
+                    completion(false, error)
+                    return
+                }
+                completion(true, nil)
+            }
+        }
+    }
+    func downloadFiles(fileName: String, completion: @escaping (Result<Data, Error>) -> Void) {
         let storage = Storage.storage().reference()
         if let currentUser = Auth.auth().currentUser?.uid {
             storage.child("\(currentUser)/\(fileName)").downloadURL { imgUrl, err in
