@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import CoreData
 
 let firebasecrud = FirebaseCrud()
 
@@ -21,6 +22,16 @@ class FirebaseAuthentication {
                 completion(authResult?.user, nil)
             
         }
+    }
+    
+    func signOutUser(completion: @escaping (Bool, Error?) -> Void) {
+            do {
+                try Auth.auth().signOut()
+            } catch let error {
+                completion(false, error)
+                return
+            }
+            completion(true, nil)
     }
     
     func signUpWithEmailAndPassword(email: String, pass: String,fname: String, lname: String, completion: @escaping AuthResultCallback) {

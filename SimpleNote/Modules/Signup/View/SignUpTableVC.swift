@@ -152,6 +152,9 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
          }
         else{
             signUpViewModel.createAccount(userInfo: data)
+            
+            guard let SU = storyboard?.instantiateViewController(withIdentifier: "DemoDraftsViewController") as? DemoDraftsViewController else{return}
+            navigationController?.pushViewController(SU, animated: true)
         }
     }
     

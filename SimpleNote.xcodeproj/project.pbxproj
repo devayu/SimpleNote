@@ -39,6 +39,7 @@
 		085033CA273E4648006CBBB2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C9273E4648006CBBB2 /* FirebaseFirestore */; };
 		085033CC273E4648006CBBB2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 085033CB273E4648006CBBB2 /* FirebaseStorage */; };
 		360B90DA2750192700575E82 /* CellTypeClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360B90D92750192700575E82 /* CellTypeClasses.swift */; };
+		3650307C27588F4400DD6057 /* DemoDraftsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650307B27588F4400DD6057 /* DemoDraftsTableVC.swift */; };
 		366330D7274E408100CF9DD3 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366330D6274E408100CF9DD3 /* SignUpResponse.swift */; };
 		366E9A63274F7B2400B80D4C /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E9A5F274F7B2300B80D4C /* ButtonTableViewCell.swift */; };
 		366E9A64274F7B2400B80D4C /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366E9A60274F7B2300B80D4C /* ButtonTableViewCell.xib */; };
@@ -102,6 +103,7 @@
 		085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		085033C4273E459F006CBBB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		360B90D92750192700575E82 /* CellTypeClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTypeClasses.swift; sourceTree = "<group>"; };
+		3650307B27588F4400DD6057 /* DemoDraftsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDraftsTableVC.swift; sourceTree = "<group>"; };
 		366330D6274E408100CF9DD3 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		366E9A5F274F7B2300B80D4C /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonTableViewCell.swift; path = SimpleNote/Modules/Signup/View/Cells/ButtonTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		366E9A60274F7B2300B80D4C /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ButtonTableViewCell.xib; path = SimpleNote/Modules/Signup/View/Cells/ButtonTableViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -191,6 +193,7 @@
 		0811E9BB274375DC00CB6A18 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3650307A27588F1900DD6057 /* DemoDrafts */,
 				0811E9C02743761C00CB6A18 /* Signup */,
 				0811E9BC274375E700CB6A18 /* Login */,
 			);
@@ -362,6 +365,14 @@
 				085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */,
 			);
 			path = SimpleNoteUITests;
+			sourceTree = "<group>";
+		};
+		3650307A27588F1900DD6057 /* DemoDrafts */ = {
+			isa = PBXGroup;
+			children = (
+				3650307B27588F4400DD6057 /* DemoDraftsTableVC.swift */,
+			);
+			path = DemoDrafts;
 			sourceTree = "<group>";
 		};
 		36D7818E274CBEE9001FBDA9 /* Cells */ = {
@@ -559,6 +570,7 @@
 				0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */,
 				0811E9CB2743788700CB6A18 /* CustomTextField.swift in Sources */,
 				366E9A63274F7B2400B80D4C /* ButtonTableViewCell.swift in Sources */,
+				3650307C27588F4400DD6057 /* DemoDraftsTableVC.swift in Sources */,
 				366E9A65274F7B2400B80D4C /* FieldTableViewCell.swift in Sources */,
 				08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */,
 				36FDBDDA2750D42400785F00 /* SignUpTableVCExtension.swift in Sources */,
