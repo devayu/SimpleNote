@@ -19,7 +19,7 @@ class FirebaseAuthentication {
                 completion(nil, err)
                 return
             }
-                completion(authResult?.user, nil)
+            completion(authResult?.user, nil)
             
         }
     }
