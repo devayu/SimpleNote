@@ -281,7 +281,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addNoteBtn" destination="QMg-uw-BjC" id="oOr-20-602"/>
+                        <outlet property="addNoteBtn" destination="QMg-uw-BjC" id="bSU-bD-rqd"/>
                         <outlet property="segmentedController" destination="wdR-1k-IWO" id="TQB-Yt-z5f"/>
                         <outlet property="tableView" destination="aPf-Hj-P5B" id="9dt-6n-Ng2"/>
                     </connections>

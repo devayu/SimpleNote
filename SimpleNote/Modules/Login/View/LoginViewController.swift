@@ -43,8 +43,7 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     }
     func didRecieveData(data: User?) {
         if data != nil {
-            // navigate to homescreen
-            print(data)
+            NavigationHelper.shared.navigateToCleanStack(to: HomeViewController.self, identifier: Constants.Storyboard.homeViewController, storyboard: storyboard!)
         }
     }
     func didRecieveError(error: Error?) {
