@@ -22,7 +22,7 @@ class HomeViewModel {
     func getData(typeOfList: ListTypes) {
         switch typeOfList {
         case .notes:
-            FirebaseCRUD.shared.readData { notes, error in
+            FirebaseCRUD.shared.readNotesFromFirebase { notes, error in
                 guard error == nil else {
                     self.delegate?.didRecieveData(data: notes)
                     return
@@ -30,7 +30,7 @@ class HomeViewModel {
                 self.delegate?.didRecieveData(data: notes)
             }
         case .drafts:
-            FirebaseCRUD.shared.readData { notes, error in
+            FirebaseCRUD.shared.readNotesFromFirebase { notes, error in
                 guard error == nil else {
                     self.delegate?.didRecieveData(data: notes)
                     return

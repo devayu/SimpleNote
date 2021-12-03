@@ -12,7 +12,7 @@ class FirebaseCRUD {
     func addNoteToFirebase(request: AddNoteModel, completion: @escaping (Bool, Error?) -> Void) {
         let dbRef = Firestore.firestore()
         if let currentUser = Auth.auth().currentUser?.uid {
-            let dataToAdd = ["noteId": request.noteId, "noteTitle": request.title, "noteAuthor": request.author, "noteDate": request.date, "noteImportance": request.importance, "noteDesc": request.description] as [String: Any]
+            let dataToAdd = ["noteId": request.noteId, "noteTitle": request.title, "noteAuthor": request.author, "noteDate": String(request.date.formatted(date: .abbreviated, time: .shortened)), "noteImportance": request.importance, "noteDesc": request.description] as [String: Any]
             dbRef.collection("users").document("\(currentUser)").updateData(["notes": FieldValue.arrayUnion([dataToAdd])]) { error in
                 guard error == nil else {
                     completion(false, error)
@@ -22,10 +22,10 @@ class FirebaseCRUD {
             }
         }
     }
-    func readData(completion: @escaping (NSArray, Error?)->Void) {
+    func readNotesFromFirebase(completion: @escaping (NSArray, Error?)->Void) {
         let dbRef = Firestore.firestore()
         if let currentUser = Auth.auth().currentUser?.uid {
-            dbRef.collection("users").document("\(currentUser)").getDocument { snapshot, error in
+            dbRef.collection("users").document("\(currentUser)").addSnapshotListener { snapshot, error in
                 guard error == nil else {
                     completion([], error)
                     return

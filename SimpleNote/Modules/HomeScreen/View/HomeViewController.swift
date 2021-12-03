@@ -22,20 +22,18 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         super.viewDidLoad()
         initHomeVC()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("did appear")
-        setupTable()
-    }
     private func initHomeVC() {
         addNoteBtn.createFloatingActionButton(color: .systemBlue, imageToSet: nil)
         tableView.delegate = self
         tableView.dataSource = self
         homeViewModel.delegate = self
+        setupTable()
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
         segementedControllerHandler()
         navigationController?.navigationBar.prefersLargeTitles = true
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: addNoteBtn.frame.size.height, right: 0)
+        self.tableView.layer.cornerRadius = 10
+        self.tableView.layer.masksToBounds = true
     }
     @IBAction func signoutBtnTapped(_ sender: Any) {
         homeViewModel.signOutUser()

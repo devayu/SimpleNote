@@ -9,17 +9,18 @@ import Foundation
 import UIKit
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 200
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataPoints.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
-        cell.authorLabelTxt.text = dataPoints[indexPath.row]["noteAuthor"] as? String
-        cell.dateLabelTxt.text = dataPoints[indexPath.row]["noteDate"] as? String
-        cell.importanceLabelTxt.text = dataPoints[indexPath.row]["noteImportance"] as? String
-        cell.descLabelTxt.text = (dataPoints[indexPath.row]["noteDesc"] as! String)
+        cell.titleTxt.text = dataPoints[indexPath.row]["noteTitle"] as? String
+        cell.authorTxt.text = dataPoints[indexPath.row]["noteAuthor"] as? String
+        cell.dateTxt.text = dataPoints[indexPath.row]["noteDate"] as? String
+        cell.importanceTxt.text = dataPoints[indexPath.row]["noteImportance"] as? String
+        cell.descTxt.text = (dataPoints[indexPath.row]["noteDesc"] as! String)
         return cell
     }
 }
