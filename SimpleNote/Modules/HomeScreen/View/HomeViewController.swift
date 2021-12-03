@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 class HomeViewController: UIViewController, HomeViewModelDelegate {
-    var dataPoints: [String] = []
+    var dataPoints: [NSDictionary] = []
     private let homeViewModel = HomeViewModel()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addNoteBtn: FloatingActionUIButton!
@@ -22,12 +22,16 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         super.viewDidLoad()
         initHomeVC()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("did appear")
+        setupTable()
+    }
     private func initHomeVC() {
         addNoteBtn.createFloatingActionButton(color: .systemBlue, imageToSet: nil)
         tableView.delegate = self
         tableView.dataSource = self
         homeViewModel.delegate = self
-        setupTable()
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
         segementedControllerHandler()
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -45,9 +49,9 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     @objc func changeTableDataSource() {
         homeViewModel.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!)
     }
-    func didRecieveData(data: [String]) {
-        if !data.isEmpty {
-            dataPoints = data
+    func didRecieveData(data: NSArray) {
+        if  data.count > 0 {
+            dataPoints = data as! [NSDictionary]
             tableView.reloadData()
         }
     }

@@ -19,8 +19,6 @@ enum ListTypes: Int {
 }
 class HomeViewModel {
     weak var delegate: HomeViewModelDelegate?
-//    var myNotes = ["test1", "test1", "test1", "test1testesteteteteetetetetetetetetetetettetetetete", "test1", "test1", "test1", "test1", "test1", "test1", "test1", "test1"]
-    var myDrafts = ["test2", "test2", "test2"]
     func getData(typeOfList: ListTypes) {
         switch typeOfList {
         case .notes:
@@ -32,7 +30,13 @@ class HomeViewModel {
                 self.delegate?.didRecieveData(data: notes)
             }
         case .drafts:
-            delegate?.didRecieveData(data: myDrafts as NSArray)
+            FirebaseCRUD.shared.readData { notes, error in
+                guard error == nil else {
+                    self.delegate?.didRecieveData(data: notes)
+                    return
+                }
+                self.delegate?.didRecieveData(data: notes)
+            }
         }
     }
     func signOutUser() {

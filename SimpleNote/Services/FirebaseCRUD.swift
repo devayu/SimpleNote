@@ -22,7 +22,7 @@ class FirebaseCRUD {
             }
         }
     }
-    func readData(completion: @escaping (NSArray,Error?)->Void) {
+    func readData(completion: @escaping (NSArray, Error?)->Void) {
         let dbRef = Firestore.firestore()
         if let currentUser = Auth.auth().currentUser?.uid {
             dbRef.collection("users").document("\(currentUser)").getDocument { snapshot, error in
@@ -30,8 +30,9 @@ class FirebaseCRUD {
                     completion([], error)
                     return
                 }
-                let notes = snapshot?.get("notes")
-                completion((notes as! NSArray), nil)
+                if let notes = snapshot?.get("notes") as? NSArray {
+                    completion(notes.reversed() as NSArray, nil)
+                }
             }
         }
     }

@@ -66,9 +66,7 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
             self.present(alert, animated: true)
             Alerts.shared.dismissAlert(alert: alert, completion: {
                 self.navigationController?.popToRootViewController(animated: true)
-                
             })
-            
         } else {
             let alert = Alerts.shared.showAlert(message: error ?? "error placeholder", title: "")
             self.present(alert, animated: true)
