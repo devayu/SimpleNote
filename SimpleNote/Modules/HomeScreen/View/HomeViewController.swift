@@ -8,12 +8,12 @@
 import UIKit
 import Firebase
 class HomeViewController: UIViewController, HomeViewModelDelegate {
-    var dataPoints: [NSDictionary] = []
+    var noteList: [NSDictionary] = []
     private let homeViewModel = HomeViewModel()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addNoteBtn: FloatingActionUIButton!
     @IBOutlet weak var segmentedController: UISegmentedControl!
-
+    
     @IBAction func addNoteBtnTapped(_ sender: Any) {
         let addNoteVC = (storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.addNoteVC) as? AddNoteViewController)!
         self.navigationController?.pushViewController(addNoteVC, animated: true)
@@ -47,10 +47,14 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     @objc func changeTableDataSource() {
         homeViewModel.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!)
     }
-    func didRecieveData(data: NSArray) {
-        if  data.count > 0 {
-            dataPoints = data as! [NSDictionary]
+    func didRecieveData(data: [NSDictionary], error: Error?) {
+        if error == nil {
+            noteList = data
             tableView.reloadData()
+        } else {
+            let alert = Alerts.shared.showAlert(message: error?.localizedDescription ?? "error placeholder", title: "")
+            self.present(alert, animated: true, completion: nil)
+            Alerts.shared.dismissAlert(alert: alert, completion: nil)
         }
     }
     func didLogoutUser(isLogoutSuccess: Bool, error: Error?) {

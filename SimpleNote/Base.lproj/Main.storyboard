@@ -370,12 +370,12 @@
                                         </constraints>
                                         <color key="tintColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Delete">
+                                        <buttonConfiguration key="configuration" style="filled" title="Cancel">
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="deleteBtnTapped:" destination="gvM-Jt-BSS" eventType="touchUpInside" id="MS2-Mx-GQb"/>
+                                            <action selector="cancelBtnTapped:" destination="gvM-Jt-BSS" eventType="touchUpInside" id="e9n-Nc-8A5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXI-K9-dxt">
@@ -456,6 +456,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcs-oh-Unj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1007.2463768115942" y="-232.36607142857142"/>
+        </scene>
+        <!--Sign Up Table View Controller-->
+        <scene sceneID="gU1-Ea-YgP">
+            <objects>
+                <viewController storyboardIdentifier="SignUpTableViewController" id="m5s-D8-dnQ" customClass="SignUpTableViewController" customModule="SimpleNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2aF-Ao-aGD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="56s-vN-Ssa">
+                                <rect key="frame" x="16" y="44" width="382" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="5kP-pW-wfs">
+                                        <rect key="frame" x="0.0" y="44.5" width="382" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5kP-pW-wfs" id="NeV-Rz-LXv">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Eab-qa-4dz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Eab-qa-4dz" firstAttribute="trailing" secondItem="56s-vN-Ssa" secondAttribute="trailing" constant="16" id="19g-aB-Hrh"/>
+                            <constraint firstItem="56s-vN-Ssa" firstAttribute="leading" secondItem="Eab-qa-4dz" secondAttribute="leading" constant="16" id="S68-xM-dYi"/>
+                            <constraint firstItem="56s-vN-Ssa" firstAttribute="top" secondItem="Eab-qa-4dz" secondAttribute="top" id="W0O-7o-Kmn"/>
+                            <constraint firstItem="56s-vN-Ssa" firstAttribute="bottom" secondItem="Eab-qa-4dz" secondAttribute="bottom" id="brd-QB-LbO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="table" destination="56s-vN-Ssa" id="2FO-Xm-jgc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="szA-ug-afo" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="348" y="448"/>
+        </scene>
+        <!--Demo Drafts View Controller-->
+        <scene sceneID="ZpL-cX-8WW">
+            <objects>
+                <viewController storyboardIdentifier="DemoDraftsViewController" id="f3F-rx-5ID" customClass="DemoDraftsViewController" customModule="SimpleNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4kI-EM-Mxz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yct-sK-b0I">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="OGI-dE-ZOc">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OGI-dE-ZOc" id="TDw-B5-WZH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Nu4-3P-VFS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nu4-3P-VFS" firstAttribute="trailing" secondItem="Yct-sK-b0I" secondAttribute="trailing" id="Dt9-CO-vVU"/>
+                            <constraint firstItem="Nu4-3P-VFS" firstAttribute="bottom" secondItem="Yct-sK-b0I" secondAttribute="bottom" id="S8M-9Y-R1A"/>
+                            <constraint firstItem="Yct-sK-b0I" firstAttribute="top" secondItem="Nu4-3P-VFS" secondAttribute="top" id="Ys6-5i-UNC"/>
+                            <constraint firstItem="Yct-sK-b0I" firstAttribute="leading" secondItem="Nu4-3P-VFS" secondAttribute="leading" id="xyV-il-Usl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="DemoTable" destination="Yct-sK-b0I" id="g3N-cM-BFS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxr-XR-JgQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="448"/>
         </scene>
     </scenes>
     <resources>

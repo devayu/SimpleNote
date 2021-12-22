@@ -22,6 +22,9 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
         super.viewDidLoad()
         initAddNoteVC()
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
     private let importanceMenuItems = [
         [
             "importance": Importance.low,
@@ -58,10 +61,23 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
             addNoteVM.addNote(addRequest: request)
         }
     }
-    @IBAction func deleteBtnTapped(_ sender: Any) {
+    @IBAction func cancelBtnTapped(_ sender: Any) {
+        let alert = Alerts.shared.showAlert(message: "", title: "Are you sure you want to cancel?")
+        let deleteAction = UIAlertAction(title: "Delete Note", style: .destructive) { _ in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        let addToDraftAction = UIAlertAction(title: "Save as Draft", style: .default) { _ in
+            print("add to draft")
+        }
+        let continueAction = UIAlertAction(title: "Continue writing", style: .default, handler: nil)
+        alert.addAction(deleteAction)
+        alert.addAction(addToDraftAction)
+        alert.addAction(continueAction)
+        self.present(alert, animated: true, completion: nil)
     }
     func didAddNote(success: Bool, error: String?) {
         if success {
+            clearFields()
             let alert = Alerts.shared.showAlert(message: "Note Added Successfully", title: "")
             self.present(alert, animated: true)
             Alerts.shared.dismissAlert(alert: alert, completion: {
@@ -72,6 +88,11 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
             self.present(alert, animated: true)
             Alerts.shared.dismissAlert(alert: alert, completion: nil)
         }
+    }
+    private func clearFields() {
+        titleTxt.text = ""
+        authorTxt.text = ""
+        descriptionTxt.text = ""
     }
     private func initAddNoteVC() {
         self.navigationItem.title = "Add a Note"
@@ -88,7 +109,19 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
         let addImageBtn = UIBarButtonItem(image: UIImage(systemName: "photo"), style: .plain, target: self, action: #selector(imgSelector))
         let addFileBtn = UIBarButtonItem(image: UIImage(systemName: "folder.badge.plus"), style: .plain, target: self, action: #selector(fileSelector))
         navigationItem.rightBarButtonItems = [addFileBtn, addImageBtn]
+//        let keyboardToolbar = UIToolbar()
+//        keyboardToolbar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50)
+//        keyboardToolbar.barStyle = .default
+//        keyboardToolbar.items = [
+//            UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(hideKey))
+//        ]
+//        keyboardToolbar.sizeToFit()
+//        titleTxt.inputAccessoryView = keyboardToolbar
+//        authorTxt.inputAccessoryView = keyboardToolbar
+//        descriptionTxt.inputAccessoryView = keyboardToolbar
     }
+    @objc private func hideKey() {
+        self.view.endEditing(true)    }
     @objc private func imgSelector() {
         let imgPickerVC = UIImagePickerController()
         imgPickerVC.sourceType = .photoLibrary

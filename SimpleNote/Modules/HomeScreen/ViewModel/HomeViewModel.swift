@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestore
 import UIKit
 protocol HomeViewModelDelegate: AnyObject {
-    func didRecieveData(data: NSArray)
+    func didRecieveData(data: [NSDictionary], error: Error?)
     func didLogoutUser(isLogoutSuccess: Bool, error: Error?)
 }
 enum ListTypes: Int {
@@ -23,19 +23,11 @@ class HomeViewModel {
         switch typeOfList {
         case .notes:
             FirebaseCRUD.shared.readNotesFromFirebase { notes, error in
-                guard error == nil else {
-                    self.delegate?.didRecieveData(data: notes)
-                    return
-                }
-                self.delegate?.didRecieveData(data: notes)
+                self.delegate?.didRecieveData(data: notes, error: error)
             }
         case .drafts:
             FirebaseCRUD.shared.readNotesFromFirebase { notes, error in
-                guard error == nil else {
-                    self.delegate?.didRecieveData(data: notes)
-                    return
-                }
-                self.delegate?.didRecieveData(data: notes)
+                self.delegate?.didRecieveData(data: notes, error: error)
             }
         }
     }

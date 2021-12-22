@@ -18,7 +18,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
         cell.titleTxt.text = dataPoints[indexPath.row]["noteTitle"] as? String
         cell.authorTxt.text = dataPoints[indexPath.row]["noteAuthor"] as? String
-        cell.dateTxt.text = dataPoints[indexPath.row]["noteDate"] as? String
+        let noteDate = dataPoints[indexPath.row]["noteDate"] as? Date
+        cell.dateTxt.text = noteDate?.formatted(date: .abbreviated, time: .shortened)
         cell.importanceTxt.text = dataPoints[indexPath.row]["noteImportance"] as? String
         cell.descTxt.text = (dataPoints[indexPath.row]["noteDesc"] as! String)
         return cell
