@@ -15,8 +15,12 @@ class FloatingActionUIButton: UIButton {
         self.layer.shadowRadius = 10
         self.layer.shadowOpacity = 0.3
         self.layer.shadowOffset = CGSize(width: 0, height: 5)
-        let defaultImage = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration.init(pointSize: 18, weight: .regular))
-        self.setImage(imageToSet ?? defaultImage, for: .normal)
+        if imageToSet == nil {
+            let defaultImage = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration.init(pointSize: 18, weight: .regular))
+            self.setImage(defaultImage, for: .normal)
+        } else {
+            self.setImage(imageToSet, for: .normal)
+        }
         self.tintColor = .white
         self.setTitleColor(.white, for: .normal)
         self.layer.backgroundColor = color.cgColor

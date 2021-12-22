@@ -10,20 +10,14 @@ import SwiftUI
 import Firebase
 
 protocol LoginViewModelDelegate: AnyObject {
-    func didRecieveData(data: User?)
-    func didRecieveError(error: Error?)
+    func didRecieveUser(user: User?, error: Error?)
 }
 
 class LoginViewModel {
-
     weak var delegate: LoginViewModelDelegate?
     func loginUser(request: LoginRequest) {
         FirebaseAuthentication.shared.signInWithEmailAndPassword(request: request) { user, error in
-            if user == nil {
-                self.delegate?.didRecieveError(error: error)
-            } else {
-                self.delegate?.didRecieveData(data: user)
-            }
+            self.delegate?.didRecieveUser(user: user, error: error)
         }
     }
     func validateLoginFields(for request: LoginRequest) -> ValidationResult {

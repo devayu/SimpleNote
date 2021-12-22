@@ -21,5 +21,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Access to you photo library is required to attach photos.</string>
 </dict>
 </plist>

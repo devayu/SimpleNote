@@ -12,11 +12,9 @@ class CustomTextField: UITextField {
     private let errorLabel = UILabel()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addBottomBorder()
     }
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        addBottomBorder()
     }
     func addBottomBorder() {
         let width = CGFloat(1.0)

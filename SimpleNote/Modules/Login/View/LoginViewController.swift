@@ -18,9 +18,15 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     private let loginViewModel = LoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        initLoginVC()
+    }
+    private func initLoginVC() {
         loginViewModel.delegate = self
         passTextField.enablePasswordToggle()
         setupKeyboardObservers()
+        passTextField.addBottomBorder()
+        emailTextField.addBottomBorder()
+        navigationController?.navigationBar.isHidden = true
     }
     @IBAction func signInBtnTapped(_ sender: Any) {
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -42,14 +48,13 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
             loginViewModel.loginUser(request: request)
         }
     }
-    func didRecieveData(data: User?) {
-        if data != nil {
-            NavigationHelper.shared.navigateToCleanStack(to: HomeViewController.self, identifier: Constants.Storyboard.homeViewController, storyboard: storyboard!)
+    func didRecieveUser(user: User?, error: Error?) {
+        if user != nil {
+            NavigationHelper.shared.navigateToCleanStack(to: HomeViewController.self, identifier: Constants.Storyboard.homeVC, storyboard: storyboard!)
+        } else {
+            let alert = Alerts.shared.showAlert(message: error!.localizedDescription, title: "")
+            self.present(alert, animated: true)
+            Alerts.shared.dismissAlert(alert: alert, completion: nil)
         }
-    }
-    func didRecieveError(error: Error?) {
-        let alert = Alerts.shared.showAlert(message: error!.localizedDescription, title: "")
-        self.present(alert, animated: true)
-        Alerts.shared.dismissAlert(alert: alert)
     }
 }

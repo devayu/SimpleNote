@@ -39,9 +39,17 @@
 		085033C8273E4648006CBBB2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C7273E4648006CBBB2 /* FirebaseAuth */; };
 		085033CA273E4648006CBBB2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C9273E4648006CBBB2 /* FirebaseFirestore */; };
 		085033CC273E4648006CBBB2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 085033CB273E4648006CBBB2 /* FirebaseStorage */; };
+		08AF6CE12754B35C00AFFCF4 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */; };
+		08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */; };
+		08AF6CFB27560DCD00AFFCF4 /* AddNoteVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */; };
+		08AF6CFE2757464A00AFFCF4 /* HttpUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFD2757464900AFFCF4 /* HttpUtility.swift */; };
+		08AF6D0027574C3900AFFCF4 /* AddNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFF27574C3900AFFCF4 /* AddNoteModel.swift */; };
+		08AF6D0227574F4A00AFFCF4 /* NoteValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6D0127574F4A00AFFCF4 /* NoteValidationResult.swift */; };
+		08AF6D042757543700AFFCF4 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6D032757543700AFFCF4 /* CustomTextView.swift */; };
 		08C082BC274F735900E02F31 /* FloatingActionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082BB274F735900E02F31 /* FloatingActionUIButton.swift */; };
 		08C082BE274F7F3100E02F31 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082BD274F7F3100E02F31 /* LaunchScreenViewController.swift */; };
 		08C082C72750B0B900E02F31 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082C62750B0B900E02F31 /* NavigationHelper.swift */; };
+		08C082C92753C3DE00E02F31 /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082C82753C3DD00E02F31 /* NotesModel.swift */; };
 		08E9C73A274CE27C00A7324C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C738274CE27C00A7324C /* CustomTableViewCell.swift */; };
 		08E9C73B274CE27C00A7324C /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */; };
 		08E9C73F274CF8E300A7324C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C73E274CF8E300A7324C /* HomeViewModel.swift */; };
@@ -99,9 +107,17 @@
 		085033B5273E4480006CBBB2 /* SimpleNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITests.swift; sourceTree = "<group>"; };
 		085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		085033C4273E459F006CBBB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteVCExtension.swift; sourceTree = "<group>"; };
+		08AF6CFD2757464900AFFCF4 /* HttpUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpUtility.swift; sourceTree = "<group>"; };
+		08AF6CFF27574C3900AFFCF4 /* AddNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteModel.swift; sourceTree = "<group>"; };
+		08AF6D0127574F4A00AFFCF4 /* NoteValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteValidationResult.swift; sourceTree = "<group>"; };
+		08AF6D032757543700AFFCF4 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		08C082BB274F735900E02F31 /* FloatingActionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionUIButton.swift; sourceTree = "<group>"; };
 		08C082BD274F7F3100E02F31 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		08C082C62750B0B900E02F31 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
+		08C082C82753C3DD00E02F31 /* NotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesModel.swift; sourceTree = "<group>"; };
 		08E9C738274CE27C00A7324C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		08E9C73E274CF8E300A7324C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -167,6 +183,7 @@
 		080BE6F6274CC4650068EC5E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				08C082C82753C3DD00E02F31 /* NotesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +238,7 @@
 		0811E9BB274375DC00CB6A18 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				08AF6CDC2754B31D00AFFCF4 /* AddNote */,
 				080BE6F5274CC4500068EC5E /* HomeScreen */,
 				0811E9C02743761C00CB6A18 /* Signup */,
 				0811E9BC274375E700CB6A18 /* Login */,
@@ -301,6 +319,7 @@
 		0811E9C42743777800CB6A18 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				08AF6CFC2757463900AFFCF4 /* Http */,
 				0811E9C5274377A600CB6A18 /* Validation */,
 			);
 			path = Utilities;
@@ -328,6 +347,7 @@
 			children = (
 				0811E9CA2743788700CB6A18 /* CustomTextField.swift */,
 				08C082BB274F735900E02F31 /* FloatingActionUIButton.swift */,
+				08AF6D032757543700AFFCF4 /* CustomTextView.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -388,6 +408,58 @@
 				085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */,
 			);
 			path = SimpleNoteUITests;
+			sourceTree = "<group>";
+		};
+		08AF6CDC2754B31D00AFFCF4 /* AddNote */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CF927560DB700AFFCF4 /* Extensions */,
+				08AF6CDF2754B33D00AFFCF4 /* Model */,
+				08AF6CDE2754B33000AFFCF4 /* ViewModel */,
+				08AF6CDD2754B32A00AFFCF4 /* View */,
+			);
+			path = AddNote;
+			sourceTree = "<group>";
+		};
+		08AF6CDD2754B32A00AFFCF4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		08AF6CDE2754B33000AFFCF4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		08AF6CDF2754B33D00AFFCF4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CFF27574C3900AFFCF4 /* AddNoteModel.swift */,
+				08AF6D0127574F4A00AFFCF4 /* NoteValidationResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		08AF6CF927560DB700AFFCF4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		08AF6CFC2757463900AFFCF4 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CFD2757464900AFFCF4 /* HttpUtility.swift */,
+			);
+			path = Http;
 			sourceTree = "<group>";
 		};
 		08C082BF274F915A00E02F31 /* ViewModel */ = {
@@ -585,13 +657,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08AF6CFE2757464A00AFFCF4 /* HttpUtility.swift in Sources */,
+				08AF6D0227574F4A00AFFCF4 /* NoteValidationResult.swift in Sources */,
+				08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */,
 				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
 				0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */,
 				08E9C73A274CE27C00A7324C /* CustomTableViewCell.swift in Sources */,
 				08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */,
 				0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */,
 				08E9C73F274CF8E300A7324C /* HomeViewModel.swift in Sources */,
+				08AF6D0027574C3900AFFCF4 /* AddNoteModel.swift in Sources */,
 				0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */,
+				08AF6D042757543700AFFCF4 /* CustomTextView.swift in Sources */,
 				0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */,
 				0811E9CB2743788700CB6A18 /* CustomTextField.swift in Sources */,
 				08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */,
@@ -602,11 +679,14 @@
 				08C082BE274F7F3100E02F31 /* LaunchScreenViewController.swift in Sources */,
 				080BE6F4274B9AC50068EC5E /* LoginVCExtension.swift in Sources */,
 				0811E9CF274378D600CB6A18 /* SignupVC.swift in Sources */,
+				08AF6CE12754B35C00AFFCF4 /* AddNoteViewController.swift in Sources */,
 				08C082BC274F735900E02F31 /* FloatingActionUIButton.swift in Sources */,
 				08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */,
 				0811E9D32743AD9300CB6A18 /* Constants.swift in Sources */,
 				0801055F273E53C700BD432E /* LoginRequest.swift in Sources */,
+				08C082C92753C3DE00E02F31 /* NotesModel.swift in Sources */,
 				0811E9B22742283F00CB6A18 /* Alerts.swift in Sources */,
+				08AF6CFB27560DCD00AFFCF4 /* AddNoteVCExtension.swift in Sources */,
 				0811E9C8274377C800CB6A18 /* Validation.swift in Sources */,
 				0850339C273E4478006CBBB2 /* SimpleNote.xcdatamodeld in Sources */,
 				080BE6FA274CC4B30068EC5E /* HomeViewController.swift in Sources */,
