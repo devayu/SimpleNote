@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     @IBOutlet weak var emailTextField: CustomTextField!
     @IBOutlet weak var passTextField: CustomTextField!
     @IBOutlet weak var signupBtn: UIButton!
+    @IBOutlet weak var bottomStackView: UIStackView!
     var isViewExpanded: Bool = false
     private let loginViewModel = LoginViewModel()
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
             case .none:
                 break
             }
-         } else {
+        } else {
             emailTextField.resignFirstResponder()
             passTextField.resignFirstResponder()
             loginViewModel.loginUser(request: request)

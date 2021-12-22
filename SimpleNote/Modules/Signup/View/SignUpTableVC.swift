@@ -102,7 +102,7 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
     
     @objc private func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+                table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height+75, right: 0)
             }
     }
     
