@@ -9,11 +9,12 @@ import UIKit
 import Firebase
 class HomeViewController: UIViewController, HomeViewModelDelegate {
     var noteList: [NSDictionary] = []
-    private let homeViewModel = HomeViewModel()
+    lazy var homeVM: HomeViewModel = {
+        return HomeViewModel()
+    }()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addNoteBtn: FloatingActionUIButton!
     @IBOutlet weak var segmentedController: UISegmentedControl!
-    
     @IBAction func addNoteBtnTapped(_ sender: Any) {
         let addNoteVC = (storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.addNoteVC) as? AddNoteViewController)!
         self.navigationController?.pushViewController(addNoteVC, animated: true)
@@ -26,7 +27,7 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         addNoteBtn.createFloatingActionButton(color: .systemBlue, imageToSet: nil)
         tableView.delegate = self
         tableView.dataSource = self
-        homeViewModel.delegate = self
+        homeVM.delegate = self
         setupTable()
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
         segementedControllerHandler()
@@ -36,16 +37,16 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         self.tableView.layer.masksToBounds = true
     }
     @IBAction func signoutBtnTapped(_ sender: Any) {
-        homeViewModel.signOutUser()
+        homeVM.signOutUser()
     }
     private func setupTable() {
-        homeViewModel.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!)
+        homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, paginateData: false)
     }
     private func segementedControllerHandler() {
         segmentedController.addTarget(self, action: #selector(changeTableDataSource), for: .valueChanged)
     }
     @objc func changeTableDataSource() {
-        homeViewModel.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!)
+        homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, paginateData: false)
     }
     func didRecieveData(data: [NSDictionary], error: Error?) {
         if error == nil {

@@ -42,20 +42,45 @@ class FirebaseCRUD {
             }
         }
     }
-    func readNotesFromFirebase(completion: @escaping ([NSDictionary], Error?) -> Void) {
-        let dbRef = Firestore.firestore()
+    func readNotesFromFirebase(paginateData: Bool, completion: @escaping ([NSDictionary], Error?) -> Void) {
         if let currentUser = Auth.auth().currentUser?.uid {
-            dbRef.collection("users").document("\(currentUser)").collection("notes").order(by: "noteDate", descending: true).limit(to: 5).getDocuments { snapshot, error in
+            let dbRef = Firestore.firestore().collection("users").document("\(currentUser)").collection("notes")
+            let initialBatchOfData = dbRef.order(by: "noteDate", descending: true).limit(to: 5)
+            var notes: [NSDictionary] = []
+            initialBatchOfData.addSnapshotListener { snapshot, error in
                 guard error == nil else {
                     completion([], error)
                     return
                 }
-                var notes: [NSDictionary] = []
-                snapshot?.documents.forEach({ document in
-                    notes.append(document.data() as NSDictionary)
-                })
-                completion(notes, nil)
+                if paginateData {
+                    guard let lastSnapshot = snapshot?.documents.last else {
+                        return
+                    }
+                    let nextBatchOfData = dbRef.order(by: "noteDate", descending: true).start(afterDocument: lastSnapshot).addSnapshotListener { snapshot, error in
+                        guard error == nil else {
+                            print(error)
+                            return
+                        }
+                        print("fetching more")
+                        snapshot?.documents.forEach({ document in
+                            notes.append(document.data() as NSDictionary)
+                        })
+                        print(notes)
+                    }
+                } else {
+                    print("no pagination")
+                    snapshot?.documents.forEach({ document in
+                        notes.append(document.data() as NSDictionary)
+                    })
+                }
             }
+//            dbRef.collection("users").document("\(currentUser)").collection("notes").order(by: "noteDate", descending: true).limit(to: 5).getDocuments { snapshot, error in
+//                guard error == nil else {
+//                    completion([], error)
+//                    return
+//                }
+//                completion(notes, nil)
+//            }
 //            dbRef.collection("users").document("\(currentUser)").addSnapshotListener { snapshot, error in
 //                guard error == nil else {
 //                    completion([], error)
@@ -66,6 +91,10 @@ class FirebaseCRUD {
 //                }
 //            }
         }
+    }
+    
+    private func _paginate(lastSnapshot: QueryDocumentSnapshot, documentPath: CollectionReference){
+        
     }
     func uploadFiles(fileUrl: URL, noteId: String, completion: @escaping (Bool, Error?) -> Void) {
         let storage = Storage.storage().reference()

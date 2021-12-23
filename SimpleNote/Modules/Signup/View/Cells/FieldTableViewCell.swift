@@ -22,7 +22,7 @@ class FieldTableViewCell: UITableViewCell, UITextFieldDelegate {
         // Initialization code
         field.delegate = self
     }
-    
+
 //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 //        print(textField.text ?? "")
 //        return true
@@ -33,5 +33,4 @@ class FieldTableViewCell: UITableViewCell, UITextFieldDelegate {
 
         // Configure the view for the selected state
     }
-    
 }

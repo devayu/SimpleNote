@@ -19,14 +19,16 @@ enum ListTypes: Int {
 }
 class HomeViewModel {
     weak var delegate: HomeViewModelDelegate?
-    func getData(typeOfList: ListTypes) {
+    var isDataPaginating: Bool = false
+    func getData(typeOfList: ListTypes, paginateData: Bool) {
+        isDataPaginating = paginateData
         switch typeOfList {
         case .notes:
-            FirebaseCRUD.shared.readNotesFromFirebase { notes, error in
+            FirebaseCRUD.shared.readNotesFromFirebase(paginateData: paginateData) { notes, error in
                 self.delegate?.didRecieveData(data: notes, error: error)
             }
         case .drafts:
-            FirebaseCRUD.shared.readNotesFromFirebase { notes, error in
+            FirebaseCRUD.shared.readNotesFromFirebase(paginateData: paginateData) { notes, error in
                 self.delegate?.didRecieveData(data: notes, error: error)
             }
         }

@@ -18,4 +18,8 @@ class NavigationHelper {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
+    func navigateToScreen<T: UIViewController>(to screen: T.Type, navigationController: UINavigationController, identifier: String, storyboard: UIStoryboard) {
+        let viewController = (storyboard.instantiateViewController(withIdentifier: identifier) as? T)!
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }

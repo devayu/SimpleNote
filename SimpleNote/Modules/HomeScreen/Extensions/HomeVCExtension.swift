@@ -14,6 +14,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return noteList.count
     }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (tableView.contentSize.height - 200 - scrollView.frame.size.height) {
+            guard !homeVM.isDataPaginating else {
+                return
+            }
+            homeVM.getData(typeOfList: .notes, paginateData: true)
+        }
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
         cell.titleTxt.text = noteList[indexPath.row]["noteTitle"] as? String

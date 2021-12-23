@@ -13,6 +13,7 @@ struct Constants {
         static let homeVC = "HomeVC"
         static let loginVC = "LoginVC"
         static let addNoteVC = "AddNoteVC"
+        static let signupVC = "SignupVC"
     }
     struct Cells {
         static let formCell = "FormTableCell"

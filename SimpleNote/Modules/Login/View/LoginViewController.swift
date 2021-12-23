@@ -20,13 +20,21 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
         super.viewDidLoad()
         initLoginVC()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "Login"
+        navigationController?.navigationBar.isHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
     private func initLoginVC() {
         loginViewModel.delegate = self
         passTextField.enablePasswordToggle()
         setupKeyboardObservers()
         passTextField.addBottomBorder()
         emailTextField.addBottomBorder()
-        navigationController?.navigationBar.isHidden = true
     }
     @IBAction func signInBtnTapped(_ sender: Any) {
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -58,7 +66,6 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
         }
     }
     @IBAction func didTapSignUp() {
-            guard let SU = storyboard?.instantiateViewController(withIdentifier: "SignUpTableViewController") as? SignUpTableViewController else{return}
-            navigationController?.pushViewController(SU, animated: true)
+        NavigationHelper.shared.navigateToScreen(to: SignUpTableViewController.self, navigationController: navigationController!, identifier: Constants.Storyboard.signupVC, storyboard: storyboard!)
         }
 }
