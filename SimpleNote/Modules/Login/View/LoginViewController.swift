@@ -57,4 +57,8 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
             Alerts.shared.dismissAlert(alert: alert, completion: nil)
         }
     }
+    @IBAction func didTapSignUp() {
+            guard let SU = storyboard?.instantiateViewController(withIdentifier: "SignUpTableViewController") as? SignUpTableViewController else{return}
+            navigationController?.pushViewController(SU, animated: true)
+        }
 }
