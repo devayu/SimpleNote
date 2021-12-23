@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct SignUpReq {
+    
+    let fname: String
+    let lname: String
+    let email: String
+    let password: String
+    let repassword: String
+    
+}
+
