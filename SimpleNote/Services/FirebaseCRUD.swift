@@ -43,9 +43,9 @@ class FirebaseCRUD {
         }
     }
     func readNotesFromFirebase(paginateData: Bool, completion: @escaping ([NSDictionary], Error?) -> Void) {
-        let dbRef = Firestore.firestore().collection("users").document("\(currentUser)").collection("notes")
         if let currentUser = Auth.auth().currentUser?.uid {
-            let initialBatchOfData = documentPath.order(by: "noteDate", descending: true).limit(to: 5)
+            let dbRef = Firestore.firestore().collection("users").document("\(currentUser)").collection("notes")
+            let initialBatchOfData = dbRef.order(by: "noteDate", descending: true).limit(to: 5)
             var notes: [NSDictionary] = []
             initialBatchOfData.addSnapshotListener { snapshot, error in
                 guard error == nil else {
@@ -56,7 +56,7 @@ class FirebaseCRUD {
                     guard let lastSnapshot = snapshot?.documents.last else {
                         return
                     }
-                    let nextBatchOfData = documentPath.order(by: "noteDate", descending: true).start(afterDocument: lastSnapshot).addSnapshotListener { snapshot, error in
+                    let nextBatchOfData = dbRef.order(by: "noteDate", descending: true).start(afterDocument: lastSnapshot).addSnapshotListener { snapshot, error in
                         guard error == nil else {
                             print(error)
                             return
