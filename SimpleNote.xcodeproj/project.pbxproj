@@ -54,6 +54,7 @@
 		08E9C73B274CE27C00A7324C /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */; };
 		08E9C73F274CF8E300A7324C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C73E274CF8E300A7324C /* HomeViewModel.swift */; };
 		08E9C742274E295100A7324C /* HomeVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C741274E295100A7324C /* HomeVCExtension.swift */; };
+		36080F3E277510BC00D1B356 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36080F3D277510BC00D1B356 /* NetworkMonitor.swift */; };
 		36907E082774444400A1365D /* CellTypeClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E072774444400A1365D /* CellTypeClasses.swift */; };
 		36907E0A2774447900A1365D /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E092774447900A1365D /* SignUpResponse.swift */; };
 		36907E0C277444A100A1365D /* ValidationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E0B277444A100A1365D /* ValidationResults.swift */; };
@@ -61,10 +62,10 @@
 		36907E102774454E00A1365D /* SignUpTableVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E0F2774454E00A1365D /* SignUpTableVCExtension.swift */; };
 		36907E182774461400A1365D /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E162774461400A1365D /* ButtonTableViewCell.swift */; };
 		36907E1C2774465600A1365D /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E1A2774465600A1365D /* FieldTableViewCell.swift */; };
-		36907E202774476600A1365D /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36907E1E2774476600A1365D /* FieldTableViewCell.xib */; };
-		36907E212774476600A1365D /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36907E1F2774476600A1365D /* ButtonTableViewCell.xib */; };
 		36907E23277448B700A1365D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E22277448B700A1365D /* Protocols.swift */; };
 		36907E2627744AC700A1365D /* SignUpValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E2527744AC700A1365D /* SignUpValidation.swift */; };
+		36907E2D2774677700A1365D /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36907E2B2774677600A1365D /* FieldTableViewCell.xib */; };
+		36907E2E2774677700A1365D /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36907E2C2774677700A1365D /* ButtonTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		08E9C73E274CF8E300A7324C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		08E9C741274E295100A7324C /* HomeVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCExtension.swift; sourceTree = "<group>"; };
+		36080F3D277510BC00D1B356 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		36907E072774444400A1365D /* CellTypeClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTypeClasses.swift; sourceTree = "<group>"; };
 		36907E092774447900A1365D /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		36907E0B277444A100A1365D /* ValidationResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResults.swift; sourceTree = "<group>"; };
@@ -140,10 +142,10 @@
 		36907E0F2774454E00A1365D /* SignUpTableVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableVCExtension.swift; sourceTree = "<group>"; };
 		36907E162774461400A1365D /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		36907E1A2774465600A1365D /* FieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
-		36907E1E2774476600A1365D /* FieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FieldTableViewCell.xib; path = ../../../../../../1.1SimpleNotesSid/SimpleNote/Modules/Signup/View/Cells/FieldTableViewCell.xib; sourceTree = "<group>"; };
-		36907E1F2774476600A1365D /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ButtonTableViewCell.xib; path = ../../../../../../1.1SimpleNotesSid/SimpleNote/Modules/Signup/View/Cells/ButtonTableViewCell.xib; sourceTree = "<group>"; };
 		36907E22277448B700A1365D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		36907E2527744AC700A1365D /* SignUpValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidation.swift; sourceTree = "<group>"; };
+		36907E2B2774677600A1365D /* FieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FieldTableViewCell.xib; sourceTree = "<group>"; };
+		36907E2C2774677700A1365D /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 				0811E9B12742283F00CB6A18 /* Alerts.swift */,
 				0811E9D22743AD9300CB6A18 /* Constants.swift */,
 				36907E22277448B700A1365D /* Protocols.swift */,
+				36080F3D277510BC00D1B356 /* NetworkMonitor.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -527,9 +530,9 @@
 		36907E112774458400A1365D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				36907E2C2774677700A1365D /* ButtonTableViewCell.xib */,
+				36907E2B2774677600A1365D /* FieldTableViewCell.xib */,
 				36907E162774461400A1365D /* ButtonTableViewCell.swift */,
-				36907E1F2774476600A1365D /* ButtonTableViewCell.xib */,
-				36907E1E2774476600A1365D /* FieldTableViewCell.xib */,
 				36907E1A2774465600A1365D /* FieldTableViewCell.swift */,
 			);
 			path = Cells;
@@ -658,11 +661,11 @@
 			files = (
 				0811E9A72741733500CB6A18 /* .gitignore in Resources */,
 				085033A1273E4480006CBBB2 /* LaunchScreen.storyboard in Resources */,
-				36907E202774476600A1365D /* FieldTableViewCell.xib in Resources */,
 				08E9C73B274CE27C00A7324C /* CustomTableViewCell.xib in Resources */,
 				085033C5273E45A0006CBBB2 /* GoogleService-Info.plist in Resources */,
+				36907E2E2774677700A1365D /* ButtonTableViewCell.xib in Resources */,
 				0850339E273E4480006CBBB2 /* Assets.xcassets in Resources */,
-				36907E212774476600A1365D /* ButtonTableViewCell.xib in Resources */,
+				36907E2D2774677700A1365D /* FieldTableViewCell.xib in Resources */,
 				08503399273E4478006CBBB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -715,6 +718,7 @@
 				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
 				0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */,
 				08E9C73A274CE27C00A7324C /* CustomTableViewCell.swift in Sources */,
+				36080F3E277510BC00D1B356 /* NetworkMonitor.swift in Sources */,
 				08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */,
 				0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */,
 				08E9C73F274CF8E300A7324C /* HomeViewModel.swift in Sources */,

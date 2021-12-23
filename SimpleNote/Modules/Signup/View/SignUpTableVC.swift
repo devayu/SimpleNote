@@ -12,7 +12,6 @@ import Firebase
 class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
     
     func didRecieveUser(data: User?, error: Error?) {
-        print("this function called")
         if error != nil{
         let alert = Alerts.shared.showAlert(message: error!.localizedDescription, title: "")
         self.present(alert, animated: true)
@@ -25,9 +24,7 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
         }
     }
 
-    
     @IBOutlet weak var table: UITableView!
-    
     var data = ["Label":"","fname":"", "lname":"", "email":"", "pass":"", "repass":"", "Button":""]
     //var args: [String] = []
 //    let cellTypes: [String] = ["Label","fname", "lname", "email", "pass", "repass", "Button"]
@@ -86,10 +83,11 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
         if currentUser != nil{
             print(currentUser)
         }
+        
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        
         table.register(FieldTableViewCell.nib(), forCellReuseIdentifier: FieldTableViewCell.identifier)
         table.register(ButtonTableViewCell.nib(), forCellReuseIdentifier: ButtonTableViewCell.identifier)
         table.dataSource = self

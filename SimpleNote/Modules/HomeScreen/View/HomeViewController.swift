@@ -18,6 +18,13 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         let addNoteVC = (storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.addNoteVC) as? AddNoteViewController)!
         self.navigationController?.pushViewController(addNoteVC, animated: true)
     }
+    
+    @IBAction func didChangeSegment(_ sender: UISegmentedControl){
+        if sender.selectedSegmentIndex == 1{
+            print("Loading Drafts ")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initHomeVC()

@@ -20,14 +20,20 @@ class AddNoteViewModel {
     var imgUrl: URL?
     var fileUrl: URL?
     func addNote(addRequest: AddNoteModel) {
+        if NetworkMonitor.shared.isConnected{
         uploadFile(urls: [imgUrl, fileUrl], noteId: addRequest.noteId) { isError, errorMessage in
             if isError {
                 self.delegate?.didAddNote(success: false, error: errorMessage)
+                print("Unable to upload")
             } else {
                 FirebaseCRUD.shared.addNoteToFirebase(request: addRequest) { isDataAdded, error in
                     self.delegate?.didAddNote(success: isDataAdded, error: error?.localizedDescription)
                 }
             }
+        }
+        }
+        else {
+            print("Not connected ")
         }
 
     }
