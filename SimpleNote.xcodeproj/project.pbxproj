@@ -11,7 +11,20 @@
 		08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08010562273E540200BD432E /* FirebaseAuthentication.swift */; };
 		08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08010564273E541400BD432E /* FirebaseCRUD.swift */; };
 		08010568273E545D00BD432E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08010567273E545D00BD432E /* LoginViewModel.swift */; };
-		0801056B273E548100BD432E /* LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0801056A273E548100BD432E /* LoginValidation.swift */; };
+		080BE6F4274B9AC50068EC5E /* LoginVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080BE6F3274B9AC50068EC5E /* LoginVCExtension.swift */; };
+		080BE6FA274CC4B30068EC5E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080BE6F9274CC4B30068EC5E /* HomeViewController.swift */; };
+		0811E9A72741733500CB6A18 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0811E9A62741733500CB6A18 /* .gitignore */; };
+		0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */; };
+		0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */; };
+		0811E9B22742283F00CB6A18 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9B12742283F00CB6A18 /* Alerts.swift */; };
+		0811E9B527425A7900CB6A18 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9B427425A7800CB6A18 /* LoginResponse.swift */; };
+		0811E9BA27425BE100CB6A18 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9B927425BE100CB6A18 /* ValidationResult.swift */; };
+		0811E9C8274377C800CB6A18 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9C7274377C800CB6A18 /* Validation.swift */; };
+		0811E9CB2743788700CB6A18 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9CA2743788700CB6A18 /* CustomTextField.swift */; };
+		0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9CC274378C600CB6A18 /* SignupModel.swift */; };
+		0811E9CF274378D600CB6A18 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9CE274378D600CB6A18 /* SignupVC.swift */; };
+		0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9D0274378E800CB6A18 /* SignupViewModel.swift */; };
+		0811E9D32743AD9300CB6A18 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811E9D22743AD9300CB6A18 /* Constants.swift */; };
 		08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503391273E4478006CBBB2 /* AppDelegate.swift */; };
 		08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503393273E4478006CBBB2 /* SceneDelegate.swift */; };
 		08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08503395273E4478006CBBB2 /* LoginViewController.swift */; };
@@ -23,9 +36,37 @@
 		085033B6273E4480006CBBB2 /* SimpleNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085033B5273E4480006CBBB2 /* SimpleNoteUITests.swift */; };
 		085033B8273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */; };
 		085033C5273E45A0006CBBB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 085033C4273E459F006CBBB2 /* GoogleService-Info.plist */; };
-		085033C8273E4648006CBBB2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C7273E4648006CBBB2 /* FirebaseAuth */; };
-		085033CA273E4648006CBBB2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 085033C9273E4648006CBBB2 /* FirebaseFirestore */; };
-		085033CC273E4648006CBBB2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 085033CB273E4648006CBBB2 /* FirebaseStorage */; };
+		085CE4F027744443004FBA20 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4EF27744443004FBA20 /* FirebaseAnalytics */; };
+		085CE4F227744443004FBA20 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4F127744443004FBA20 /* FirebaseAuth */; };
+		085CE4F427744443004FBA20 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4F327744443004FBA20 /* FirebaseCrashlytics */; };
+		085CE4F627744443004FBA20 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4F527744443004FBA20 /* FirebaseFirestore */; };
+		085CE4F827744443004FBA20 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4F727744443004FBA20 /* FirebaseStorage */; };
+		08AF6CE12754B35C00AFFCF4 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */; };
+		08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */; };
+		08AF6CFB27560DCD00AFFCF4 /* AddNoteVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */; };
+		08AF6CFE2757464A00AFFCF4 /* HttpUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFD2757464900AFFCF4 /* HttpUtility.swift */; };
+		08AF6D0027574C3900AFFCF4 /* AddNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFF27574C3900AFFCF4 /* AddNoteModel.swift */; };
+		08AF6D0227574F4A00AFFCF4 /* NoteValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6D0127574F4A00AFFCF4 /* NoteValidationResult.swift */; };
+		08AF6D042757543700AFFCF4 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6D032757543700AFFCF4 /* CustomTextView.swift */; };
+		08C082BC274F735900E02F31 /* FloatingActionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082BB274F735900E02F31 /* FloatingActionUIButton.swift */; };
+		08C082BE274F7F3100E02F31 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082BD274F7F3100E02F31 /* LaunchScreenViewController.swift */; };
+		08C082C72750B0B900E02F31 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082C62750B0B900E02F31 /* NavigationHelper.swift */; };
+		08C082C92753C3DE00E02F31 /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082C82753C3DD00E02F31 /* NotesModel.swift */; };
+		08E9C73A274CE27C00A7324C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C738274CE27C00A7324C /* CustomTableViewCell.swift */; };
+		08E9C73B274CE27C00A7324C /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */; };
+		08E9C73F274CF8E300A7324C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C73E274CF8E300A7324C /* HomeViewModel.swift */; };
+		08E9C742274E295100A7324C /* HomeVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C741274E295100A7324C /* HomeVCExtension.swift */; };
+		08ED783E277466030012F7A4 /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08ED783C277466030012F7A4 /* FieldTableViewCell.xib */; };
+		08ED783F277466030012F7A4 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08ED783D277466030012F7A4 /* ButtonTableViewCell.xib */; };
+		36907E082774444400A1365D /* CellTypeClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E072774444400A1365D /* CellTypeClasses.swift */; };
+		36907E0A2774447900A1365D /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E092774447900A1365D /* SignUpResponse.swift */; };
+		36907E0C277444A100A1365D /* ValidationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E0B277444A100A1365D /* ValidationResults.swift */; };
+		36907E0E2774450800A1365D /* SignUpTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E0D2774450800A1365D /* SignUpTableVC.swift */; };
+		36907E102774454E00A1365D /* SignUpTableVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E0F2774454E00A1365D /* SignUpTableVCExtension.swift */; };
+		36907E182774461400A1365D /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E162774461400A1365D /* ButtonTableViewCell.swift */; };
+		36907E1C2774465600A1365D /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E1A2774465600A1365D /* FieldTableViewCell.swift */; };
+		36907E23277448B700A1365D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E22277448B700A1365D /* Protocols.swift */; };
+		36907E2627744AC700A1365D /* SignUpValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E2527744AC700A1365D /* SignUpValidation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +91,20 @@
 		08010562273E540200BD432E /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
 		08010564273E541400BD432E /* FirebaseCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCRUD.swift; sourceTree = "<group>"; };
 		08010567273E545D00BD432E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		0801056A273E548100BD432E /* LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidation.swift; sourceTree = "<group>"; };
+		080BE6F3274B9AC50068EC5E /* LoginVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCExtension.swift; sourceTree = "<group>"; };
+		080BE6F9274CC4B30068EC5E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0811E9A62741733500CB6A18 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIVCExtensions.swift; path = SimpleNote/Extensions/UIVCExtensions.swift; sourceTree = SOURCE_ROOT; };
+		0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UITextFieldExtensions.swift; path = SimpleNote/Extensions/UITextFieldExtensions.swift; sourceTree = SOURCE_ROOT; };
+		0811E9B12742283F00CB6A18 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		0811E9B427425A7800CB6A18 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		0811E9B927425BE100CB6A18 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
+		0811E9C7274377C800CB6A18 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		0811E9CA2743788700CB6A18 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		0811E9CC274378C600CB6A18 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
+		0811E9CE274378D600CB6A18 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		0811E9D0274378E800CB6A18 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		0811E9D22743AD9300CB6A18 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0850338E273E4477006CBBB2 /* SimpleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08503391273E4478006CBBB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08503393273E4478006CBBB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +120,32 @@
 		085033B5273E4480006CBBB2 /* SimpleNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITests.swift; sourceTree = "<group>"; };
 		085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		085033C4273E459F006CBBB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteVCExtension.swift; sourceTree = "<group>"; };
+		08AF6CFD2757464900AFFCF4 /* HttpUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpUtility.swift; sourceTree = "<group>"; };
+		08AF6CFF27574C3900AFFCF4 /* AddNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteModel.swift; sourceTree = "<group>"; };
+		08AF6D0127574F4A00AFFCF4 /* NoteValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteValidationResult.swift; sourceTree = "<group>"; };
+		08AF6D032757543700AFFCF4 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		08C082BB274F735900E02F31 /* FloatingActionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionUIButton.swift; sourceTree = "<group>"; };
+		08C082BD274F7F3100E02F31 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		08C082C62750B0B900E02F31 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
+		08C082C82753C3DD00E02F31 /* NotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesModel.swift; sourceTree = "<group>"; };
+		08E9C738274CE27C00A7324C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		08E9C73E274CF8E300A7324C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		08E9C741274E295100A7324C /* HomeVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCExtension.swift; sourceTree = "<group>"; };
+		08ED783C277466030012F7A4 /* FieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FieldTableViewCell.xib; sourceTree = "<group>"; };
+		08ED783D277466030012F7A4 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
+		36907E072774444400A1365D /* CellTypeClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTypeClasses.swift; sourceTree = "<group>"; };
+		36907E092774447900A1365D /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		36907E0B277444A100A1365D /* ValidationResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResults.swift; sourceTree = "<group>"; };
+		36907E0D2774450800A1365D /* SignUpTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableVC.swift; sourceTree = "<group>"; };
+		36907E0F2774454E00A1365D /* SignUpTableVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableVCExtension.swift; sourceTree = "<group>"; };
+		36907E162774461400A1365D /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		36907E1A2774465600A1365D /* FieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
+		36907E22277448B700A1365D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		36907E2527744AC700A1365D /* SignUpValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,9 +153,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				085033C8273E4648006CBBB2 /* FirebaseAuth in Frameworks */,
-				085033CA273E4648006CBBB2 /* FirebaseFirestore in Frameworks */,
-				085033CC273E4648006CBBB2 /* FirebaseStorage in Frameworks */,
+				085CE4F427744443004FBA20 /* FirebaseCrashlytics in Frameworks */,
+				085CE4F627744443004FBA20 /* FirebaseFirestore in Frameworks */,
+				085CE4F027744443004FBA20 /* FirebaseAnalytics in Frameworks */,
+				085CE4F827744443004FBA20 /* FirebaseStorage in Frameworks */,
+				085CE4F227744443004FBA20 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,29 +178,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0801055C273E539700BD432E /* LoginModel */ = {
-			isa = PBXGroup;
-			children = (
-				0801055E273E53C700BD432E /* LoginRequest.swift */,
-			);
-			path = LoginModel;
-			sourceTree = "<group>";
-		};
-		0801055D273E53A300BD432E /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		08010560273E53E000BD432E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				08010567273E545D00BD432E /* LoginViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		08010561273E53ED00BD432E /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,21 +185,6 @@
 				08010564273E541400BD432E /* FirebaseCRUD.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		08010566273E544800BD432E /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		08010569273E547500BD432E /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-				0801056A273E548100BD432E /* LoginValidation.swift */,
-			);
-			path = Validation;
 			sourceTree = "<group>";
 		};
 		0801056C273E548E00BD432E /* CoreData */ = {
@@ -151,14 +195,205 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		080BE6F5274CC4500068EC5E /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				08E9C740274E294000A7324C /* Extensions */,
+				080BE6F8274CC4700068EC5E /* ViewModel */,
+				080BE6F7274CC46A0068EC5E /* View */,
+				080BE6F6274CC4650068EC5E /* Model */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		080BE6F6274CC4650068EC5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				08C082C82753C3DD00E02F31 /* NotesModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		080BE6F7274CC46A0068EC5E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08E9C737274CE24C00A7324C /* CustomCells */,
+				080BE6F9274CC4B30068EC5E /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		080BE6F8274CC4700068EC5E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				08E9C73E274CF8E300A7324C /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0811E9A32741728600CB6A18 /* Git */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9A62741733500CB6A18 /* .gitignore */,
+			);
+			path = Git;
+			sourceTree = "<group>";
+		};
+		0811E9B02742282E00CB6A18 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				08C082C52750B0AB00E02F31 /* Helpers */,
+				08C082BF274F915A00E02F31 /* ViewModel */,
+				0811E9C92743784200CB6A18 /* View */,
+				0811E9B12742283F00CB6A18 /* Alerts.swift */,
+				0811E9D22743AD9300CB6A18 /* Constants.swift */,
+				36907E22277448B700A1365D /* Protocols.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0811E9B327424D2700CB6A18 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */,
+				0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */,
+				080BE6F3274B9AC50068EC5E /* LoginVCExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0811E9BB274375DC00CB6A18 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CDC2754B31D00AFFCF4 /* AddNote */,
+				080BE6F5274CC4500068EC5E /* HomeScreen */,
+				0811E9C02743761C00CB6A18 /* Signup */,
+				0811E9BC274375E700CB6A18 /* Login */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		0811E9BC274375E700CB6A18 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9BD274375ED00CB6A18 /* Model */,
+				0811E9BE274375F200CB6A18 /* View */,
+				0811E9BF274375F700CB6A18 /* ViewModel */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0811E9BD274375ED00CB6A18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9B927425BE100CB6A18 /* ValidationResult.swift */,
+				0801055E273E53C700BD432E /* LoginRequest.swift */,
+				0811E9B427425A7800CB6A18 /* LoginResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0811E9BE274375F200CB6A18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08503395273E4478006CBBB2 /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0811E9BF274375F700CB6A18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				08010567273E545D00BD432E /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0811E9C02743761C00CB6A18 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				36907E2427744AAC00A1365D /* Validation */,
+				0811E9C12743762700CB6A18 /* Model */,
+				0811E9C22743762B00CB6A18 /* View */,
+				0811E9C32743762F00CB6A18 /* ViewModel */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		0811E9C12743762700CB6A18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9CC274378C600CB6A18 /* SignupModel.swift */,
+				36907E072774444400A1365D /* CellTypeClasses.swift */,
+				36907E092774447900A1365D /* SignUpResponse.swift */,
+				36907E0B277444A100A1365D /* ValidationResults.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0811E9C22743762B00CB6A18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36907E112774458400A1365D /* Cells */,
+				0811E9CE274378D600CB6A18 /* SignupVC.swift */,
+				36907E0D2774450800A1365D /* SignUpTableVC.swift */,
+				36907E0F2774454E00A1365D /* SignUpTableVCExtension.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0811E9C32743762F00CB6A18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9D0274378E800CB6A18 /* SignupViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0811E9C42743777800CB6A18 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CFC2757463900AFFCF4 /* Http */,
+				0811E9C5274377A600CB6A18 /* Validation */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0811E9C5274377A600CB6A18 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9C7274377C800CB6A18 /* Validation.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		0811E9C92743784200CB6A18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9D8274624F200CB6A18 /* CustomComponents */,
+				08C082BD274F7F3100E02F31 /* LaunchScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0811E9D8274624F200CB6A18 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				0811E9CA2743788700CB6A18 /* CustomTextField.swift */,
+				08C082BB274F735900E02F31 /* FloatingActionUIButton.swift */,
+				08AF6D032757543700AFFCF4 /* CustomTextView.swift */,
+			);
+			path = CustomComponents;
+			sourceTree = "<group>";
+		};
 		08503385273E4477006CBBB2 = {
 			isa = PBXGroup;
 			children = (
+				0811E9A32741728600CB6A18 /* Git */,
 				08503390273E4478006CBBB2 /* SimpleNote */,
 				085033AA273E4480006CBBB2 /* SimpleNoteTests */,
 				085033B4273E4480006CBBB2 /* SimpleNoteUITests */,
 				0850338F273E4477006CBBB2 /* Products */,
-				BCBB1C5E63D0EDBC8E1F5268 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,17 +410,16 @@
 		08503390273E4478006CBBB2 /* SimpleNote */ = {
 			isa = PBXGroup;
 			children = (
-				085033CD273E4877006CBBB2 /* Model */,
-				085033CE273E487D006CBBB2 /* View */,
-				08503395273E4478006CBBB2 /* LoginViewController.swift */,
-				08010560273E53E000BD432E /* ViewModel */,
+				0811E9BB274375DC00CB6A18 /* Modules */,
+				0811E9B327424D2700CB6A18 /* Extensions */,
+				0811E9B02742282E00CB6A18 /* Common */,
 				0801056C273E548E00BD432E /* CoreData */,
-				08010569273E547500BD432E /* Validation */,
-				08010566273E544800BD432E /* Extensions */,
 				08010561273E53ED00BD432E /* Services */,
+				0811E9C42743777800CB6A18 /* Utilities */,
 				08503391273E4478006CBBB2 /* AppDelegate.swift */,
 				08503393273E4478006CBBB2 /* SceneDelegate.swift */,
 				0850339D273E4480006CBBB2 /* Assets.xcassets */,
+				08503397273E4478006CBBB2 /* Main.storyboard */,
 				0850339F273E4480006CBBB2 /* LaunchScreen.storyboard */,
 				085033A2273E4480006CBBB2 /* Info.plist */,
 				085033C4273E459F006CBBB2 /* GoogleService-Info.plist */,
@@ -210,28 +444,107 @@
 			path = SimpleNoteUITests;
 			sourceTree = "<group>";
 		};
-		085033CD273E4877006CBBB2 /* Model */ = {
+		08AF6CDC2754B31D00AFFCF4 /* AddNote */ = {
 			isa = PBXGroup;
 			children = (
-				0801055C273E539700BD432E /* LoginModel */,
+				08AF6CF927560DB700AFFCF4 /* Extensions */,
+				08AF6CDF2754B33D00AFFCF4 /* Model */,
+				08AF6CDE2754B33000AFFCF4 /* ViewModel */,
+				08AF6CDD2754B32A00AFFCF4 /* View */,
 			);
-			path = Model;
+			path = AddNote;
 			sourceTree = "<group>";
 		};
-		085033CE273E487D006CBBB2 /* View */ = {
+		08AF6CDD2754B32A00AFFCF4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				08503397273E4478006CBBB2 /* Main.storyboard */,
-				0801055D273E53A300BD432E /* Cells */,
+				08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		BCBB1C5E63D0EDBC8E1F5268 /* Pods */ = {
+		08AF6CDE2754B33000AFFCF4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		08AF6CDF2754B33D00AFFCF4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CFF27574C3900AFFCF4 /* AddNoteModel.swift */,
+				08AF6D0127574F4A00AFFCF4 /* NoteValidationResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		08AF6CF927560DB700AFFCF4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		08AF6CFC2757463900AFFCF4 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				08AF6CFD2757464900AFFCF4 /* HttpUtility.swift */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		08C082BF274F915A00E02F31 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Pods;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		08C082C52750B0AB00E02F31 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				08C082C62750B0B900E02F31 /* NavigationHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		08E9C737274CE24C00A7324C /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				08E9C738274CE27C00A7324C /* CustomTableViewCell.swift */,
+				08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		08E9C740274E294000A7324C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08E9C741274E295100A7324C /* HomeVCExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		36907E112774458400A1365D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				08ED783D277466030012F7A4 /* ButtonTableViewCell.xib */,
+				08ED783C277466030012F7A4 /* FieldTableViewCell.xib */,
+				36907E162774461400A1365D /* ButtonTableViewCell.swift */,
+				36907E1A2774465600A1365D /* FieldTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		36907E2427744AAC00A1365D /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				36907E2527744AC700A1365D /* SignUpValidation.swift */,
+			);
+			path = Validation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +557,7 @@
 				0850338A273E4477006CBBB2 /* Sources */,
 				0850338B273E4477006CBBB2 /* Frameworks */,
 				0850338C273E4477006CBBB2 /* Resources */,
+				0811E9D9274639F800CB6A18 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -251,9 +565,11 @@
 			);
 			name = SimpleNote;
 			packageProductDependencies = (
-				085033C7273E4648006CBBB2 /* FirebaseAuth */,
-				085033C9273E4648006CBBB2 /* FirebaseFirestore */,
-				085033CB273E4648006CBBB2 /* FirebaseStorage */,
+				085CE4EF27744443004FBA20 /* FirebaseAnalytics */,
+				085CE4F127744443004FBA20 /* FirebaseAuth */,
+				085CE4F327744443004FBA20 /* FirebaseCrashlytics */,
+				085CE4F527744443004FBA20 /* FirebaseFirestore */,
+				085CE4F727744443004FBA20 /* FirebaseStorage */,
 			);
 			productName = SimpleNote;
 			productReference = 0850338E273E4477006CBBB2 /* SimpleNote.app */;
@@ -328,7 +644,7 @@
 			);
 			mainGroup = 08503385273E4477006CBBB2;
 			packageReferences = (
-				085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */,
+				085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0850338F273E4477006CBBB2 /* Products */;
 			projectDirPath = "";
@@ -346,9 +662,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0811E9A72741733500CB6A18 /* .gitignore in Resources */,
 				085033A1273E4480006CBBB2 /* LaunchScreen.storyboard in Resources */,
+				08ED783E277466030012F7A4 /* FieldTableViewCell.xib in Resources */,
+				08E9C73B274CE27C00A7324C /* CustomTableViewCell.xib in Resources */,
 				085033C5273E45A0006CBBB2 /* GoogleService-Info.plist in Resources */,
 				0850339E273E4480006CBBB2 /* Assets.xcassets in Resources */,
+				08ED783F277466030012F7A4 /* ButtonTableViewCell.xib in Resources */,
 				08503399273E4478006CBBB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,20 +689,75 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0811E9D9274639F800CB6A18 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0850338A273E4477006CBBB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08AF6CFE2757464A00AFFCF4 /* HttpUtility.swift in Sources */,
+				08AF6D0227574F4A00AFFCF4 /* NoteValidationResult.swift in Sources */,
+				36907E0E2774450800A1365D /* SignUpTableVC.swift in Sources */,
+				08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */,
 				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
+				0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */,
+				08E9C73A274CE27C00A7324C /* CustomTableViewCell.swift in Sources */,
 				08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */,
+				0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */,
+				08E9C73F274CF8E300A7324C /* HomeViewModel.swift in Sources */,
+				08AF6D0027574C3900AFFCF4 /* AddNoteModel.swift in Sources */,
+				36907E0A2774447900A1365D /* SignUpResponse.swift in Sources */,
+				0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */,
+				08AF6D042757543700AFFCF4 /* CustomTextView.swift in Sources */,
+				0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */,
+				0811E9CB2743788700CB6A18 /* CustomTextField.swift in Sources */,
+				36907E182774461400A1365D /* ButtonTableViewCell.swift in Sources */,
 				08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */,
 				08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */,
-				0801056B273E548100BD432E /* LoginValidation.swift in Sources */,
+				0811E9B527425A7900CB6A18 /* LoginResponse.swift in Sources */,
+				0811E9BA27425BE100CB6A18 /* ValidationResult.swift in Sources */,
 				08010568273E545D00BD432E /* LoginViewModel.swift in Sources */,
+				08C082BE274F7F3100E02F31 /* LaunchScreenViewController.swift in Sources */,
+				36907E082774444400A1365D /* CellTypeClasses.swift in Sources */,
+				080BE6F4274B9AC50068EC5E /* LoginVCExtension.swift in Sources */,
+				0811E9CF274378D600CB6A18 /* SignupVC.swift in Sources */,
+				08AF6CE12754B35C00AFFCF4 /* AddNoteViewController.swift in Sources */,
+				08C082BC274F735900E02F31 /* FloatingActionUIButton.swift in Sources */,
 				08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */,
+				0811E9D32743AD9300CB6A18 /* Constants.swift in Sources */,
 				0801055F273E53C700BD432E /* LoginRequest.swift in Sources */,
+				36907E23277448B700A1365D /* Protocols.swift in Sources */,
+				36907E0C277444A100A1365D /* ValidationResults.swift in Sources */,
+				08C082C92753C3DE00E02F31 /* NotesModel.swift in Sources */,
+				36907E2627744AC700A1365D /* SignUpValidation.swift in Sources */,
+				0811E9B22742283F00CB6A18 /* Alerts.swift in Sources */,
+				08AF6CFB27560DCD00AFFCF4 /* AddNoteVCExtension.swift in Sources */,
+				0811E9C8274377C800CB6A18 /* Validation.swift in Sources */,
+				36907E102774454E00A1365D /* SignUpTableVCExtension.swift in Sources */,
 				0850339C273E4478006CBBB2 /* SimpleNote.xcdatamodeld in Sources */,
+				36907E1C2774465600A1365D /* FieldTableViewCell.swift in Sources */,
+				080BE6FA274CC4B30068EC5E /* HomeViewController.swift in Sources */,
+				08C082C72750B0B900E02F31 /* NavigationHelper.swift in Sources */,
+				08E9C742274E295100A7324C /* HomeVCExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +941,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -593,6 +969,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -710,7 +1087,7 @@
 				085033BA273E4481006CBBB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		085033BB273E4481006CBBB2 /* Build configuration list for PBXNativeTarget "SimpleNote" */ = {
 			isa = XCConfigurationList;
@@ -719,7 +1096,7 @@
 				085033BD273E4481006CBBB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		085033BE273E4481006CBBB2 /* Build configuration list for PBXNativeTarget "SimpleNoteTests" */ = {
 			isa = XCConfigurationList;
@@ -728,7 +1105,7 @@
 				085033C0273E4481006CBBB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		085033C1273E4481006CBBB2 /* Build configuration list for PBXNativeTarget "SimpleNoteUITests" */ = {
 			isa = XCConfigurationList;
@@ -737,12 +1114,12 @@
 				085033C3273E4481006CBBB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {
+		085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -753,19 +1130,29 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		085033C7273E4648006CBBB2 /* FirebaseAuth */ = {
+		085CE4EF27744443004FBA20 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		085CE4F127744443004FBA20 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		085033C9273E4648006CBBB2 /* FirebaseFirestore */ = {
+		085CE4F327744443004FBA20 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		085CE4F527744443004FBA20 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		085033CB273E4648006CBBB2 /* FirebaseStorage */ = {
+		085CE4F727744443004FBA20 /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 085033C6273E4648006CBBB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
