@@ -12,16 +12,25 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return 200
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataPoints.count
+        return noteList.count
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (tableView.contentSize.height - 200 - scrollView.frame.size.height) {
+            guard !homeVM.isDataPaginating else {
+                return
+            }
+            homeVM.getData(typeOfList: .notes, paginateData: true)
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
-        cell.titleTxt.text = dataPoints[indexPath.row]["noteTitle"] as? String
-        cell.authorTxt.text = dataPoints[indexPath.row]["noteAuthor"] as? String
-        let noteDate = dataPoints[indexPath.row]["noteDate"] as? Date
+        cell.titleTxt.text = noteList[indexPath.row]["noteTitle"] as? String
+        cell.authorTxt.text = noteList[indexPath.row]["noteAuthor"] as? String
+        let noteDate = noteList[indexPath.row]["noteDate"] as? Date
         cell.dateTxt.text = noteDate?.formatted(date: .abbreviated, time: .shortened)
-        cell.importanceTxt.text = dataPoints[indexPath.row]["noteImportance"] as? String
-        cell.descTxt.text = (dataPoints[indexPath.row]["noteDesc"] as! String)
+        cell.importanceTxt.text = noteList[indexPath.row]["noteImportance"] as? String
+        cell.descTxt.text = (noteList[indexPath.row]["noteDesc"] as! String)
         return cell
     }
 }
