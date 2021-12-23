@@ -56,6 +56,17 @@
 		08E9C73B274CE27C00A7324C /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */; };
 		08E9C73F274CF8E300A7324C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C73E274CF8E300A7324C /* HomeViewModel.swift */; };
 		08E9C742274E295100A7324C /* HomeVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C741274E295100A7324C /* HomeVCExtension.swift */; };
+		36907E082774444400A1365D /* CellTypeClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E072774444400A1365D /* CellTypeClasses.swift */; };
+		36907E0A2774447900A1365D /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E092774447900A1365D /* SignUpResponse.swift */; };
+		36907E0C277444A100A1365D /* ValidationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E0B277444A100A1365D /* ValidationResults.swift */; };
+		36907E0E2774450800A1365D /* SignUpTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E0D2774450800A1365D /* SignUpTableVC.swift */; };
+		36907E102774454E00A1365D /* SignUpTableVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E0F2774454E00A1365D /* SignUpTableVCExtension.swift */; };
+		36907E182774461400A1365D /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E162774461400A1365D /* ButtonTableViewCell.swift */; };
+		36907E1C2774465600A1365D /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E1A2774465600A1365D /* FieldTableViewCell.swift */; };
+		36907E202774476600A1365D /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36907E1E2774476600A1365D /* FieldTableViewCell.xib */; };
+		36907E212774476600A1365D /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36907E1F2774476600A1365D /* ButtonTableViewCell.xib */; };
+		36907E23277448B700A1365D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E22277448B700A1365D /* Protocols.swift */; };
+		36907E2627744AC700A1365D /* SignUpValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E2527744AC700A1365D /* SignUpValidation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +135,17 @@
 		08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		08E9C73E274CF8E300A7324C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		08E9C741274E295100A7324C /* HomeVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCExtension.swift; sourceTree = "<group>"; };
+		36907E072774444400A1365D /* CellTypeClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTypeClasses.swift; sourceTree = "<group>"; };
+		36907E092774447900A1365D /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		36907E0B277444A100A1365D /* ValidationResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResults.swift; sourceTree = "<group>"; };
+		36907E0D2774450800A1365D /* SignUpTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableVC.swift; sourceTree = "<group>"; };
+		36907E0F2774454E00A1365D /* SignUpTableVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableVCExtension.swift; sourceTree = "<group>"; };
+		36907E162774461400A1365D /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		36907E1A2774465600A1365D /* FieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
+		36907E1E2774476600A1365D /* FieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FieldTableViewCell.xib; path = ../../../../../../1.1SimpleNotesSid/SimpleNote/Modules/Signup/View/Cells/FieldTableViewCell.xib; sourceTree = "<group>"; };
+		36907E1F2774476600A1365D /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ButtonTableViewCell.xib; path = ../../../../../../1.1SimpleNotesSid/SimpleNote/Modules/Signup/View/Cells/ButtonTableViewCell.xib; sourceTree = "<group>"; };
+		36907E22277448B700A1365D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		36907E2527744AC700A1365D /* SignUpValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +247,7 @@
 				0811E9C92743784200CB6A18 /* View */,
 				0811E9B12742283F00CB6A18 /* Alerts.swift */,
 				0811E9D22743AD9300CB6A18 /* Constants.swift */,
+				36907E22277448B700A1365D /* Protocols.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -289,6 +312,7 @@
 		0811E9C02743761C00CB6A18 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
+				36907E2427744AAC00A1365D /* Validation */,
 				0811E9C12743762700CB6A18 /* Model */,
 				0811E9C22743762B00CB6A18 /* View */,
 				0811E9C32743762F00CB6A18 /* ViewModel */,
@@ -300,6 +324,9 @@
 			isa = PBXGroup;
 			children = (
 				0811E9CC274378C600CB6A18 /* SignupModel.swift */,
+				36907E072774444400A1365D /* CellTypeClasses.swift */,
+				36907E092774447900A1365D /* SignUpResponse.swift */,
+				36907E0B277444A100A1365D /* ValidationResults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,7 +334,10 @@
 		0811E9C22743762B00CB6A18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				36907E112774458400A1365D /* Cells */,
 				0811E9CE274378D600CB6A18 /* SignupVC.swift */,
+				36907E0D2774450800A1365D /* SignUpTableVC.swift */,
+				36907E0F2774454E00A1365D /* SignUpTableVCExtension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -498,6 +528,25 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		36907E112774458400A1365D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				36907E162774461400A1365D /* ButtonTableViewCell.swift */,
+				36907E1F2774476600A1365D /* ButtonTableViewCell.xib */,
+				36907E1E2774476600A1365D /* FieldTableViewCell.xib */,
+				36907E1A2774465600A1365D /* FieldTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		36907E2427744AAC00A1365D /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				36907E2527744AC700A1365D /* SignUpValidation.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -615,9 +664,11 @@
 			files = (
 				0811E9A72741733500CB6A18 /* .gitignore in Resources */,
 				085033A1273E4480006CBBB2 /* LaunchScreen.storyboard in Resources */,
+				36907E202774476600A1365D /* FieldTableViewCell.xib in Resources */,
 				08E9C73B274CE27C00A7324C /* CustomTableViewCell.xib in Resources */,
 				085033C5273E45A0006CBBB2 /* GoogleService-Info.plist in Resources */,
 				0850339E273E4480006CBBB2 /* Assets.xcassets in Resources */,
+				36907E212774476600A1365D /* ButtonTableViewCell.xib in Resources */,
 				08503399273E4478006CBBB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -665,6 +716,7 @@
 			files = (
 				08AF6CFE2757464A00AFFCF4 /* HttpUtility.swift in Sources */,
 				08AF6D0227574F4A00AFFCF4 /* NoteValidationResult.swift in Sources */,
+				36907E0E2774450800A1365D /* SignUpTableVC.swift in Sources */,
 				08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */,
 				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
 				0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */,
@@ -673,16 +725,19 @@
 				0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */,
 				08E9C73F274CF8E300A7324C /* HomeViewModel.swift in Sources */,
 				08AF6D0027574C3900AFFCF4 /* AddNoteModel.swift in Sources */,
+				36907E0A2774447900A1365D /* SignUpResponse.swift in Sources */,
 				0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */,
 				08AF6D042757543700AFFCF4 /* CustomTextView.swift in Sources */,
 				0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */,
 				0811E9CB2743788700CB6A18 /* CustomTextField.swift in Sources */,
+				36907E182774461400A1365D /* ButtonTableViewCell.swift in Sources */,
 				08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */,
 				08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */,
 				0811E9B527425A7900CB6A18 /* LoginResponse.swift in Sources */,
 				0811E9BA27425BE100CB6A18 /* ValidationResult.swift in Sources */,
 				08010568273E545D00BD432E /* LoginViewModel.swift in Sources */,
 				08C082BE274F7F3100E02F31 /* LaunchScreenViewController.swift in Sources */,
+				36907E082774444400A1365D /* CellTypeClasses.swift in Sources */,
 				080BE6F4274B9AC50068EC5E /* LoginVCExtension.swift in Sources */,
 				0811E9CF274378D600CB6A18 /* SignupVC.swift in Sources */,
 				08AF6CE12754B35C00AFFCF4 /* AddNoteViewController.swift in Sources */,
@@ -690,11 +745,16 @@
 				08503394273E4478006CBBB2 /* SceneDelegate.swift in Sources */,
 				0811E9D32743AD9300CB6A18 /* Constants.swift in Sources */,
 				0801055F273E53C700BD432E /* LoginRequest.swift in Sources */,
+				36907E23277448B700A1365D /* Protocols.swift in Sources */,
+				36907E0C277444A100A1365D /* ValidationResults.swift in Sources */,
 				08C082C92753C3DE00E02F31 /* NotesModel.swift in Sources */,
+				36907E2627744AC700A1365D /* SignUpValidation.swift in Sources */,
 				0811E9B22742283F00CB6A18 /* Alerts.swift in Sources */,
 				08AF6CFB27560DCD00AFFCF4 /* AddNoteVCExtension.swift in Sources */,
 				0811E9C8274377C800CB6A18 /* Validation.swift in Sources */,
+				36907E102774454E00A1365D /* SignUpTableVCExtension.swift in Sources */,
 				0850339C273E4478006CBBB2 /* SimpleNote.xcdatamodeld in Sources */,
+				36907E1C2774465600A1365D /* FieldTableViewCell.swift in Sources */,
 				080BE6FA274CC4B30068EC5E /* HomeViewController.swift in Sources */,
 				08C082C72750B0B900E02F31 /* NavigationHelper.swift in Sources */,
 				08E9C742274E295100A7324C /* HomeVCExtension.swift in Sources */,
