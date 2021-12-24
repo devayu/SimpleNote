@@ -9,9 +9,7 @@ import UIKit
 import Firebase
 class HomeViewController: UIViewController, HomeViewModelDelegate {
     var noteList: [NSDictionary] = []
-    lazy var homeVM: HomeViewModel = {
-        return HomeViewModel()
-    }()
+    private var homeVM = HomeViewModel()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addNoteBtn: FloatingActionUIButton!
     @IBOutlet weak var segmentedController: UISegmentedControl!
@@ -23,12 +21,18 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         super.viewDidLoad()
         initHomeVC()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        FirebaseCRUD.shared.reachedEndOfDocument = false
+        noteList.removeAll()
+        setupTable()
+    }
     private func initHomeVC() {
         addNoteBtn.createFloatingActionButton(color: .systemBlue, imageToSet: nil)
         tableView.delegate = self
         tableView.dataSource = self
         homeVM.delegate = self
-        setupTable()
+        FirebaseCRUD.shared.getAllDocumentsSnapshot()
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
         segementedControllerHandler()
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -40,17 +44,18 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         homeVM.signOutUser()
     }
     private func setupTable() {
-        homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, paginateData: false)
+        homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, fetchMoreData: false)
     }
     private func segementedControllerHandler() {
         segmentedController.addTarget(self, action: #selector(changeTableDataSource), for: .valueChanged)
     }
     @objc func changeTableDataSource() {
-        homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, paginateData: false)
+        noteList.removeAll()
+        homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, fetchMoreData: false)
     }
     func didRecieveData(data: [NSDictionary], error: Error?) {
         if error == nil {
-            noteList = data
+            noteList.append(contentsOf: data)
             tableView.reloadData()
         } else {
             let alert = Alerts.shared.showAlert(message: error?.localizedDescription ?? "error placeholder", title: "")
@@ -65,6 +70,16 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
             let alert = Alerts.shared.showAlert(message: error?.localizedDescription ?? "", title: "")
             self.present(alert, animated: true)
             Alerts.shared.dismissAlert(alert: alert, completion: nil)
+        }
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (tableView.contentSize.height - 200 - scrollView.frame.size.height) {
+            guard !FirebaseCRUD.shared.isDataPaginating && !FirebaseCRUD.shared.reachedEndOfDocument else {
+                return
+            }
+            print("paginating")
+            homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex) ?? .notes, fetchMoreData: true)
         }
     }
 }
