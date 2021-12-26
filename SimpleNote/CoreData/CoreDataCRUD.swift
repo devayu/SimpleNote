@@ -21,4 +21,10 @@ class NotesRepository {
         print("Saving data in CD")
         PersistentStorage.shared.saveContext()
     }
+    
+    func getAll() {
+        
+        let result = PersistentStorage.shared.fetchManagedObject(managedObject: Notes.self)
+        result?.forEach({debugPrint($0.noteTitle)})
+    }
 }

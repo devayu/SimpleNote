@@ -23,7 +23,6 @@ class AddNoteViewModel {
     var imgUrl: URL?
     var fileUrl: URL?
     func addNote(addRequest: AddNoteModel) {
-        if NetworkMonitor.shared.isConnected{
         uploadFile(urls: [imgUrl, fileUrl], noteId: addRequest.noteId) { isError, errorMessage in
             if isError {
                 self.delegate?.didAddNote(success: false, error: errorMessage)
@@ -33,14 +32,6 @@ class AddNoteViewModel {
                     self.delegate?.didAddNote(success: isDataAdded, error: error?.localizedDescription)
                 }
             }
-        }
-        }
-        else {
-            print("Not connected ")
-            cdNotesRepository.create(request: addRequest)
-            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            print(urls[urls.count-1] as URL)
-            self.delegate?.didAddNote(success: false, error: "Unable to connect to the internet, adding notes to Drafts.")
         }
 
     }

@@ -19,6 +19,7 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
         return AddNoteViewModel()
     }()
     override func viewDidLoad() {
+        cdNotesRepository.getAll()
         super.viewDidLoad()
         initAddNoteVC()
     }
@@ -58,7 +59,27 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
                 break
             }
         } else {
+            if NetworkMonitor.shared.isConnected {
             addNoteVM.addNote(addRequest: request)
+                }
+            else {
+                let alert = Alerts.shared.showAlert(message: "", title: "No internet detected. Do you want to save to drafts?")
+                let deleteAction = UIAlertAction(title: "Delete Note", style: .destructive) { _ in
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                let addToDraftAction = UIAlertAction(title: "Save as Draft", style: .default) { _ in
+                    print("add to draft")
+                    cdNotesRepository.create(request: request)
+//                    self.didAddNote(success: false, error: "Added note to Drafts ")
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                let continueAction = UIAlertAction(title: "Continue writing", style: .default, handler: nil)
+                alert.addAction(deleteAction)
+                alert.addAction(addToDraftAction)
+                alert.addAction(continueAction)
+                self.present(alert, animated: true, completion: nil)
+                
+            }
         }
     }
     @IBAction func cancelBtnTapped(_ sender: Any) {
