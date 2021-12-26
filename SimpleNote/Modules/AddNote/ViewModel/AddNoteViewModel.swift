@@ -12,6 +12,9 @@ enum Importance: String {
     case medium = "Medium"
     case high = "High"
 }
+
+let cdNotesRepository = NotesRepository()
+
 protocol AddNoteViewModelDelegate: AnyObject {
     func didAddNote(success: Bool, error: String?)
 }
@@ -34,6 +37,10 @@ class AddNoteViewModel {
         }
         else {
             print("Not connected ")
+            cdNotesRepository.create(request: addRequest)
+            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            print(urls[urls.count-1] as URL)
+            self.delegate?.didAddNote(success: false, error: "Unable to connect to the internet, adding notes to Drafts.")
         }
 
     }
