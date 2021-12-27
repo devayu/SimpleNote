@@ -16,22 +16,22 @@ class FirebaseCRUD {
     var reachedEndOfDocument: Bool = false
     var didAddNewNote: Bool = false
     func newUser(uid: String, fname: String, lname: String, completion: @escaping (SignUpResponse)->Void) {
+        
+        let db = Firestore.firestore()
+        
+        if let currentUser = Auth.auth().currentUser?.uid {
             
-            let db = Firestore.firestore()
-            
-            if let currentUser = Auth.auth().currentUser?.uid {
+            db.collection("users").document("\(currentUser)").setData(["firstName": fname, "lastName": lname, "notes":[]], merge: true) { error in
                 
-                db.collection("users").document("\(currentUser)").setData(["firstName": fname, "lastName": lname, "notes":[]], merge: true) { error in
-                    
-                    if error != nil {
-                        print("User created but data couldn't be added")
-                        completion(SignUpResponse(isUserCreated: false, error: error))
-                        return
-                    } else{
-                        completion(SignUpResponse(isUserCreated: true, error: nil))
-                    }
+                if error != nil {
+                    print("User created but data couldn't be added")
+                    completion(SignUpResponse(isUserCreated: false, error: error))
+                    return
+                } else{
+                    completion(SignUpResponse(isUserCreated: true, error: nil))
                 }
             }
+        }
     }
     func addNoteToFirebase(request: AddNoteModel, completion: @escaping (Bool, Error?) -> Void) {
         let dbRef = Firestore.firestore()
@@ -47,7 +47,7 @@ class FirebaseCRUD {
             }
         }
     }
-    func readNotesFromFirebase(fetchMoreData: Bool, completion: @escaping ([NSDictionary], Error?) -> Void) {
+    func readNotesFromFirebase(fetchMoreData: Bool, completion: @escaping ([SingleNote], Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser?.uid else {return}
         let dbRef = Firestore.firestore().collection("users").document("\(currentUser)").collection("notes")
         query = dbRef.order(by: "noteDate", descending: true).limit(to: 5)
@@ -59,14 +59,19 @@ class FirebaseCRUD {
             query = query.start(afterDocument: lastDocumentSnapshot)
             self.isDataPaginating = true
         }
-        var notes: [NSDictionary] = []
+        var notes: [SingleNote] = []
         query.getDocuments { snapshot, error in
             guard error == nil else {
                 completion([], error)
                 return
             }
             snapshot?.documents.forEach({ document in
-                notes.append(document.data() as NSDictionary)
+                let data = document.data()
+                data.forEach { (key: String, value: Any) in
+                    
+                }
+                let note = SingleNote(noteId: (data[NoteFields.id.rawValue] ?? "noteID placeholder") as! String, noteAuthor: (data[NoteFields.author.rawValue] ?? "noteAuthor placeholder") as! String, noteTitle: (data[NoteFields.title.rawValue] ?? "noteTitle placeholder") as! String, noteDate: (data[NoteFields.date.rawValue] ?? Timestamp(date: Date(timeIntervalSince1970: 1640597786))) as! Timestamp, noteDescription: (data[NoteFields.description.rawValue] ?? "noteDesc placeholder") as! String, noteImportance: (data[NoteFields.importance.rawValue] ?? "noteImp placeholder") as! String)
+                notes.append(note)
             })
             self.lastDocumentSnapshot = snapshot!.documents.last
             self.isDataPaginating = false

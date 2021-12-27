@@ -6,20 +6,20 @@
 //
 
 import Foundation
-
-struct FirebaseUser: Codable {
-    let uid: String
-    let fName: String
-    let lName: String?
-    let email: String
-    let notes: [SingleNote]
-}
-
-struct SingleNote: Codable {
+import Firebase
+struct SingleNote {
     let noteId: String
     let noteAuthor: String
     let noteTitle: String
-    let noteDate: Date
+    let noteDate: Timestamp
     let noteDescription: String
-    let noteFiles: [String]
+    let noteImportance: String
+}
+enum NoteFields: String {
+    case id = "noteId"
+    case importance = "noteImportance"
+    case author = "noteAuthor"
+    case title = "noteTitle"
+    case date = "noteDate"
+    case description = "noteDesc"
 }
