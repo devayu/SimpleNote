@@ -16,6 +16,13 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     @IBAction func addNoteBtnTapped(_ sender: Any) {
         NavigationHelper.shared.navigateToScreen(to: AddNoteViewController.self, navigationController: navigationController!, identifier: Constants.Storyboard.addNoteVC, storyboard: storyboard!)
     }
+    
+    @IBAction func didChangeSegment(_ sender: UISegmentedControl){
+        if sender.selectedSegmentIndex == 1{
+            print("Loading Drafts ")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initHomeVC()
