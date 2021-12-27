@@ -42,6 +42,14 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
             "color": UIColor.systemRed
         ]
     ]
+    private func checkForUnsavedChanges() -> Bool {
+        if let authorTxt = authorTxt.text, let titleTxt = titleTxt.text, let descTxt = descriptionTxt.text {
+            if !authorTxt.isEmpty || !titleTxt.isEmpty || !descTxt.isEmpty {
+                return true
+            }
+        }
+        return false
+    }
     @IBAction func addBtnTapped(_ sender: Any) {
         let noteId = UUID().uuidString
         let request = AddNoteModel(noteId: noteId, title: titleTxt.text ?? "", author: authorTxt.text ?? "", date: datePicker.date, importance: importanceTxt.text!, description: descriptionTxt.text ?? "")
@@ -96,6 +104,7 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
     }
     private func initAddNoteVC() {
         self.navigationItem.title = "Add a Note"
+        self.navigationItem.hidesBackButton = true
         descriptionTxt.layer.cornerRadius = 5.0
         descriptionTxt.clipsToBounds = true
         titleTxt.becomeFirstResponder()
@@ -109,7 +118,9 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
         let addImageBtn = UIBarButtonItem(image: UIImage(systemName: "photo"), style: .plain, target: self, action: #selector(imgSelector))
         let addFileBtn = UIBarButtonItem(image: UIImage(systemName: "folder.badge.plus"), style: .plain, target: self, action: #selector(fileSelector))
         navigationItem.rightBarButtonItems = [addFileBtn, addImageBtn]
-//        let keyboardToolbar = UIToolbar()
+        let newBackButton = UIBarButtonItem(title: " Go Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(backBtnTapped))
+        self.navigationItem.leftBarButtonItem = newBackButton
+        //        let keyboardToolbar = UIToolbar()
 //        keyboardToolbar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50)
 //        keyboardToolbar.barStyle = .default
 //        keyboardToolbar.items = [
@@ -119,6 +130,21 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
 //        titleTxt.inputAccessoryView = keyboardToolbar
 //        authorTxt.inputAccessoryView = keyboardToolbar
 //        descriptionTxt.inputAccessoryView = keyboardToolbar
+    }
+    @objc private func backBtnTapped() {
+        if checkForUnsavedChanges() {
+            let alert = Alerts.shared.showAlert(message: "Are you sure you want to go back?", title: "You have unsaved changes")
+            let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
+                alert.dismiss(animated: true, completion: nil)
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+            alert.addAction(noAction)
+            alert.addAction(yesAction)
+            present(alert, animated: true, completion: nil)
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     @objc private func hideKey() {
         self.view.endEditing(true)    }
