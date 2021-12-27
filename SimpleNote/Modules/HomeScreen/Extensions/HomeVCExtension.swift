@@ -17,17 +17,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
-        cell.titleTxt.text = noteList[indexPath.row]["noteTitle"] as? String
-        cell.authorTxt.text = noteList[indexPath.row]["noteAuthor"] as? String
-        if let noteDate = noteList[indexPath.row]["noteDate"] as? Timestamp {
-            cell.dateTxt.text = noteDate.dateValue().formatted(date: .abbreviated, time: .shortened)
-        }
-        cell.importanceTxt.text = noteList[indexPath.row]["noteImportance"] as? String
-        cell.descTxt.text = (noteList[indexPath.row]["noteDesc"] as! String)
+        cell.titleTxt.text = noteList[indexPath.row].noteTitle
+        cell.authorTxt.text = noteList[indexPath.row].noteAuthor
+        cell.dateTxt.text = noteList[indexPath.row].noteDate.dateValue().formatted(date: .abbreviated, time: .shortened)
+        cell.importanceTxt.text = noteList[indexPath.row].noteImportance
+        cell.descTxt.text = noteList[indexPath.row].noteDescription
         return cell
     }
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-            {
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+                if segmentedController.selectedSegmentIndex == ListTypes.notes.rawValue {
+                    return nil
+                }
                 let deleteAction = UIContextualAction(style: .destructive, title: "Save Note") { (action, view, completionHandler) in
                     print("Upload data at row \(indexPath.row)")
                     completionHandler(true)
@@ -44,6 +44,5 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 tableView.endUpdates()
                 print("Deleted")
             }
-            
         }
 }

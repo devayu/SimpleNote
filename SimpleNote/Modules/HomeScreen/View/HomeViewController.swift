@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 class HomeViewController: UIViewController, HomeViewModelDelegate {
-    var noteList: [NSDictionary] = []
+    var noteList: [SingleNote] = []
     private var homeVM = HomeViewModel()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addNoteBtn: FloatingActionUIButton!
@@ -16,10 +16,11 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     @IBAction func addNoteBtnTapped(_ sender: Any) {
         NavigationHelper.shared.navigateToScreen(to: AddNoteViewController.self, navigationController: navigationController!, identifier: Constants.Storyboard.addNoteVC, storyboard: storyboard!)
     }
-    
-    @IBAction func didChangeSegment(_ sender: UISegmentedControl){
-        if sender.selectedSegmentIndex == 1{
-            print("Loading Drafts ")
+    @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == ListTypes.drafts.rawValue {
+            addNoteBtn.isHidden = true
+        } else {
+            addNoteBtn.isHidden = false
         }
     }
     
@@ -63,7 +64,7 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         noteList.removeAll()
         homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, fetchMoreData: false)
     }
-    func didRecieveData(data: [NSDictionary], error: Error?) {
+    func didRecieveData(data: [SingleNote], error: Error?) {
         if error == nil {
             noteList.append(contentsOf: data)
             tableView.reloadData()
