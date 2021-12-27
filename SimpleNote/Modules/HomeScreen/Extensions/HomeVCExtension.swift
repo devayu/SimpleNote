@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 import UIKit
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -18,8 +19,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
         cell.titleTxt.text = noteList[indexPath.row]["noteTitle"] as? String
         cell.authorTxt.text = noteList[indexPath.row]["noteAuthor"] as? String
-        let noteDate = noteList[indexPath.row]["noteDate"] as? Date
-        cell.dateTxt.text = noteDate?.formatted(date: .abbreviated, time: .shortened)
+        if let noteDate = noteList[indexPath.row]["noteDate"] as? Timestamp {
+            cell.dateTxt.text = noteDate.dateValue().formatted(date: .abbreviated, time: .shortened)
+        }
         cell.importanceTxt.text = noteList[indexPath.row]["noteImportance"] as? String
         cell.descTxt.text = (noteList[indexPath.row]["noteDesc"] as! String)
         return cell

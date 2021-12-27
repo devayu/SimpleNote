@@ -38,9 +38,10 @@
 		085033C5273E45A0006CBBB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 085033C4273E459F006CBBB2 /* GoogleService-Info.plist */; };
 		085CE4F027744443004FBA20 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4EF27744443004FBA20 /* FirebaseAnalytics */; };
 		085CE4F227744443004FBA20 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4F127744443004FBA20 /* FirebaseAuth */; };
-		085CE4F427744443004FBA20 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4F327744443004FBA20 /* FirebaseCrashlytics */; };
 		085CE4F627744443004FBA20 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4F527744443004FBA20 /* FirebaseFirestore */; };
 		085CE4F827744443004FBA20 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4F727744443004FBA20 /* FirebaseStorage */; };
+		08A1262D2775E8E400F65748 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 08A1262C2775E8E400F65748 /* FirebasePerformance */; };
+		08A1262F2775EACB00F65748 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 08A1262E2775EACB00F65748 /* FirebaseCrashlytics */; };
 		08AF6CE12754B35C00AFFCF4 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */; };
 		08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */; };
 		08AF6CFB27560DCD00AFFCF4 /* AddNoteVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */; };
@@ -163,9 +164,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				085CE4F427744443004FBA20 /* FirebaseCrashlytics in Frameworks */,
 				085CE4F627744443004FBA20 /* FirebaseFirestore in Frameworks */,
+				08A1262D2775E8E400F65748 /* FirebasePerformance in Frameworks */,
 				085CE4F027744443004FBA20 /* FirebaseAnalytics in Frameworks */,
+				08A1262F2775EACB00F65748 /* FirebaseCrashlytics in Frameworks */,
 				085CE4F827744443004FBA20 /* FirebaseStorage in Frameworks */,
 				085CE4F227744443004FBA20 /* FirebaseAuth in Frameworks */,
 			);
@@ -270,7 +272,6 @@
 			children = (
 				0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */,
 				0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */,
-				080BE6F3274B9AC50068EC5E /* LoginVCExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -289,6 +290,7 @@
 		0811E9BC274375E700CB6A18 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				08A1263027799A7800F65748 /* Extensions */,
 				0811E9BD274375ED00CB6A18 /* Model */,
 				0811E9BE274375F200CB6A18 /* View */,
 				0811E9BF274375F700CB6A18 /* ViewModel */,
@@ -409,6 +411,7 @@
 				085033AA273E4480006CBBB2 /* SimpleNoteTests */,
 				085033B4273E4480006CBBB2 /* SimpleNoteUITests */,
 				0850338F273E4477006CBBB2 /* Products */,
+				08A1262B2775E8E400F65748 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -457,6 +460,21 @@
 				085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */,
 			);
 			path = SimpleNoteUITests;
+			sourceTree = "<group>";
+		};
+		08A1262B2775E8E400F65748 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08A1263027799A7800F65748 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				080BE6F3274B9AC50068EC5E /* LoginVCExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		08AF6CDC2754B31D00AFFCF4 /* AddNote */ = {
@@ -572,7 +590,8 @@
 				0850338A273E4477006CBBB2 /* Sources */,
 				0850338B273E4477006CBBB2 /* Frameworks */,
 				0850338C273E4477006CBBB2 /* Resources */,
-				0811E9D9274639F800CB6A18 /* ShellScript */,
+				0811E9D9274639F800CB6A18 /* Run Script */,
+				08A1262A2775E04900F65748 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -582,9 +601,10 @@
 			packageProductDependencies = (
 				085CE4EF27744443004FBA20 /* FirebaseAnalytics */,
 				085CE4F127744443004FBA20 /* FirebaseAuth */,
-				085CE4F327744443004FBA20 /* FirebaseCrashlytics */,
 				085CE4F527744443004FBA20 /* FirebaseFirestore */,
 				085CE4F727744443004FBA20 /* FirebaseStorage */,
+				08A1262C2775E8E400F65748 /* FirebasePerformance */,
+				08A1262E2775EACB00F65748 /* FirebaseCrashlytics */,
 			);
 			productName = SimpleNote;
 			productReference = 0850338E273E4477006CBBB2 /* SimpleNote.app */;
@@ -705,7 +725,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0811E9D9274639F800CB6A18 /* ShellScript */ = {
+		0811E9D9274639F800CB6A18 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -714,6 +734,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -721,6 +742,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		08A1262A2775E04900F65748 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -956,6 +996,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SimpleNote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1160,11 +1201,6 @@
 			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		085CE4F327744443004FBA20 /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
 		085CE4F527744443004FBA20 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -1174,6 +1210,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		08A1262C2775E8E400F65748 /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		08A1262E2775EACB00F65748 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 

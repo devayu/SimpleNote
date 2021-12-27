@@ -14,6 +14,7 @@ class FirebaseCRUD {
     private var query: Query!
     var isDataPaginating: Bool = false
     var reachedEndOfDocument: Bool = false
+    var didAddNewNote: Bool = false
     func newUser(uid: String, fname: String, lname: String, completion: @escaping (SignUpResponse)->Void) {
             
             let db = Firestore.firestore()
@@ -41,6 +42,7 @@ class FirebaseCRUD {
                     completion(false, error)
                     return
                 }
+                self.didAddNewNote = true
                 completion(true, nil)
             }
         }

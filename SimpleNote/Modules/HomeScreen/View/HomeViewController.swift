@@ -14,8 +14,7 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     @IBOutlet weak var addNoteBtn: FloatingActionUIButton!
     @IBOutlet weak var segmentedController: UISegmentedControl!
     @IBAction func addNoteBtnTapped(_ sender: Any) {
-        let addNoteVC = (storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.addNoteVC) as? AddNoteViewController)!
-        self.navigationController?.pushViewController(addNoteVC, animated: true)
+        NavigationHelper.shared.navigateToScreen(to: AddNoteViewController.self, navigationController: navigationController!, identifier: Constants.Storyboard.addNoteVC, storyboard: storyboard!)
     }
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl){
@@ -27,12 +26,16 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initHomeVC()
+        fetchDataForTable()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         FirebaseCRUD.shared.reachedEndOfDocument = false
-        noteList.removeAll()
-        setupTable()
+        if FirebaseCRUD.shared.didAddNewNote {
+            noteList.removeAll()
+            fetchDataForTable()
+            FirebaseCRUD.shared.didAddNewNote = false
+        }
     }
     private func initHomeVC() {
         addNoteBtn.createFloatingActionButton(color: .systemBlue, imageToSet: nil)
@@ -50,7 +53,7 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     @IBAction func signoutBtnTapped(_ sender: Any) {
         homeVM.signOutUser()
     }
-    private func setupTable() {
+    private func fetchDataForTable() {
         homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, fetchMoreData: false)
     }
     private func segementedControllerHandler() {
