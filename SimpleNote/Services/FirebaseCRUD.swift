@@ -67,9 +67,6 @@ class FirebaseCRUD {
             }
             snapshot?.documents.forEach({ document in
                 let data = document.data()
-                data.forEach { (key: String, value: Any) in
-                    
-                }
                 let note = SingleNote(noteId: (data[NoteFields.id.rawValue] ?? "noteID placeholder") as! String, noteAuthor: (data[NoteFields.author.rawValue] ?? "noteAuthor placeholder") as! String, noteTitle: (data[NoteFields.title.rawValue] ?? "noteTitle placeholder") as! String, noteDate: (data[NoteFields.date.rawValue] ?? Timestamp(date: Date(timeIntervalSince1970: 1640597786))) as! Timestamp, noteDescription: (data[NoteFields.description.rawValue] ?? "noteDesc placeholder") as! String, noteImportance: (data[NoteFields.importance.rawValue] ?? "noteImp placeholder") as! String)
                 notes.append(note)
             })
