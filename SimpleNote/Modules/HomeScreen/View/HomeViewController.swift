@@ -14,15 +14,14 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     @IBOutlet weak var addNoteBtn: FloatingActionUIButton!
     @IBOutlet weak var segmentedController: UISegmentedControl!
     @IBAction func addNoteBtnTapped(_ sender: Any) {
-        let addNoteVC = (storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.addNoteVC) as? AddNoteViewController)!
-        self.navigationController?.pushViewController(addNoteVC, animated: true)
+        NavigationHelper.shared.navigateToScreen(to: AddNoteViewController.self, navigationController: navigationController!, identifier: Constants.Storyboard.addNoteVC, storyboard: storyboard!)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         initHomeVC()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         FirebaseCRUD.shared.reachedEndOfDocument = false
         noteList.removeAll()
         setupTable()

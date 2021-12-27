@@ -27,6 +27,7 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        removeKeyboardObservers()
         navigationController?.navigationBar.isHidden = false
     }
     private func initLoginVC() {
