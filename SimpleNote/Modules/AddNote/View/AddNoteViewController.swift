@@ -19,7 +19,7 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
         return AddNoteViewModel()
     }()
     override func viewDidLoad() {
-        cdNotesRepository.getAll()
+        //cdNotesRepository.getAll()
         super.viewDidLoad()
         initAddNoteVC()
     }

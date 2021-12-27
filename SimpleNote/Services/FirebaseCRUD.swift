@@ -65,7 +65,9 @@ class FirebaseCRUD {
             }
             snapshot?.documents.forEach({ document in
                 notes.append(document.data() as NSDictionary)
+                print(type(of: document.data()) , "-------")
             })
+    
             self.lastDocumentSnapshot = snapshot!.documents.last
             self.isDataPaginating = false
             completion(notes, nil)

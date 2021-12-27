@@ -23,7 +23,7 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
             print("Loading Drafts ")
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initHomeVC()
@@ -70,6 +70,20 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
             Alerts.shared.dismissAlert(alert: alert, completion: nil)
         }
     }
+    
+    let notesRepo = NotesRepository()
+    
+    func didRecieveDatafromCD(data: [AddNoteModel], error: Error?) {
+        if error == nil {
+            //noteList.append(data[0])
+            tableView.reloadData()
+        } else {
+            let alert = Alerts.shared.showAlert(message: error?.localizedDescription ?? "error placeholder", title: "")
+            self.present(alert, animated: true, completion: nil)
+            Alerts.shared.dismissAlert(alert: alert, completion: nil)
+        }
+    }
+    
     func didLogoutUser(isLogoutSuccess: Bool, error: Error?) {
         if isLogoutSuccess {
             NavigationHelper.shared.navigateToCleanStack(to: LoginViewController.self, identifier: Constants.Storyboard.loginVC, storyboard: storyboard!)

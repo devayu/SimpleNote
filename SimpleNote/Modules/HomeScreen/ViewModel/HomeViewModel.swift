@@ -9,6 +9,9 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 import UIKit
+
+let notesRepository = NotesRepository()
+
 protocol HomeViewModelDelegate: AnyObject {
     func didRecieveData(data: [NSDictionary], error: Error?)
     func didLogoutUser(isLogoutSuccess: Bool, error: Error?)
@@ -24,9 +27,16 @@ class HomeViewModel {
         case .notes:
             FirebaseCRUD.shared.readNotesFromFirebase(fetchMoreData: fetchMoreData) { notes, error in
                 self.delegate?.didRecieveData(data: notes, error: error)
+                print(notes)
             }
         case .drafts:
-            self.delegate?.didRecieveData(data: [], error: nil)
+//            notesRepository.getAll() {NotesDict in
+//                //self.delegate?.didRecieveData(data: NotesDict, error: nil)
+//            }
+            //Use this for inspecting the Core Data
+            print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
+            print("On drafts page ")
+            
         }
     }
     func signOutUser() {
