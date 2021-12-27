@@ -16,9 +16,8 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
         let alert = Alerts.shared.showAlert(message: error!.localizedDescription, title: "")
         self.present(alert, animated: true)
             Alerts.shared.dismissAlert(alert: alert, completion: nil)
-        }
-        
-        else{
+                        }
+        else {
             //transition here
             print("Transition to home screen ")
         }
@@ -80,8 +79,6 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
             print(currentUser)
         }
         
-        
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         table.register(FieldTableViewCell.nib(), forCellReuseIdentifier: FieldTableViewCell.identifier)
@@ -90,6 +87,16 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
         table.delegate = self
         
         signUpViewModel.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeKeyboardObservers()
+    }
+    
+    func removeKeyboardObservers() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
