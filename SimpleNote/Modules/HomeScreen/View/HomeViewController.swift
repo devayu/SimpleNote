@@ -19,12 +19,16 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initHomeVC()
+        fetchDataForTable()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         FirebaseCRUD.shared.reachedEndOfDocument = false
-        noteList.removeAll()
-        setupTable()
+        if FirebaseCRUD.shared.didAddNewNote {
+            noteList.removeAll()
+            fetchDataForTable()
+            FirebaseCRUD.shared.didAddNewNote = false
+        }
     }
     private func initHomeVC() {
         addNoteBtn.createFloatingActionButton(color: .systemBlue, imageToSet: nil)
@@ -42,7 +46,7 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     @IBAction func signoutBtnTapped(_ sender: Any) {
         homeVM.signOutUser()
     }
-    private func setupTable() {
+    private func fetchDataForTable() {
         homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, fetchMoreData: false)
     }
     private func segementedControllerHandler() {
