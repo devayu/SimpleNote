@@ -30,12 +30,6 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
 //    let cellTypes: [String] = ["Label","fname", "lname", "email", "pass", "repass", "Button"]
     var types = [
         [
-            "type": "Label",
-            "text": "Sign Up",
-            "tag": 1011,
-            "passwordToggle": false
-        ],
-        [
             "type": "text",
             "text": "First name",
             "tag": 1012,
@@ -79,6 +73,8 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Sign Up"
+        navigationController?.navigationBar.prefersLargeTitles = true
         let currentUser = Auth.auth().currentUser
         if currentUser != nil{
             print(currentUser)

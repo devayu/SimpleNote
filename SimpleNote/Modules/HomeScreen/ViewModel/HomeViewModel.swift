@@ -19,16 +19,14 @@ enum ListTypes: Int {
 }
 class HomeViewModel {
     weak var delegate: HomeViewModelDelegate?
-    func getData(typeOfList: ListTypes) {
+    func getData(typeOfList: ListTypes, fetchMoreData: Bool) {
         switch typeOfList {
         case .notes:
-            FirebaseCRUD.shared.readNotesFromFirebase { notes, error in
+            FirebaseCRUD.shared.readNotesFromFirebase(fetchMoreData: fetchMoreData) { notes, error in
                 self.delegate?.didRecieveData(data: notes, error: error)
             }
         case .drafts:
-            FirebaseCRUD.shared.readNotesFromFirebase { notes, error in
-                self.delegate?.didRecieveData(data: notes, error: error)
-            }
+            self.delegate?.didRecieveData(data: [], error: nil)
         }
     }
     func signOutUser() {

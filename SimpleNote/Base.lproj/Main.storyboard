@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JPY-1a-gID">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JPY-1a-gID">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -252,7 +252,7 @@
                                                 <rect key="frame" x="16" y="196" width="382" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Importance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xx-1w-D2L">
-                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="89.5" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -466,20 +466,20 @@
         <!--Sign Up Table View Controller-->
         <scene sceneID="gU1-Ea-YgP">
             <objects>
-                <viewController storyboardIdentifier="SignUpTableViewController" id="m5s-D8-dnQ" customClass="SignUpTableViewController" customModule="SimpleNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignupVC" id="m5s-D8-dnQ" customClass="SignUpTableViewController" customModule="SimpleNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2aF-Ao-aGD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="56s-vN-Ssa">
-                                <rect key="frame" x="16" y="44" width="382" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="5kP-pW-wfs">
-                                        <rect key="frame" x="0.0" y="44.5" width="382" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5kP-pW-wfs" id="NeV-Rz-LXv">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -489,8 +489,8 @@
                         <viewLayoutGuide key="safeArea" id="Eab-qa-4dz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Eab-qa-4dz" firstAttribute="trailing" secondItem="56s-vN-Ssa" secondAttribute="trailing" constant="16" id="19g-aB-Hrh"/>
-                            <constraint firstItem="56s-vN-Ssa" firstAttribute="leading" secondItem="Eab-qa-4dz" secondAttribute="leading" constant="16" id="S68-xM-dYi"/>
+                            <constraint firstItem="Eab-qa-4dz" firstAttribute="trailing" secondItem="56s-vN-Ssa" secondAttribute="trailing" id="19g-aB-Hrh"/>
+                            <constraint firstItem="56s-vN-Ssa" firstAttribute="leading" secondItem="Eab-qa-4dz" secondAttribute="leading" id="S68-xM-dYi"/>
                             <constraint firstItem="56s-vN-Ssa" firstAttribute="top" secondItem="Eab-qa-4dz" secondAttribute="top" id="W0O-7o-Kmn"/>
                             <constraint firstItem="56s-vN-Ssa" firstAttribute="bottom" secondItem="Eab-qa-4dz" secondAttribute="bottom" id="brd-QB-LbO"/>
                         </constraints>
