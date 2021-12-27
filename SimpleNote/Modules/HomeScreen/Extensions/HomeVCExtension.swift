@@ -24,4 +24,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.descTxt.text = (noteList[indexPath.row]["noteDesc"] as! String)
         return cell
     }
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+            {
+                let deleteAction = UIContextualAction(style: .destructive, title: "Save Note") { (action, view, completionHandler) in
+                    print("Upload data at row \(indexPath.row)")
+                    completionHandler(true)
+                }
+                deleteAction.backgroundColor = .systemTeal
+                let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+                return configuration
+            }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                tableView.beginUpdates()
+                noteList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.endUpdates()
+                print("Deleted")
+            }
+            
+        }
 }

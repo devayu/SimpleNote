@@ -12,6 +12,9 @@ enum Importance: String {
     case medium = "Medium"
     case high = "High"
 }
+
+let cdNotesRepository = NotesRepository()
+
 protocol AddNoteViewModelDelegate: AnyObject {
     func didAddNote(success: Bool, error: String?)
 }
@@ -23,6 +26,7 @@ class AddNoteViewModel {
         uploadFile(urls: [imgUrl, fileUrl], noteId: addRequest.noteId) { isError, errorMessage in
             if isError {
                 self.delegate?.didAddNote(success: false, error: errorMessage)
+                print("Unable to upload")
             } else {
                 FirebaseCRUD.shared.addNoteToFirebase(request: addRequest) { isDataAdded, error in
                     self.delegate?.didAddNote(success: isDataAdded, error: error?.localizedDescription)

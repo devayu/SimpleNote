@@ -60,6 +60,7 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
         if user != nil {
             NavigationHelper.shared.navigateToCleanStack(to: HomeViewController.self, identifier: Constants.Storyboard.homeVC, storyboard: storyboard!)
         } else {
+            print(error?.localizedDescription)
             let alert = Alerts.shared.showAlert(message: error!.localizedDescription, title: "")
             self.present(alert, animated: true)
             Alerts.shared.dismissAlert(alert: alert, completion: nil)
