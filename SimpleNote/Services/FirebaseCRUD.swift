@@ -46,7 +46,7 @@ class FirebaseCRUD {
     func addNoteToFirebase(request: AddNoteModel, completion: @escaping (Bool, Error?) -> Void) {
         let dbRef = Firestore.firestore()
         if let currentUser = Auth.auth().currentUser?.uid {
-            let dataToAdd = ["noteId": request.noteId, "noteTitle": request.title, "noteAuthor": request.author, "noteDate": request.date, "noteImportance": request.importance, "noteDesc": request.description] as [String: Any]
+            let dataToAdd = ["noteId": request.noteId, "noteTitle": request.title, "noteAuthor": request.author, "noteDate": request.date, "noteImportance": request.importance, "noteDesc": request.description, "noteImgUrl": request.imgURL?.lastPathComponent, "noteFileUrl": request.fileURL?.lastPathComponent] as [String: Any]
             dbRef.collection("users").document("\(currentUser)").collection("notes").addDocument(data: dataToAdd) { error in
                 guard error == nil else {
                     completion(false, error)
@@ -81,7 +81,11 @@ class FirebaseCRUD {
             }
             snapshot?.documents.forEach({ document in
                 let data = document.data()
-                let note = SingleNote(noteId: (data[NoteFields.id.rawValue] ?? "an error occured" )as! String, noteAuthor: (data[NoteFields.author.rawValue] ?? "an error occured") as! String, noteTitle: (data[NoteFields.title.rawValue] ?? "an error occured") as! String, noteDate: (data[NoteFields.date.rawValue] ?? Timestamp(date: Date(timeIntervalSince1970: 1640597786))) as! Timestamp, noteDescription: (data[NoteFields.description.rawValue] ?? "an error occured") as! String, noteImportance: (data[NoteFields.importance.rawValue] ?? "an error occured")as! String)
+                var note = SingleNote(noteId: (data[NoteFields.id.rawValue] ?? "an error occured" )as! String, noteAuthor: (data[NoteFields.author.rawValue] ?? "an error occured") as! String, noteTitle: (data[NoteFields.title.rawValue] ?? "an error occured") as! String, noteDate: (data[NoteFields.date.rawValue] ?? Timestamp(date: Date(timeIntervalSince1970: 1640597786))) as! Timestamp, noteDescription: (data[NoteFields.description.rawValue] ?? "an error occured") as! String, noteImportance: (data[NoteFields.importance.rawValue] ?? "an error occured") as! String)
+                if let imgUrl = data[NoteFields.imgUrl.rawValue], let fileUrl = data[NoteFields.fileUrl.rawValue] {
+                    note.noteImgUrl = imgUrl as? String
+                    note.noteFileUrl = fileUrl as? String
+                }
                 notes.append(note)
             })
             self.lastDocumentSnapshot = snapshot!.documents.last
@@ -101,10 +105,11 @@ class FirebaseCRUD {
             }
         }
     }
-    func downloadFiles(fileName: String, completion: @escaping (Result<Data, Error>) -> Void) {
+    func downloadFiles(for noteId: String, fileName: String, completion: @escaping (Result<Data, Error>) -> Void) {
         let storage = Storage.storage().reference()
         if let currentUser = Auth.auth().currentUser?.uid {
-            storage.child("\(currentUser)/\(fileName)").downloadURL { imgUrl, err in
+            storage.child("\(currentUser)/\(noteId)/\(fileName)").downloadURL { imgUrl, err in
+                print(imgUrl)
                 guard let url = imgUrl, err == nil else {
                     completion(.failure(err!))
                     return

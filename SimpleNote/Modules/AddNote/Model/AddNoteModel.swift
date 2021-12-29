@@ -13,4 +13,6 @@ struct AddNoteModel {
     let date: Date
     let importance: String
     let description: String
+    let imgURL: URL?
+    let fileURL: URL?
 }
