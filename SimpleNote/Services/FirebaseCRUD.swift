@@ -81,7 +81,7 @@ class FirebaseCRUD {
             }
             snapshot?.documents.forEach({ document in
                 let data = document.data()
-                let note = SingleNote(noteId: data[NoteFields.id.rawValue] as! String, noteAuthor: data[NoteFields.author.rawValue] as! String, noteTitle: data[NoteFields.title.rawValue] as! String, noteDate: data[NoteFields.date.rawValue] as! Timestamp, noteDescription: data[NoteFields.description.rawValue] as! String, noteImportance: data[NoteFields.importance.rawValue] as! String)
+                let note = SingleNote(noteId: (data[NoteFields.id.rawValue] ?? "an error occured" )as! String, noteAuthor: (data[NoteFields.author.rawValue] ?? "an error occured") as! String, noteTitle: (data[NoteFields.title.rawValue] ?? "an error occured") as! String, noteDate: (data[NoteFields.date.rawValue] ?? Timestamp(date: Date(timeIntervalSince1970: 1640597786))) as! Timestamp, noteDescription: (data[NoteFields.description.rawValue] ?? "an error occured") as! String, noteImportance: (data[NoteFields.importance.rawValue] ?? "an error occured")as! String)
                 notes.append(note)
             })
             self.lastDocumentSnapshot = snapshot!.documents.last
