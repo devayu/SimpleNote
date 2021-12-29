@@ -22,6 +22,14 @@ extension AddNoteViewController: UIImagePickerControllerDelegate & UINavigationC
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+    func initSwipeRightGestureToGoBack() {
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeRightToGoBack))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    @objc private func handleSwipeRightToGoBack() {
+        checkForUnsavedChanges()
+    }
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         if let selectedFile = urls.first {
             self.selectedFileTxt.text = selectedFile.lastPathComponent

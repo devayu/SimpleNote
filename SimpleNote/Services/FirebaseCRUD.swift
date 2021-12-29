@@ -7,6 +7,16 @@
 
 import Foundation
 import Firebase
+struct CustomError: LocalizedError {
+    let message: String
+    
+    init(_ message: String) {
+        self.message = message
+    }
+    public var errorDescription: String? {
+        return message
+    }
+}
 class FirebaseCRUD {
     static let shared = FirebaseCRUD()
     private var lastDocumentSnapshot: DocumentSnapshot!
@@ -16,22 +26,22 @@ class FirebaseCRUD {
     var reachedEndOfDocument: Bool = false
     var didAddNewNote: Bool = false
     func newUser(uid: String, fname: String, lname: String, completion: @escaping (SignUpResponse)->Void) {
+        
+        let db = Firestore.firestore()
+        
+        if let currentUser = Auth.auth().currentUser?.uid {
             
-            let db = Firestore.firestore()
-            
-            if let currentUser = Auth.auth().currentUser?.uid {
+            db.collection("users").document("\(currentUser)").setData(["firstName": fname, "lastName": lname, "notes":[]], merge: true) { error in
                 
-                db.collection("users").document("\(currentUser)").setData(["firstName": fname, "lastName": lname, "notes":[]], merge: true) { error in
-                    
-                    if error != nil {
-                        print("User created but data couldn't be added")
-                        completion(SignUpResponse(isUserCreated: false, error: error))
-                        return
-                    } else{
-                        completion(SignUpResponse(isUserCreated: true, error: nil))
-                    }
+                if error != nil {
+                    print("User created but data couldn't be added")
+                    completion(SignUpResponse(isUserCreated: false, error: error))
+                    return
+                } else{
+                    completion(SignUpResponse(isUserCreated: true, error: nil))
                 }
             }
+        }
     }
     func addNoteToFirebase(request: AddNoteModel, completion: @escaping (Bool, Error?) -> Void) {
         let dbRef = Firestore.firestore()
@@ -47,7 +57,7 @@ class FirebaseCRUD {
             }
         }
     }
-    func readNotesFromFirebase(fetchMoreData: Bool, completion: @escaping ([NSDictionary], Error?) -> Void) {
+    func readNotesFromFirebase(fetchMoreData: Bool, completion: @escaping ([SingleNote], Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser?.uid else {return}
         let dbRef = Firestore.firestore().collection("users").document("\(currentUser)").collection("notes")
         query = dbRef.order(by: "noteDate", descending: true).limit(to: 5)
@@ -59,14 +69,20 @@ class FirebaseCRUD {
             query = query.start(afterDocument: lastDocumentSnapshot)
             self.isDataPaginating = true
         }
-        var notes: [NSDictionary] = []
+        var notes: [SingleNote] = []
         query.getDocuments { snapshot, error in
             guard error == nil else {
                 completion([], error)
                 return
             }
+            if snapshot?.isEmpty == true {
+                completion([], CustomError("Seems Like You don't have any saved notes. Try adding one"))
+                return
+            }
             snapshot?.documents.forEach({ document in
-                notes.append(document.data() as NSDictionary)
+                let data = document.data()
+                let note = SingleNote(noteId: (data[NoteFields.id.rawValue] ?? "an error occured" )as! String, noteAuthor: (data[NoteFields.author.rawValue] ?? "an error occured") as! String, noteTitle: (data[NoteFields.title.rawValue] ?? "an error occured") as! String, noteDate: (data[NoteFields.date.rawValue] ?? Timestamp(date: Date(timeIntervalSince1970: 1640597786))) as! Timestamp, noteDescription: (data[NoteFields.description.rawValue] ?? "an error occured") as! String, noteImportance: (data[NoteFields.importance.rawValue] ?? "an error occured")as! String)
+                notes.append(note)
             })
             self.lastDocumentSnapshot = snapshot!.documents.last
             self.isDataPaginating = false

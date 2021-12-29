@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestore
 import UIKit
 protocol HomeViewModelDelegate: AnyObject {
-    func didRecieveData(data: [NSDictionary], error: Error?)
+    func didRecieveData(data: [SingleNote], error: Error?)
     func didLogoutUser(isLogoutSuccess: Bool, error: Error?)
 }
 enum ListTypes: Int {
