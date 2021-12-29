@@ -8,12 +8,10 @@
 import UIKit
 import Firebase
 class HomeViewController: UIViewController, HomeViewModelDelegate {
-    
-    enum TabIndex : Int {
+    enum TabIndex: Int {
             case firstChildTab = 0
             case secondChildTab = 1
         }
-    
     var noteList: [NSDictionary] = []
     var myNotesView: UIView!
     var myDraftsView: UIView!
@@ -36,7 +34,7 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     
     var currentViewController: UIViewController?
         lazy var firstChildTabVC: UIViewController? = {
-            let firstChildTabVC = self.storyboard?.instantiateViewController(withIdentifier: "NotesTableViewController")
+            let firstChildTabVC = self.storyboard?.instantiateViewController(withIdentifier: "NotesViewController")
             return firstChildTabVC
         }()
         lazy var secondChildTabVC: UIViewController? = {

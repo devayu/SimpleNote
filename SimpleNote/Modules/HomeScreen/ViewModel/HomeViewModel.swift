@@ -54,4 +54,14 @@ class HomeViewModel {
             self.delegate?.didLogoutUser(isLogoutSuccess: isLogoutSuccess, error: error)
         }
     }
+    
+    func deleteEntryFromCD(noteId: String) -> String{
+        let isDeleted = notesRepository.delete(noteId: noteId)
+        if isDeleted {
+            return "Note deleted successfully."
+        }
+        else{
+            return "Note doesn't exist anymore."
+        }
+    }
 }

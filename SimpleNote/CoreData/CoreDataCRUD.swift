@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import CoreData
 
 class NotesRepository {
     func create(request: AddNoteModel) {
@@ -27,8 +27,50 @@ class NotesRepository {
         result?.forEach({ (cdNotes) in
             let notes = SingleNoteCD(noteId: cdNotes.noteId!, noteAuthor: cdNotes.noteAuthor ?? "Placeholder Author", noteTitle: cdNotes.noteTitle!, noteDate: cdNotes.noteDate!, noteDescription: cdNotes.noteDesc ?? "Placeholder Description", noteFiles: ["Placeholder files"], noteImportance: cdNotes.noteImportance ?? "Low")
             notesDict2.append(notes)
-            
         })
+        let current = Date()
+        let notes2 = SingleNoteCD(noteId: "1234", noteAuthor: "Placeholder Author", noteTitle: "titles", noteDate: current, noteDescription: "Placeholder Description", noteFiles: ["Placeholder files"], noteImportance: "Low")
+        notesDict2.append(notes2)
         completion(notesDict2)
+    }
+    
+    func get(byIdentifier id: String) -> SingleNoteCD? {
+        let fetchRequest = NSFetchRequest<Notes>(entityName: "Notes")
+        let predicate = NSPredicate(format: "noteId==%@", id)
+        
+        fetchRequest.predicate = predicate
+        do {
+            let result = try PersistentStorage.shared.context.fetch(fetchRequest).first
+            guard result != nil else {return nil}
+            let result2 = SingleNoteCD(noteId: (result?.noteId)!, noteAuthor: result?.noteAuthor ?? "Placeholder Author", noteTitle: (result?.noteTitle)!, noteDate: (result?.noteDate)!, noteDescription: result?.noteDesc ?? "Placeholder Description", noteFiles: ["Placeholder Description"], noteImportance: result?.noteImportance ?? "Low")
+            return result2
+        } catch let error {
+            debugPrint(error)
+        }
+        return nil
+    }
+    
+    private func getCDNotes(byIdentifier id: String) -> Notes? {
+        let fetchRequest = NSFetchRequest<Notes>(entityName: "Notes")
+        let predicate = NSPredicate(format: "noteId==%@", id)
+        
+        fetchRequest.predicate = predicate
+        do {
+            let result = try PersistentStorage.shared.context.fetch(fetchRequest).first
+            guard result != nil else {return nil}
+        
+            return result
+        } catch let error {
+            debugPrint(error)
+        }
+        return nil
+    }
+    
+    func delete(noteId: String) -> Bool {
+        let cdNote = getCDNotes(byIdentifier: noteId)
+        guard cdNote != nil else {return false}
+        
+        PersistentStorage.shared.context.delete(cdNote!)
+        return true
     }
 }

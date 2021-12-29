@@ -11,6 +11,8 @@ class DraftsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     var noteList: [SingleNote] = []
     var notesDict: [SingleNoteCD] = []
+    private var homeVm = HomeViewModel()
+    let addNoteVM = AddNoteViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTableData()
@@ -56,6 +58,8 @@ class DraftsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             {
                 let deleteAction = UIContextualAction(style: .destructive, title: "Save Note") { (action, view, completionHandler) in
                     print("Upload data at row \(indexPath.row)")
+                    let noteToBeAdded = self.addNoteVM.singleNotetoAddNoteModel(noteConvert: self.notesDict[indexPath.row])
+                    self.addNoteVM.addNote(addRequest: noteToBeAdded)
                     completionHandler(true)
                 }
                 deleteAction.backgroundColor = .systemTeal
@@ -64,10 +68,14 @@ class DraftsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
+                let deleteMessage = homeVm.deleteEntryFromCD(noteId: notesDict[indexPath.row].noteId)
                 tableView.beginUpdates()
                 notesDict.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
+                let alert = Alerts.shared.showAlert(message: deleteMessage, title: "")
+                self.present(alert, animated: true, completion: nil)
+                Alerts.shared.dismissAlert(alert: alert, completion: nil)
                 print("Deleted")
             }
     }

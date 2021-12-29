@@ -60,4 +60,10 @@ class AddNoteViewModel {
         }
         return NoteValidationResult(success: true, error: nil, forField: .none)
     }
+    
+    func singleNotetoAddNoteModel(noteConvert: SingleNoteCD) -> AddNoteModel{
+        let noteToAdd = AddNoteModel(noteId: noteConvert.noteId, title: noteConvert.noteTitle, author: noteConvert.noteAuthor, date: noteConvert.noteDate, importance: noteConvert.noteImportance, description: noteConvert.noteDescription)
+        
+        return noteToAdd
+    }
 }
