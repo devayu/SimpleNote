@@ -133,7 +133,7 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
         descriptionTxt.text = ""
     }
     private func initAddNoteVC() {
-        initSwipeRightGesture()
+        initSwipeRightGestureToGoBack()
         self.navigationItem.title = "Add a Note"
         self.navigationItem.hidesBackButton = true
         descriptionTxt.layer.cornerRadius = 5.0
