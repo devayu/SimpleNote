@@ -44,7 +44,6 @@ class FirebaseAuthentication {
  //        let landingPage = SignUpViewController()
  //        landingPage.toLandingPage()
      }
-    
     func signOutUser(completion: @escaping (Bool, Error?) -> Void) {
         do {
             try Auth.auth().signOut()

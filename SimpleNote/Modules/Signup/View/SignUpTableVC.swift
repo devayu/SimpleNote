@@ -18,7 +18,7 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
             Alerts.shared.dismissAlert(alert: alert, completion: nil)
                         }
         else {
-            //transition here
+            NavigationHelper.shared.navigateToCleanStack(to: HomeViewController.self, identifier: Constants.Storyboard.homeVC, storyboard: storyboard!)
             print("Transition to home screen ")
         }
     }

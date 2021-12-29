@@ -7,6 +7,16 @@
 
 import Foundation
 import Firebase
+struct CustomError: LocalizedError {
+    let message: String
+    
+    init(_ message: String) {
+        self.message = message
+    }
+    public var errorDescription: String? {
+        return message
+    }
+}
 class FirebaseCRUD {
     static let shared = FirebaseCRUD()
     private var lastDocumentSnapshot: DocumentSnapshot!
@@ -65,9 +75,13 @@ class FirebaseCRUD {
                 completion([], error)
                 return
             }
+            if snapshot?.isEmpty == true {
+                completion([], CustomError("Seems Like You don't have any saved notes. Try adding one"))
+                return
+            }
             snapshot?.documents.forEach({ document in
                 let data = document.data()
-                let note = SingleNote(noteId: (data[NoteFields.id.rawValue] ?? "noteID placeholder") as! String, noteAuthor: (data[NoteFields.author.rawValue] ?? "noteAuthor placeholder") as! String, noteTitle: (data[NoteFields.title.rawValue] ?? "noteTitle placeholder") as! String, noteDate: (data[NoteFields.date.rawValue] ?? Timestamp(date: Date(timeIntervalSince1970: 1640597786))) as! Timestamp, noteDescription: (data[NoteFields.description.rawValue] ?? "noteDesc placeholder") as! String, noteImportance: (data[NoteFields.importance.rawValue] ?? "noteImp placeholder") as! String)
+                let note = SingleNote(noteId: data[NoteFields.id.rawValue] as! String, noteAuthor: data[NoteFields.author.rawValue] as! String, noteTitle: data[NoteFields.title.rawValue] as! String, noteDate: data[NoteFields.date.rawValue] as! Timestamp, noteDescription: data[NoteFields.description.rawValue] as! String, noteImportance: data[NoteFields.importance.rawValue] as! String)
                 notes.append(note)
             })
             self.lastDocumentSnapshot = snapshot!.documents.last

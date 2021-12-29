@@ -21,6 +21,7 @@ class Alerts: UIAlertController {
         indicator.hidesWhenStopped = true
         indicator.startAnimating()
         alert.view.addSubview(indicator	)
+        present(alert, animated: true, completion: nil)
         return alert
     }
     func showOverlay(view: UIView) -> UIView {
@@ -32,6 +33,16 @@ class Alerts: UIAlertController {
     }
     func hideOverlay() {
         self.overlay.removeFromSuperview()
+    }
+    func dismissAnyLoadingAlertsIfPresent() {
+        guard let window = NavigationHelper.shared.getFirstWindowScreen() else {return}
+        guard var topVC = window.rootViewController?.presentedViewController else {return}
+        while topVC.presentedViewController != nil {
+            topVC = topVC.presentedViewController!
+        }
+        if topVC.isKind(of: UIAlertController.self) {
+            topVC.dismiss(animated: false, completion: nil)
+        }
     }
     func dismissAlert(alert: UIAlertController, completion: (() -> Void)?) {
         DispatchQueue.main.asyncAfter(deadline: .now()+3) {

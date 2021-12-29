@@ -8,12 +8,12 @@
 import Foundation
 import Firebase
 struct SingleNote {
-    let noteId: String
-    let noteAuthor: String
-    let noteTitle: String
-    let noteDate: Timestamp
-    let noteDescription: String
-    let noteImportance: String
+    var noteId: String = "noteID placeholder"
+    var noteAuthor: String = "noteAuthor placeholder"
+    var noteTitle: String = "noteTitle placeholder"
+    var noteDate: Timestamp = Timestamp(date: Date(timeIntervalSince1970: 1640597786))
+    var noteDescription: String = "noteDescription placeholder"
+    var noteImportance: String = "noteImportance placeholder"
 }
 enum NoteFields: String {
     case id = "noteId"

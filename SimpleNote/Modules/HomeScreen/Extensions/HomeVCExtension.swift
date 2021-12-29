@@ -45,4 +45,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 print("Deleted")
             }
         }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let note = noteList[indexPath.row]
+        let detailsVC = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.detailsVC) as? DetailsScreenViewController
+        detailsVC?.note = note
+        navigationController?.pushViewController(detailsVC!, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

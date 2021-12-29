@@ -43,13 +43,22 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
             "color": UIColor.systemRed
         ]
     ]
-    private func checkForUnsavedChanges() -> Bool {
+    func checkForUnsavedChanges() {
         if let authorTxt = authorTxt.text, let titleTxt = titleTxt.text, let descTxt = descriptionTxt.text {
             if !authorTxt.isEmpty || !titleTxt.isEmpty || !descTxt.isEmpty {
-                return true
+                let alert = Alerts.shared.showAlert(message: "Are you sure you want to go back?", title: "You have unsaved changes")
+                let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
+                    alert.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+                alert.addAction(noAction)
+                alert.addAction(yesAction)
+                present(alert, animated: true, completion: nil)
+            } else {
+                self.navigationController?.popToRootViewController(animated: true)
             }
         }
-        return false
     }
     @IBAction func addBtnTapped(_ sender: Any) {
         let noteId = UUID().uuidString
@@ -124,6 +133,7 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
         descriptionTxt.text = ""
     }
     private func initAddNoteVC() {
+        initSwipeRightGesture()
         self.navigationItem.title = "Add a Note"
         self.navigationItem.hidesBackButton = true
         descriptionTxt.layer.cornerRadius = 5.0
@@ -153,19 +163,7 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
 //        descriptionTxt.inputAccessoryView = keyboardToolbar
     }
     @objc private func backBtnTapped() {
-        if checkForUnsavedChanges() {
-            let alert = Alerts.shared.showAlert(message: "Are you sure you want to go back?", title: "You have unsaved changes")
-            let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
-                alert.dismiss(animated: true, completion: nil)
-                self.navigationController?.popToRootViewController(animated: true)
-            }
-            let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
-            alert.addAction(noAction)
-            alert.addAction(yesAction)
-            present(alert, animated: true, completion: nil)
-        } else {
-            self.navigationController?.popToRootViewController(animated: true)
-        }
+        checkForUnsavedChanges()
     }
     @objc private func hideKey() {
         self.view.endEditing(true)    }
