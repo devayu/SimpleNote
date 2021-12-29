@@ -44,4 +44,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
         }
+    func didRecieveDatafromFB(data: [NSDictionary], error: Error?) {
+        if error == nil {
+            noteList.append(contentsOf: data)
+            tableView.reloadData()
+        } else {
+            let alert = Alerts.shared.showAlert(message: error?.localizedDescription ?? "error placeholder", title: "")
+            self.present(alert, animated: true, completion: nil)
+            Alerts.shared.dismissAlert(alert: alert, completion: nil)
+        }
+    }
 }

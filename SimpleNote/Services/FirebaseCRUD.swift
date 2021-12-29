@@ -15,18 +15,15 @@ class FirebaseCRUD {
     var isDataPaginating: Bool = false
     var reachedEndOfDocument: Bool = false
     func newUser(uid: String, fname: String, lname: String, completion: @escaping (SignUpResponse)->Void) {
-            
             let db = Firestore.firestore()
-            
             if let currentUser = Auth.auth().currentUser?.uid {
-                
                 db.collection("users").document("\(currentUser)").setData(["firstName": fname, "lastName": lname, "notes":[]], merge: true) { error in
                     
                     if error != nil {
                         print("User created but data couldn't be added")
                         completion(SignUpResponse(isUserCreated: false, error: error))
                         return
-                    } else{
+                    } else {
                         completion(SignUpResponse(isUserCreated: true, error: nil))
                     }
                 }
@@ -65,9 +62,7 @@ class FirebaseCRUD {
             }
             snapshot?.documents.forEach({ document in
                 notes.append(document.data() as NSDictionary)
-                print(type(of: document.data()) , "-------")
             })
-    
             self.lastDocumentSnapshot = snapshot!.documents.last
             self.isDataPaginating = false
             completion(notes, nil)

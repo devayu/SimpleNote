@@ -8,8 +8,18 @@
 import UIKit
 import Firebase
 class HomeViewController: UIViewController, HomeViewModelDelegate {
+    
+    enum TabIndex : Int {
+            case firstChildTab = 0
+            case secondChildTab = 1
+        }
+    
     var noteList: [NSDictionary] = []
+    var myNotesView: UIView!
+    var myDraftsView: UIView!
+    var myDraftsVC: UIViewController!
     private var homeVM = HomeViewModel()
+    @IBOutlet var viewContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addNoteBtn: FloatingActionUIButton!
     @IBOutlet weak var segmentedController: UISegmentedControl!
@@ -17,16 +27,51 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         let addNoteVC = (storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.addNoteVC) as? AddNoteViewController)!
         self.navigationController?.pushViewController(addNoteVC, animated: true)
     }
-    
-    @IBAction func didChangeSegment(_ sender: UISegmentedControl){
-        if sender.selectedSegmentIndex == 1{
-            print("Loading Drafts ")
-        }
+    @IBAction func switchTabs(_ sender: UISegmentedControl) {
+        self.currentViewController!.view.removeFromSuperview()
+        self.currentViewController!.removeFromParent()
+
+        displayCurrentTab(sender.selectedSegmentIndex)
     }
+    
+    var currentViewController: UIViewController?
+        lazy var firstChildTabVC: UIViewController? = {
+            let firstChildTabVC = self.storyboard?.instantiateViewController(withIdentifier: "NotesTableViewController")
+            return firstChildTabVC
+        }()
+        lazy var secondChildTabVC: UIViewController? = {
+            let secondChildTabVC = self.storyboard?.instantiateViewController(withIdentifier: "DraftsViewController")
+            return secondChildTabVC
+        }()
+    
+    func viewControllerForSelectedSegmentIndex(_ index: Int) -> UIViewController? {
+            var vc: UIViewController?
+            switch index {
+            case TabIndex.firstChildTab.rawValue :
+                vc = firstChildTabVC
+            case TabIndex.secondChildTab.rawValue :
+                vc = secondChildTabVC
+            default:
+            return nil
+            }
+        
+            return vc
+        }
+    func displayCurrentTab(_ tabIndex: Int) {
+            if let vc = viewControllerForSelectedSegmentIndex(tabIndex) {
+                self.addChild(vc)
+                vc.didMove(toParent: self)
+                vc.view.frame = self.viewContainer.bounds
+                self.viewContainer.addSubview(vc.view)
+                self.currentViewController = vc
+            }
+        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initHomeVC()
+        segmentedController.selectedSegmentIndex = TabIndex.firstChildTab.rawValue
+        displayCurrentTab(TabIndex.firstChildTab.rawValue)
+        // initHomeVC()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -34,19 +79,26 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         noteList.removeAll()
         setupTable()
     }
-    private func initHomeVC() {
-        addNoteBtn.createFloatingActionButton(color: .systemBlue, imageToSet: nil)
-        tableView.delegate = self
-        tableView.dataSource = self
-        homeVM.delegate = self
-        FirebaseCRUD.shared.getAllDocumentsSnapshot()
-        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
-        segementedControllerHandler()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: addNoteBtn.frame.size.height, right: 0)
-        self.tableView.layer.cornerRadius = 10
-        self.tableView.layer.masksToBounds = true
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let currentViewController = currentViewController {
+            currentViewController.viewWillDisappear(animated)
+        }
     }
+//    private func initHomeVC() {
+//        addNoteBtn.createFloatingActionButton(color: .systemBlue, imageToSet: nil)
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//        homeVM.delegate = self
+//        FirebaseCRUD.shared.getAllDocumentsSnapshot()
+//        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+//        segementedControllerHandler()
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: addNoteBtn.frame.size.height, right: 0)
+//        self.tableView.layer.cornerRadius = 10
+//        self.tableView.layer.masksToBounds = true
+//    }
     @IBAction func signoutBtnTapped(_ sender: Any) {
         homeVM.signOutUser()
     }

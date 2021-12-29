@@ -29,15 +29,11 @@ class VerifyUserVM
 //        firemodel.newUser(email: email, pass: pass, fname: fname, lname: lname)
     }
     weak var delegate: RecievedUserFromFirebase?
-    func createAccount(userInfo: [String:String])
-    {
-        FirebaseAuthentication.shared.signUpWithEmailAndPassword(email: userInfo["email"]!, pass: userInfo["pass"]!, fname: userInfo["fname"]!, lname: userInfo["lname"]!) {
-            user, err in
-            print("------------------")
+    func createAccount(userInfo :[String:String]) {
+        FirebaseAuthentication.shared.signUpWithEmailAndPassword(email: userInfo["email"]!, pass: userInfo["pass"]!, fname: userInfo["fname"]!, lname: userInfo["lname"]!) { user, err in
             self.delegate?.didRecieveUser(data: user, error: err)
         }
     }
-    
     func validateEmptyFields(info: [String: String]) -> ValidationResults
     {
         print("Validating.....")

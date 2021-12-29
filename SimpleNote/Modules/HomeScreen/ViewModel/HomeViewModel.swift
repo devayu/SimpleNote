@@ -16,6 +16,10 @@ protocol HomeViewModelDelegate: AnyObject {
     func didRecieveData(data: [NSDictionary], error: Error?)
     func didLogoutUser(isLogoutSuccess: Bool, error: Error?)
 }
+
+protocol DraftViewModelDelegate: AnyObject{
+    func didRecieveDatafromCD(data: [SingleNote], error: Error?)
+}
 enum ListTypes: Int {
     case notes = 0
     case drafts = 1
@@ -35,10 +39,16 @@ class HomeViewModel {
 //            }
             //Use this for inspecting the Core Data
             print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
-            print("On drafts page ")
-            
         }
     }
+    
+//    func getDataFromCD(fetchMoreData: Bool) -> [SingleNote]{
+//        notesRepository.getAll { notesDict in
+//            var note = notesDict
+////            return note
+//        }
+//    }
+    
     func signOutUser() {
         FirebaseAuthentication.shared.signOutUser { isLogoutSuccess, error in
             self.delegate?.didLogoutUser(isLogoutSuccess: isLogoutSuccess, error: error)
