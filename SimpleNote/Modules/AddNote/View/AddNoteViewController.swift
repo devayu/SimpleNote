@@ -62,7 +62,7 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
     }
     @IBAction func addBtnTapped(_ sender: Any) {
         let noteId = UUID().uuidString
-        let request = AddNoteModel(noteId: noteId, title: titleTxt.text ?? "", author: authorTxt.text ?? "", date: datePicker.date, importance: importanceTxt.text!, description: descriptionTxt.text ?? "")
+        let request = AddNoteModel(noteId: noteId, title: titleTxt.text ?? "", author: authorTxt.text ?? "", date: datePicker.date, importance: importanceTxt.text!, description: descriptionTxt.text ?? "", imgURL: addNoteVM.imgUrl, fileURL: addNoteVM.fileUrl)
         let validationResult =  addNoteVM.validateFields(title: request.title, author: request.author, description: request.description)
         if !validationResult.success {
             switch validationResult.forField {
