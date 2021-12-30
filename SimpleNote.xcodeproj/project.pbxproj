@@ -44,6 +44,9 @@
 		08A1262F2775EACB00F65748 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 08A1262E2775EACB00F65748 /* FirebaseCrashlytics */; };
 		08A12637277B1FC500F65748 /* DetailsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A12636277B1FC400F65748 /* DetailsScreenViewController.swift */; };
 		08A12639277B200400F65748 /* DetailsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A12638277B200400F65748 /* DetailsScreenViewModel.swift */; };
+		08A1263F277C47F500F65748 /* DetailsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A1263E277C47F500F65748 /* DetailsTabViewController.swift */; };
+		08A12641277C480400F65748 /* FilesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A12640277C480400F65748 /* FilesTabViewController.swift */; };
+		08A12645277DA02F00F65748 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A12644277DA02F00F65748 /* ImageViewController.swift */; };
 		08AF6CE12754B35C00AFFCF4 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */; };
 		08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */; };
 		08AF6CFB27560DCD00AFFCF4 /* AddNoteVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */; };
@@ -130,6 +133,9 @@
 		085033C4273E459F006CBBB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		08A12636277B1FC400F65748 /* DetailsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewController.swift; sourceTree = "<group>"; };
 		08A12638277B200400F65748 /* DetailsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewModel.swift; sourceTree = "<group>"; };
+		08A1263E277C47F500F65748 /* DetailsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTabViewController.swift; sourceTree = "<group>"; };
+		08A12640277C480400F65748 /* FilesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesTabViewController.swift; sourceTree = "<group>"; };
+		08A12644277DA02F00F65748 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
 		08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteVCExtension.swift; sourceTree = "<group>"; };
@@ -519,6 +525,9 @@
 			isa = PBXGroup;
 			children = (
 				08A12636277B1FC400F65748 /* DetailsScreenViewController.swift */,
+				08A1263E277C47F500F65748 /* DetailsTabViewController.swift */,
+				08A12640277C480400F65748 /* FilesTabViewController.swift */,
+				08A12644277DA02F00F65748 /* ImageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -816,13 +825,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				08AF6CFE2757464A00AFFCF4 /* HttpUtility.swift in Sources */,
+				08A1263F277C47F500F65748 /* DetailsTabViewController.swift in Sources */,
 				08AF6D0227574F4A00AFFCF4 /* NoteValidationResult.swift in Sources */,
+				08A12641277C480400F65748 /* FilesTabViewController.swift in Sources */,
 				36907E0E2774450800A1365D /* SignUpTableVC.swift in Sources */,
 				08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */,
 				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
 				0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */,
 				3600B39E2775B8A90034791E /* CoreDataCRUD.swift in Sources */,
 				08E9C73A274CE27C00A7324C /* CustomTableViewCell.swift in Sources */,
+				08A12645277DA02F00F65748 /* ImageViewController.swift in Sources */,
 				36080F3E277510BC00D1B356 /* NetworkMonitor.swift in Sources */,
 				08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */,
 				0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */,

@@ -14,6 +14,8 @@ struct SingleNote {
     var noteDate: Timestamp = Timestamp(date: Date(timeIntervalSince1970: 1640597786))
     var noteDescription: String = "noteDescription placeholder"
     var noteImportance: String = "noteImportance placeholder"
+    var noteImgUrl: String?
+    var noteFileUrl: String?
 }
 enum NoteFields: String {
     case id = "noteId"
@@ -22,4 +24,6 @@ enum NoteFields: String {
     case title = "noteTitle"
     case date = "noteDate"
     case description = "noteDesc"
+    case imgUrl = "noteImgUrl"
+    case fileUrl = "noteFileUrl"
 }
