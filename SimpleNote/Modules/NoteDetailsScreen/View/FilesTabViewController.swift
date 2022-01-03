@@ -11,27 +11,51 @@ class FilesTabViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pdfThumbnailImage: UIImageView!
     var note: SingleNote!
-    var pdfViewer: PDFView!
+    private var tapToFullScreenPdf: UITapGestureRecognizer!
+    private var tapToFullScreenImg: UITapGestureRecognizer!
+    private var pdfViewer: PDFView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        initVC()
         setPdf()
         setImage()
     }
-    private func initVC() {
-        if note.noteImgUrl == nil {
-            imageView.isHidden = true
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupTapGesturesToFullScreen()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeTapGesturesToFullScreen()
+    }
+    private func setupTapGesturesToFullScreen() {
+        if note.noteFileUrl != nil {
+            tapToFullScreenPdf = UITapGestureRecognizer(target: self, action: #selector(viewPdfInFullScreen))
+            pdfThumbnailImage.addGestureRecognizer(tapToFullScreenPdf)
         }
-        if note.noteFileUrl == nil {
-            pdfThumbnailImage.isHidden = true
+        if note.noteFileUrl != nil {
+            tapToFullScreenImg = UITapGestureRecognizer(target: self, action: #selector(viewImgInFullScreen))
+            imageView.addGestureRecognizer(tapToFullScreenImg)
+        }
+    }
+    private func removeTapGesturesToFullScreen() {
+        if let tapToFullScreenPdf = tapToFullScreenPdf {
+            pdfThumbnailImage.removeGestureRecognizer(tapToFullScreenPdf)
+        }
+        if let tapToFullScreenImage = tapToFullScreenImg {
+            imageView.removeGestureRecognizer(tapToFullScreenImage)
+
         }
     }
     private func setPdf() {
-        guard let fileUrl = note.noteFileUrl else { return }
+        guard let fileUrl = note.noteFileUrl else {
+            DispatchQueue.main.async {
+                self.pdfThumbnailImage.isHidden = true
+            }
+            return
+        }
         let spinner = UIActivityIndicatorView()
         spinner.center = self.pdfThumbnailImage.center
         pdfThumbnailImage.addSubview(spinner)
-        pdfThumbnailImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewPdfInFullScreen)))
         FirebaseCRUD.shared.downloadFiles(for: note.noteId, fileName: fileUrl) { result in
             switch result {
             case .failure(let error):
@@ -51,12 +75,16 @@ class FilesTabViewController: UIViewController {
         }
     }
     private func setImage() {
-        guard let imgUrl = note.noteImgUrl else { return }
+        guard let imgUrl = note.noteImgUrl else {
+            DispatchQueue.main.async {
+                self.imageView.isHidden = true
+            }
+            return
+        }
         let spinner = UIActivityIndicatorView()
         spinner.startAnimating()
         spinner.center = self.imageView.center
         imageView.addSubview(spinner)
-        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewImgInFullScreen)))
         FirebaseCRUD.shared.downloadFiles(for: note.noteId, fileName: imgUrl) { result in
             switch result {
             case .failure(let error):

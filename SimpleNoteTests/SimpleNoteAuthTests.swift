@@ -31,12 +31,6 @@ class SimpleNoteAuthTests: XCTestCase {
         XCTAssertNotNil(result.error)
         XCTAssertFalse(result.success)
     }
-    func testLoginValidationWithValidRequest() {
-        let loginRequest = LoginRequest(email: "test@test.com", password: "12345678")
-        let loginVM = LoginViewModel()
-        let result = loginVM.validateLoginFields(for: loginRequest)
-        XCTAssertNil(result.error)
-        XCTAssertTrue(result.success)
-    }
+
 
 }
