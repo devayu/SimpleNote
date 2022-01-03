@@ -139,6 +139,7 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
         descriptionTxt.layer.cornerRadius = 5.0
         descriptionTxt.clipsToBounds = true
         titleTxt.becomeFirstResponder()
+        datePicker.maximumDate = datePicker.date
         self.importanceDropdown.menu = createMenu()
         self.importanceDropdown.showsMenuAsPrimaryAction = true
         self.selectedImgTxt.isHidden = true
