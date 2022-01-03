@@ -18,15 +18,16 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
     var titleData: String = ""
     var descData: String = ""
     var authorData: String = ""
+
     lazy var addNoteVM: AddNoteViewModel = {
         return AddNoteViewModel()
     }()
     override func viewDidLoad() {
         //cdNotesRepository.getAll()
-        super.viewDidLoad()
         titleTxt.text = titleData
         authorTxt.text = authorData
         descriptionTxt.text = descData
+        super.viewDidLoad()
         initAddNoteVC()
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,45 +67,45 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
             }
         }
     }
-//    @IBAction func addBtnTapped(_ sender: Any) {
-//        let noteId = UUID().uuidString
-//        let request = AddNoteModel(noteId: noteId, title: titleTxt.text ?? "", author: authorTxt.text ?? "", date: datePicker.date, importance: importanceTxt.text!, description: descriptionTxt.text ?? "")
-//        let validationResult =  addNoteVM.validateFields(title: request.title, author: request.author, description: request.description)
-//        if !validationResult.success {
-//            switch validationResult.forField {
-//            case .title:
-//                self.titleTxt.setError(errorMessage: validationResult.error!)
-//            case .author:
-//                self.authorTxt.setError(errorMessage: validationResult.error!)
-//            case .description:
-//                self.descriptionTxt.setError(errorMessage: validationResult.error!)
-//            case .none:
-//                break
-//            }
-//        } else {
-//            if NetworkMonitor.shared.isConnected {
-//            addNoteVM.addNote(addRequest: request)
-//                }
-//            else {
-//                let alert = Alerts.shared.showAlert(message: "", title: "No internet detected. Do you want to save to drafts?")
-//                let deleteAction = UIAlertAction(title: "Delete Note", style: .destructive) { _ in
-//                    self.navigationController?.popToRootViewController(animated: true)
-//                }
-//                let addToDraftAction = UIAlertAction(title: "Save as Draft", style: .default) { _ in
-//                    print("add to draft")
-//                    cdNotesRepository.create(request: request)
-////                    self.didAddNote(success: false, error: "Added note to Drafts ")
-//                    self.navigationController?.popToRootViewController(animated: true)
-//                }
-//                let continueAction = UIAlertAction(title: "Continue writing", style: .default, handler: nil)
-//                alert.addAction(deleteAction)
-//                alert.addAction(addToDraftAction)
-//                alert.addAction(continueAction)
-//                self.present(alert, animated: true, completion: nil)
-//                
-//            }
-//        }
-//    }
+    @IBAction func addBtnTapped(_ sender: Any) {
+        let noteId = UUID().uuidString
+        let request = AddNoteModel(noteId: noteId, title: titleTxt.text ?? "", author: authorTxt.text ?? "", date: datePicker.date, importance: importanceTxt.text!, description: descriptionTxt.text ?? "", imgURL: addNoteVM.imgUrl, fileURL: addNoteVM.fileUrl)
+        let validationResult =  addNoteVM.validateFields(title: request.title, author: request.author, description: request.description)
+        if !validationResult.success {
+            switch validationResult.forField {
+            case .title:
+                self.titleTxt.setError(errorMessage: validationResult.error!)
+            case .author:
+                self.authorTxt.setError(errorMessage: validationResult.error!)
+            case .description:
+                self.descriptionTxt.setError(errorMessage: validationResult.error!)
+            case .none:
+                break
+            }
+        } else {
+            if NetworkMonitor.shared.isConnected {
+            addNoteVM.addNote(addRequest: request)
+                }
+            else {
+                let alert = Alerts.shared.showAlert(message: "", title: "No internet detected. Do you want to save to drafts?")
+                let deleteAction = UIAlertAction(title: "Delete Note", style: .destructive) { _ in
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                let addToDraftAction = UIAlertAction(title: "Save as Draft", style: .default) { _ in
+                    print("add to draft")
+                    cdNotesRepository.create(request: request)
+//                    self.didAddNote(success: false, error: "Added note to Drafts ")
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                let continueAction = UIAlertAction(title: "Continue writing", style: .default, handler: nil)
+                alert.addAction(deleteAction)
+                alert.addAction(addToDraftAction)
+                alert.addAction(continueAction)
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+        }
+    }
     @IBAction func cancelBtnTapped(_ sender: Any) {
         let alert = Alerts.shared.showAlert(message: "", title: "Are you sure you want to cancel?")
         let deleteAction = UIAlertAction(title: "Delete Note", style: .destructive) { _ in
