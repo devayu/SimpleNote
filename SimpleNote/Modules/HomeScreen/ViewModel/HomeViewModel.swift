@@ -13,7 +13,7 @@ import UIKit
 let notesRepository = NotesRepository()
 
 protocol HomeViewModelDelegate: AnyObject {
-    func didRecieveData(data: [NSDictionary], error: Error?)
+    func didRecieveData(data: [SingleNote], error: Error?)
     func didLogoutUser(isLogoutSuccess: Bool, error: Error?)
 }
 
@@ -33,6 +33,7 @@ class HomeViewModel {
                 self.delegate?.didRecieveData(data: notes, error: error)
                 print(notes)
             }
+            
         case .drafts:
 //            notesRepository.getAll() {NotesDict in
 //                //self.delegate?.didRecieveData(data: NotesDict, error: nil)

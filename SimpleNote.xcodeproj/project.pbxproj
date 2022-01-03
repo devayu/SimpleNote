@@ -38,9 +38,12 @@
 		085033C5273E45A0006CBBB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 085033C4273E459F006CBBB2 /* GoogleService-Info.plist */; };
 		085CE4F027744443004FBA20 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4EF27744443004FBA20 /* FirebaseAnalytics */; };
 		085CE4F227744443004FBA20 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4F127744443004FBA20 /* FirebaseAuth */; };
-		085CE4F427744443004FBA20 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4F327744443004FBA20 /* FirebaseCrashlytics */; };
 		085CE4F627744443004FBA20 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4F527744443004FBA20 /* FirebaseFirestore */; };
 		085CE4F827744443004FBA20 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 085CE4F727744443004FBA20 /* FirebaseStorage */; };
+		08A1262D2775E8E400F65748 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 08A1262C2775E8E400F65748 /* FirebasePerformance */; };
+		08A1262F2775EACB00F65748 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 08A1262E2775EACB00F65748 /* FirebaseCrashlytics */; };
+		08A12637277B1FC500F65748 /* DetailsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A12636277B1FC400F65748 /* DetailsScreenViewController.swift */; };
+		08A12639277B200400F65748 /* DetailsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A12638277B200400F65748 /* DetailsScreenViewModel.swift */; };
 		08AF6CE12754B35C00AFFCF4 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */; };
 		08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */; };
 		08AF6CFB27560DCD00AFFCF4 /* AddNoteVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */; };
@@ -127,6 +130,8 @@
 		085033B5273E4480006CBBB2 /* SimpleNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITests.swift; sourceTree = "<group>"; };
 		085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		085033C4273E459F006CBBB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08A12636277B1FC400F65748 /* DetailsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewController.swift; sourceTree = "<group>"; };
+		08A12638277B200400F65748 /* DetailsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewModel.swift; sourceTree = "<group>"; };
 		08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
 		08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteVCExtension.swift; sourceTree = "<group>"; };
@@ -167,9 +172,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				085CE4F427744443004FBA20 /* FirebaseCrashlytics in Frameworks */,
 				085CE4F627744443004FBA20 /* FirebaseFirestore in Frameworks */,
+				08A1262D2775E8E400F65748 /* FirebasePerformance in Frameworks */,
 				085CE4F027744443004FBA20 /* FirebaseAnalytics in Frameworks */,
+				08A1262F2775EACB00F65748 /* FirebaseCrashlytics in Frameworks */,
 				085CE4F827744443004FBA20 /* FirebaseStorage in Frameworks */,
 				085CE4F227744443004FBA20 /* FirebaseAuth in Frameworks */,
 			);
@@ -275,7 +281,6 @@
 			children = (
 				0811E9A8274198A500CB6A18 /* UIVCExtensions.swift */,
 				0811E9AA2741A3F400CB6A18 /* UITextFieldExtensions.swift */,
-				080BE6F3274B9AC50068EC5E /* LoginVCExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 		0811E9BB274375DC00CB6A18 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				08A12631277B1F7500F65748 /* NoteDetailsScreen */,
 				08AF6CDC2754B31D00AFFCF4 /* AddNote */,
 				080BE6F5274CC4500068EC5E /* HomeScreen */,
 				0811E9C02743761C00CB6A18 /* Signup */,
@@ -294,6 +300,7 @@
 		0811E9BC274375E700CB6A18 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				08A1263027799A7800F65748 /* Extensions */,
 				0811E9BD274375ED00CB6A18 /* Model */,
 				0811E9BE274375F200CB6A18 /* View */,
 				0811E9BF274375F700CB6A18 /* ViewModel */,
@@ -414,6 +421,7 @@
 				085033AA273E4480006CBBB2 /* SimpleNoteTests */,
 				085033B4273E4480006CBBB2 /* SimpleNoteUITests */,
 				0850338F273E4477006CBBB2 /* Products */,
+				08A1262B2775E8E400F65748 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -462,6 +470,62 @@
 				085033B7273E4480006CBBB2 /* SimpleNoteUITestsLaunchTests.swift */,
 			);
 			path = SimpleNoteUITests;
+			sourceTree = "<group>";
+		};
+		08A1262B2775E8E400F65748 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08A1263027799A7800F65748 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				080BE6F3274B9AC50068EC5E /* LoginVCExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		08A12631277B1F7500F65748 /* NoteDetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				08A12635277B1FA000F65748 /* View */,
+				08A12634277B1F9800F65748 /* ViewModel */,
+				08A12633277B1F9100F65748 /* Model */,
+				08A12632277B1F8B00F65748 /* Extensions */,
+			);
+			path = NoteDetailsScreen;
+			sourceTree = "<group>";
+		};
+		08A12632277B1F8B00F65748 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		08A12633277B1F9100F65748 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		08A12634277B1F9800F65748 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				08A12638277B200400F65748 /* DetailsScreenViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		08A12635277B1FA000F65748 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08A12636277B1FC400F65748 /* DetailsScreenViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		08AF6CDC2754B31D00AFFCF4 /* AddNote */ = {
@@ -586,7 +650,8 @@
 				0850338A273E4477006CBBB2 /* Sources */,
 				0850338B273E4477006CBBB2 /* Frameworks */,
 				0850338C273E4477006CBBB2 /* Resources */,
-				0811E9D9274639F800CB6A18 /* ShellScript */,
+				0811E9D9274639F800CB6A18 /* Run Script */,
+				08A1262A2775E04900F65748 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -596,9 +661,10 @@
 			packageProductDependencies = (
 				085CE4EF27744443004FBA20 /* FirebaseAnalytics */,
 				085CE4F127744443004FBA20 /* FirebaseAuth */,
-				085CE4F327744443004FBA20 /* FirebaseCrashlytics */,
 				085CE4F527744443004FBA20 /* FirebaseFirestore */,
 				085CE4F727744443004FBA20 /* FirebaseStorage */,
+				08A1262C2775E8E400F65748 /* FirebasePerformance */,
+				08A1262E2775EACB00F65748 /* FirebaseCrashlytics */,
 			);
 			productName = SimpleNote;
 			productReference = 0850338E273E4477006CBBB2 /* SimpleNote.app */;
@@ -719,7 +785,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0811E9D9274639F800CB6A18 /* ShellScript */ = {
+		0811E9D9274639F800CB6A18 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -728,6 +794,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -735,6 +802,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		08A1262A2775E04900F65748 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -762,10 +848,12 @@
 				0811E9A9274198A500CB6A18 /* UIVCExtensions.swift in Sources */,
 				08AF6D042757543700AFFCF4 /* CustomTextView.swift in Sources */,
 				0811E9AB2741A3F400CB6A18 /* UITextFieldExtensions.swift in Sources */,
+				08A12637277B1FC500F65748 /* DetailsScreenViewController.swift in Sources */,
 				0811E9CB2743788700CB6A18 /* CustomTextField.swift in Sources */,
 				36907E182774461400A1365D /* ButtonTableViewCell.swift in Sources */,
 				08010563273E540200BD432E /* FirebaseAuthentication.swift in Sources */,
 				08010565273E541400BD432E /* FirebaseCRUD.swift in Sources */,
+				08A12639277B200400F65748 /* DetailsScreenViewModel.swift in Sources */,
 				0811E9B527425A7900CB6A18 /* LoginResponse.swift in Sources */,
 				0811E9BA27425BE100CB6A18 /* ValidationResult.swift in Sources */,
 				08010568273E545D00BD432E /* LoginViewModel.swift in Sources */,
@@ -972,6 +1060,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SimpleNote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1176,11 +1265,6 @@
 			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		085CE4F327744443004FBA20 /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
 		085CE4F527744443004FBA20 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -1190,6 +1274,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		08A1262C2775E8E400F65748 /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		08A1262E2775EACB00F65748 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 085CE4EE27744443004FBA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 

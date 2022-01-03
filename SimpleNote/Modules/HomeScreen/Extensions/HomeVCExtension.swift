@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 import UIKit
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -16,16 +17,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
-        cell.titleTxt.text = noteList[indexPath.row]["noteTitle"] as? String
-        cell.authorTxt.text = noteList[indexPath.row]["noteAuthor"] as? String
-        let noteDate = noteList[indexPath.row]["noteDate"] as? Date
-        cell.dateTxt.text = noteDate?.formatted(date: .abbreviated, time: .shortened)
-        cell.importanceTxt.text = noteList[indexPath.row]["noteImportance"] as? String
-        cell.descTxt.text = (noteList[indexPath.row]["noteDesc"] as! String)
+        cell.titleTxt.text = noteList[indexPath.row].noteTitle
+        cell.authorTxt.text = noteList[indexPath.row].noteAuthor
+        cell.dateTxt.text = noteList[indexPath.row].noteDate.dateValue().formatted(date: .abbreviated, time: .shortened)
+        cell.importanceTxt.text = noteList[indexPath.row].noteImportance
+        cell.descTxt.text = noteList[indexPath.row].noteDescription
         return cell
     }
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-            {
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+                if segmentedController.selectedSegmentIndex == ListTypes.notes.rawValue {
+                    return nil
+                }
                 let deleteAction = UIContextualAction(style: .destructive, title: "Save Note") { (action, view, completionHandler) in
                     print("Upload data at row \(indexPath.row)")
                     completionHandler(true)
@@ -42,16 +44,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 tableView.endUpdates()
                 print("Deleted")
             }
-            
         }
-    func didRecieveDatafromFB(data: [NSDictionary], error: Error?) {
-        if error == nil {
-            noteList.append(contentsOf: data)
-            tableView.reloadData()
-        } else {
-            let alert = Alerts.shared.showAlert(message: error?.localizedDescription ?? "error placeholder", title: "")
-            self.present(alert, animated: true, completion: nil)
-            Alerts.shared.dismissAlert(alert: alert, completion: nil)
-        }
+//    func didRecieveDatafromFB(data: [NSDictionary], error: Error?) {
+//        if error == nil {
+//            noteList.append(contentsOf: data)
+//            tableView.reloadData()
+//        } else {
+//            let alert = Alerts.shared.showAlert(message: error?.localizedDescription ?? "error placeholder", title: "")
+//            self.present(alert, animated: true, completion: nil)
+//            Alerts.shared.dismissAlert(alert: alert, completion: nil)
+//        }
+//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let note = noteList[indexPath.row]
+        let detailsVC = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.detailsVC) as? DetailsScreenViewController
+        detailsVC?.note = note
+        navigationController?.pushViewController(detailsVC!, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+    
 }

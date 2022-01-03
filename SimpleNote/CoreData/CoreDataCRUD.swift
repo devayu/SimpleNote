@@ -20,16 +20,16 @@ class NotesRepository {
         print("Saving data in CD")
         PersistentStorage.shared.saveContext()
     }
-    func getAll(completion: @escaping ([SingleNoteCD]) -> Void) {
+    func getAll(completion: @escaping ([SingleNote]) -> Void) {
         let result = PersistentStorage.shared.fetchManagedObject(managedObject: Notes.self)
         result?.forEach({debugPrint($0.noteTitle as Any)})
-        var notesDict2: [SingleNoteCD] = []
+        var notesDict2: [SingleNote] = []
         result?.forEach({ (cdNotes) in
-            let notes = SingleNoteCD(noteId: cdNotes.noteId!, noteAuthor: cdNotes.noteAuthor ?? "Placeholder Author", noteTitle: cdNotes.noteTitle!, noteDate: cdNotes.noteDate!, noteDescription: cdNotes.noteDesc ?? "Placeholder Description", noteFiles: ["Placeholder files"], noteImportance: cdNotes.noteImportance ?? "Low")
+            let notes = SingleNote(noteId: cdNotes.noteId!, noteAuthor: cdNotes.noteAuthor!, noteTitle: cdNotes.noteTitle!, noteDescription: cdNotes.noteDesc ?? "Placeholder Description", noteImportance: cdNotes.noteImportance ?? "Low", noteImgUrl: "", noteFileUrl: "")
+//            let notes = SingleNoteCD(noteId: cdNotes.noteId!, noteAuthor: cdNotes.noteAuthor ?? "Placeholder Author", noteTitle: cdNotes.noteTitle!, noteDate: cdNotes.noteDate!, noteDescription: cdNotes.noteDesc ?? "Placeholder Description", noteFiles: ["Placeholder files"], noteImportance: cdNotes.noteImportance ?? "Low")
             notesDict2.append(notes)
         })
-        let current = Date()
-        let notes2 = SingleNoteCD(noteId: "1234", noteAuthor: "Placeholder Author", noteTitle: "titles", noteDate: current, noteDescription: "Placeholder Description", noteFiles: ["Placeholder files"], noteImportance: "Low")
+        let notes2 = SingleNote(noteId: "1234", noteAuthor: "Placeholder Author", noteTitle: "titles", noteDescription: "Placeholder Description", noteImportance: "Placeholder files", noteImgUrl: "Low")
         notesDict2.append(notes2)
         completion(notesDict2)
     }
