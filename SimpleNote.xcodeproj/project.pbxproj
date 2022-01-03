@@ -44,6 +44,9 @@
 		08A1262F2775EACB00F65748 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 08A1262E2775EACB00F65748 /* FirebaseCrashlytics */; };
 		08A12637277B1FC500F65748 /* DetailsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A12636277B1FC400F65748 /* DetailsScreenViewController.swift */; };
 		08A12639277B200400F65748 /* DetailsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A12638277B200400F65748 /* DetailsScreenViewModel.swift */; };
+		08A1263F277C47F500F65748 /* DetailsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A1263E277C47F500F65748 /* DetailsTabViewController.swift */; };
+		08A12641277C480400F65748 /* FilesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A12640277C480400F65748 /* FilesTabViewController.swift */; };
+		08A12645277DA02F00F65748 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A12644277DA02F00F65748 /* ImageViewController.swift */; };
 		08AF6CE12754B35C00AFFCF4 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */; };
 		08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */; };
 		08AF6CFB27560DCD00AFFCF4 /* AddNoteVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */; };
@@ -55,10 +58,12 @@
 		08C082BE274F7F3100E02F31 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082BD274F7F3100E02F31 /* LaunchScreenViewController.swift */; };
 		08C082C72750B0B900E02F31 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082C62750B0B900E02F31 /* NavigationHelper.swift */; };
 		08C082C92753C3DE00E02F31 /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C082C82753C3DD00E02F31 /* NotesModel.swift */; };
+		08C1B807277DC1AA00404EA4 /* SimpleNoteAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1B806277DC1AA00404EA4 /* SimpleNoteAuthTests.swift */; };
 		08E9C73A274CE27C00A7324C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C738274CE27C00A7324C /* CustomTableViewCell.swift */; };
 		08E9C73B274CE27C00A7324C /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */; };
 		08E9C73F274CF8E300A7324C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C73E274CF8E300A7324C /* HomeViewModel.swift */; };
 		08E9C742274E295100A7324C /* HomeVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C741274E295100A7324C /* HomeVCExtension.swift */; };
+		08F0911F2782CF3E0022691D /* SimpleNoteAddNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F0911E2782CF3E0022691D /* SimpleNoteAddNoteTests.swift */; };
 		3600B39E2775B8A90034791E /* CoreDataCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3600B39D2775B8A90034791E /* CoreDataCRUD.swift */; };
 		3600B3A12775BDCC0034791E /* Notes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3600B39F2775BDCB0034791E /* Notes+CoreDataClass.swift */; };
 		3600B3A22775BDCC0034791E /* Notes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3600B3A02775BDCB0034791E /* Notes+CoreDataProperties.swift */; };
@@ -130,6 +135,9 @@
 		085033C4273E459F006CBBB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		08A12636277B1FC400F65748 /* DetailsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewController.swift; sourceTree = "<group>"; };
 		08A12638277B200400F65748 /* DetailsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewModel.swift; sourceTree = "<group>"; };
+		08A1263E277C47F500F65748 /* DetailsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTabViewController.swift; sourceTree = "<group>"; };
+		08A12640277C480400F65748 /* FilesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesTabViewController.swift; sourceTree = "<group>"; };
+		08A12644277DA02F00F65748 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		08AF6CE02754B35C00AFFCF4 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		08AF6CF727560B6200AFFCF4 /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
 		08AF6CFA27560DCD00AFFCF4 /* AddNoteVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteVCExtension.swift; sourceTree = "<group>"; };
@@ -141,10 +149,12 @@
 		08C082BD274F7F3100E02F31 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		08C082C62750B0B900E02F31 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		08C082C82753C3DD00E02F31 /* NotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesModel.swift; sourceTree = "<group>"; };
+		08C1B806277DC1AA00404EA4 /* SimpleNoteAuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteAuthTests.swift; sourceTree = "<group>"; };
 		08E9C738274CE27C00A7324C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		08E9C739274CE27C00A7324C /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		08E9C73E274CF8E300A7324C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		08E9C741274E295100A7324C /* HomeVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCExtension.swift; sourceTree = "<group>"; };
+		08F0911E2782CF3E0022691D /* SimpleNoteAddNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteAddNoteTests.swift; sourceTree = "<group>"; };
 		3600B39D2775B8A90034791E /* CoreDataCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCRUD.swift; sourceTree = "<group>"; };
 		3600B39F2775BDCB0034791E /* Notes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3600B3A02775BDCB0034791E /* Notes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -454,6 +464,8 @@
 			isa = PBXGroup;
 			children = (
 				085033AB273E4480006CBBB2 /* SimpleNoteTests.swift */,
+				08C1B806277DC1AA00404EA4 /* SimpleNoteAuthTests.swift */,
+				08F0911E2782CF3E0022691D /* SimpleNoteAddNoteTests.swift */,
 			);
 			path = SimpleNoteTests;
 			sourceTree = "<group>";
@@ -519,6 +531,9 @@
 			isa = PBXGroup;
 			children = (
 				08A12636277B1FC400F65748 /* DetailsScreenViewController.swift */,
+				08A1263E277C47F500F65748 /* DetailsTabViewController.swift */,
+				08A12640277C480400F65748 /* FilesTabViewController.swift */,
+				08A12644277DA02F00F65748 /* ImageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -816,13 +831,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				08AF6CFE2757464A00AFFCF4 /* HttpUtility.swift in Sources */,
+				08A1263F277C47F500F65748 /* DetailsTabViewController.swift in Sources */,
 				08AF6D0227574F4A00AFFCF4 /* NoteValidationResult.swift in Sources */,
+				08A12641277C480400F65748 /* FilesTabViewController.swift in Sources */,
 				36907E0E2774450800A1365D /* SignUpTableVC.swift in Sources */,
 				08AF6CF827560B6300AFFCF4 /* AddNoteViewModel.swift in Sources */,
 				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
 				0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */,
 				3600B39E2775B8A90034791E /* CoreDataCRUD.swift in Sources */,
 				08E9C73A274CE27C00A7324C /* CustomTableViewCell.swift in Sources */,
+				08A12645277DA02F00F65748 /* ImageViewController.swift in Sources */,
 				36080F3E277510BC00D1B356 /* NetworkMonitor.swift in Sources */,
 				08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */,
 				0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */,
@@ -874,6 +892,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				085033AC273E4480006CBBB2 /* SimpleNoteTests.swift in Sources */,
+				08F0911F2782CF3E0022691D /* SimpleNoteAddNoteTests.swift in Sources */,
+				08C1B807277DC1AA00404EA4 /* SimpleNoteAuthTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
