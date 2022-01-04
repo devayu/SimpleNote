@@ -10,7 +10,6 @@ import FirebaseAuth
 import UIKit
 //import FirebaseDatabase
 
-//let firemodel = FirebaseCrud()
 let validator = Validator()
 
 class VerifyUserVM

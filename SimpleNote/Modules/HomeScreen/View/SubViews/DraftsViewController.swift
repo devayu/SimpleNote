@@ -85,23 +85,9 @@ class DraftsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             addNoteBtn.createFloatingActionButton(color: .systemBlue, imageToSet: nil)
         }
         self.navigationItem.rightBarButtonItem = logOutButton
-//        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: addNoteBtn.frame.size.height, right: 0)
         self.tableView.layer.cornerRadius = 10
         self.tableView.layer.masksToBounds = true
-        
-        
-//        if segmentIndex == 1 {
-////            notesRepository.getAll() { notesDict2 in
-////
-////                self.notesDict = notesDict2
-////                self.tableView.reloadData()
-////            }
-//            print("On drafts")
-//        }
-//        if segmentIndex == 0 {
-//            FirebaseCRUD.shared.getAllDocumentsSnapshot()
-//            fetchDataForTable()
-//        }
+
     }
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
             {
@@ -148,6 +134,7 @@ class DraftsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 tableView.beginUpdates()
                 notesDict.remove(at: indexPath.row)
+                FirebaseCRUD.shared.deleteFromFirebase(noteId: notesDict[indexPath.row].noteId)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
                 print("Deleted")

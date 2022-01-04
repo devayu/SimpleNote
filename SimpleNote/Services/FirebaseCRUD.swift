@@ -130,4 +130,13 @@ class FirebaseCRUD {
             self.totalDocumentsSnapshot = docSnapshot?.documents.last
         }
     }
+    func deleteFromFirebase(noteId: String) {
+            guard let currentUser = Auth.auth().currentUser?.uid else {return}
+            let dbRef = Firestore.firestore().collection("users").document("\(currentUser)").collection("notes")
+            let query = dbRef.whereField("noteId", isEqualTo: noteId)
+            query.getDocuments { snapshot, _ in
+                snapshot?.documents.first?.reference.delete()
+            }
+        }
+
 }

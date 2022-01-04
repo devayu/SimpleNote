@@ -8,7 +8,6 @@
 import Foundation
 import Firebase
 import CoreData
-//let firebasecrud = FirebaseCrud()
 
 class FirebaseAuthentication {
     static let shared = FirebaseAuthentication()
