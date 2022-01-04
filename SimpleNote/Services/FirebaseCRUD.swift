@@ -48,7 +48,7 @@ class FirebaseCRUD {
                     completion(false, error)
                     return
                 }
-                self.didAddNewNote = true
+                FirebaseCRUD.shared.didAddNewNote = true
                 completion(true, nil)
             }
         }

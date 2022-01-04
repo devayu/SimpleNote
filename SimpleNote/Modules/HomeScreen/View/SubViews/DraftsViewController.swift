@@ -22,28 +22,27 @@ class DraftsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        homeVM.delegate = self
         loadTableData()
 
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        fetchDataForTable()
         FirebaseCRUD.shared.reachedEndOfDocument = false
         if FirebaseCRUD.shared.didAddNewNote {
-            noteList.removeAll()
+            notesDict.removeAll()
             fetchDataForTable()
             FirebaseCRUD.shared.didAddNewNote = false
         }
     }
     override func viewDidDisappear(_ animated: Bool) {
-        notesDict.removeAll()
         DataFetchHelper.shared.isPaginating = false
         DataFetchHelper.shared.reachedEndOfDocument = false
         self.tableView.tableFooterView = nil
     }
     @objc private func pullToRefresh() {
-        noteList.removeAll()
+        notesDict.removeAll()
         fetchDataForTable()
     }
     private func fetchDataForTable() {
@@ -74,13 +73,13 @@ class DraftsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func loadTableData() {
         FirebaseCRUD.shared.getAllDocumentsSnapshot()
         NotesRepository.shared.getNumberOfData()
+        fetchDataForTable()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
         navigationController?.navigationBar.prefersLargeTitles = true
-        homeVM.delegate = self
         let logOutButton = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logOutUser))
         if segmentIndex == 0{
             addNoteBtn.createFloatingActionButton(color: .systemBlue, imageToSet: nil)
@@ -156,7 +155,7 @@ class DraftsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if segmentIndex == 0 {
-            let note = noteList[indexPath.row]
+            let note = notesDict[indexPath.row]
             let detailsVC = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.detailsVC) as? DetailsScreenViewController
             detailsVC?.note = note
             navigationController?.pushViewController(detailsVC!, animated: true)
@@ -205,7 +204,7 @@ class DraftsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func didRecieveData(data: [SingleNote], error: Error?) {
         if error == nil && !data.isEmpty {
             notesDict.append(contentsOf: data)
-            print(data, "delegate")
+            print(data.first, "delegate")
             //notesDict = noteList
             updateTableUI()
         } else {
