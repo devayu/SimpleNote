@@ -26,18 +26,14 @@ class FirebaseCRUD {
     var reachedEndOfDocument: Bool = false
     var didAddNewNote: Bool = false
     func newUser(uid: String, fname: String, lname: String, completion: @escaping (SignUpResponse)->Void) {
-        
         let db = Firestore.firestore()
-        
         if let currentUser = Auth.auth().currentUser?.uid {
-            
             db.collection("users").document("\(currentUser)").setData(["firstName": fname, "lastName": lname, "notes":[]], merge: true) { error in
-                
                 if error != nil {
                     print("User created but data couldn't be added")
                     completion(SignUpResponse(isUserCreated: false, error: error))
                     return
-                } else{
+                } else {
                     completion(SignUpResponse(isUserCreated: true, error: nil))
                 }
             }
@@ -63,11 +59,11 @@ class FirebaseCRUD {
         query = dbRef.order(by: "noteDate", descending: true).limit(to: 5)
         if fetchMoreData {
             guard lastDocumentSnapshot.documentID != totalDocumentsSnapshot.documentID else {
-                self.reachedEndOfDocument = true
+                DataFetchHelper.shared.reachedEndOfDocument = true
                 return
             }
             query = query.start(afterDocument: lastDocumentSnapshot)
-            self.isDataPaginating = true
+            DataFetchHelper.shared.isPaginating = true
         }
         var notes: [SingleNote] = []
         query.getDocuments { snapshot, error in
@@ -89,7 +85,7 @@ class FirebaseCRUD {
                 notes.append(note)
             })
             self.lastDocumentSnapshot = snapshot!.documents.last
-            self.isDataPaginating = false
+            DataFetchHelper.shared.isPaginating = false
             completion(notes, nil)
         }
     }

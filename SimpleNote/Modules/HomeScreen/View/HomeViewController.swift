@@ -8,6 +8,10 @@
 import UIKit
 import Firebase
 class HomeViewController: UIViewController, HomeViewModelDelegate {
+    func didRecieveDatafromCD(data: [SingleNote], error: Error?) {
+        print("Home Vc")
+    }
+    
     enum TabIndex: Int {
             case firstChildTab = 0
             case secondChildTab = 1
@@ -28,6 +32,11 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         NavigationHelper.shared.navigateToScreen(to: AddNoteViewController.self, navigationController: navigationController!, identifier: Constants.Storyboard.addNoteVC, storyboard: storyboard!)
     }
     @IBAction func switchTabs(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 1 {
+            addNoteBtn.isHidden = true
+        } else {
+            addNoteBtn.isHidden = false
+        }
         self.currentViewController!.view.removeFromSuperview()
         self.currentViewController!.removeFromParent()
         displayCurrentTab(sender.selectedSegmentIndex)
@@ -68,8 +77,12 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        homeVM.delegate = self
         segmentedController.selectedSegmentIndex = TabIndex.firstChildTab.rawValue
         displayCurrentTab(TabIndex.firstChildTab.rawValue)
+        addNoteBtn.createFloatingActionButton(color: .systemBlue, imageToSet: nil)
+        let logOutButton = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logOutUser))
+        self.navigationItem.rightBarButtonItem = logOutButton
         // initHomeVC()
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -77,7 +90,7 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         FirebaseCRUD.shared.reachedEndOfDocument = false
         if FirebaseCRUD.shared.didAddNewNote {
             noteList.removeAll()
-            fetchDataForTable()
+            //fetchDataForTable()
             FirebaseCRUD.shared.didAddNewNote = false
         }
     }
@@ -109,9 +122,9 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         homeVM.delegate = self
         FirebaseCRUD.shared.getAllDocumentsSnapshot()
-        fetchDataForTable()
+        //fetchDataForTable()
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
-        segementedControllerHandler()
+        //segementedControllerHandler()
         navigationController?.navigationBar.prefersLargeTitles = true
         let logOutButton = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logOutUser))
         self.navigationItem.rightBarButtonItem = logOutButton
@@ -121,7 +134,7 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     }
     @objc private func pullToRefresh() {
         noteList.removeAll()
-        fetchDataForTable()
+        //fetchDataForTable()
     }
     @objc private func logOutUser() {
         let alert = Alerts.shared.showAlert(message: "Are you sure you want to log out?", title: "Log out")
@@ -136,18 +149,18 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
     @IBAction func signoutBtnTapped(_ sender: Any) {
         homeVM.signOutUser()
     }
-    private func fetchDataForTable() {
-        loader = Alerts.shared.showAlertWithSpinner(message: "", title: "Fetching Data")
-        self.present(loader, animated: true, completion: nil)
-        homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, fetchMoreData: false)
-    }
-    private func segementedControllerHandler() {
-        segmentedController.addTarget(self, action: #selector(changeTableDataSource), for: .valueChanged)
-    }
-    @objc func changeTableDataSource() {
-        noteList.removeAll()
-        homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, fetchMoreData: false)
-    }
+//    private func fetchDataForTable() {
+//        loader = Alerts.shared.showAlertWithSpinner(message: "", title: "Fetching Data")
+//        self.present(loader, animated: true, completion: nil)
+//        homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, fetchMoreData: false)
+//    }
+//    private func segementedControllerHandler() {
+//        segmentedController.addTarget(self, action: #selector(changeTableDataSource), for: .valueChanged)
+//    }
+//    @objc func changeTableDataSource() {
+//        noteList.removeAll()
+//        homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex)!, fetchMoreData: false)
+//    }
     private func updateTableUI() {
         DispatchQueue.main.async {
             Alerts.shared.dismissAnyLoadingAlertsIfPresent()
@@ -167,16 +180,6 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         
     }
     let notesRepo = NotesRepository()
-    func didRecieveDatafromCD(data: [AddNoteModel], error: Error?) {
-        if error == nil {
-            //noteList.append(data[0])
-            tableView.reloadData()
-        } else {
-            let alert = Alerts.shared.showAlert(message: error?.localizedDescription ?? "error placeholder", title: "")
-            self.present(alert, animated: true, completion: nil)
-            Alerts.shared.dismissAlert(alert: alert, completion: nil)
-        }
-    }
     
     func didLogoutUser(isLogoutSuccess: Bool, error: Error?) {
         if isLogoutSuccess {
@@ -196,20 +199,20 @@ class HomeViewController: UIViewController, HomeViewModelDelegate {
         footerView.addSubview(spinner)
         return footerView
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let position = scrollView.contentOffset.y
-        if position > (tableView.contentSize.height - 200 - scrollView.frame.size.height) {
-            guard !FirebaseCRUD.shared.isDataPaginating else {
-                return
-            }
-            guard !FirebaseCRUD.shared.reachedEndOfDocument else {
-                DispatchQueue.main.async {
-                    self.tableView.tableFooterView = nil
-                }
-                return
-            }
-            self.tableView.tableFooterView = tableViewFooterSpinner()
-            homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex) ?? .notes, fetchMoreData: true)
-        }
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let position = scrollView.contentOffset.y
+//        if position > (tableView.contentSize.height - 200 - scrollView.frame.size.height) {
+//            guard !FirebaseCRUD.shared.isDataPaginating else {
+//                return
+//            }
+//            guard !FirebaseCRUD.shared.reachedEndOfDocument else {
+//                DispatchQueue.main.async {
+//                    self.tableView.tableFooterView = nil
+//                }
+//                return
+//            }
+//            self.tableView.tableFooterView = tableViewFooterSpinner()
+//            homeVM.getData(typeOfList: ListTypes(rawValue: segmentedController.selectedSegmentIndex) ?? .notes, fetchMoreData: true)
+//        }
+//    }
 }

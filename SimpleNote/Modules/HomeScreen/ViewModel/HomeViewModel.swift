@@ -15,6 +15,7 @@ let notesRepository = NotesRepository()
 protocol HomeViewModelDelegate: AnyObject {
     func didRecieveData(data: [SingleNote], error: Error?)
     func didLogoutUser(isLogoutSuccess: Bool, error: Error?)
+    func didRecieveDatafromCD(data: [SingleNote], error: Error?)
 }
 
 protocol DraftViewModelDelegate: AnyObject{
@@ -26,21 +27,30 @@ enum ListTypes: Int {
 }
 class HomeViewModel {
     weak var delegate: HomeViewModelDelegate?
-    func getData(typeOfList: ListTypes, fetchMoreData: Bool) {
-        switch typeOfList {
-        case .notes:
-            FirebaseCRUD.shared.readNotesFromFirebase(fetchMoreData: fetchMoreData) { notes, error in
+    func getData(typeOfList: ListTypes, fetchMoreData: Bool, offsetSize: Int, limitSize: Int) {
+        DataFetchHelper.shared.getData(typeOfList: typeOfList, fetchMoreData: fetchMoreData, offsetSize: offsetSize, limitSize: limitSize ) { (notes, error) in
+            print("Noteresult", notes)
+            switch(typeOfList){
+            case .notes:
                 self.delegate?.didRecieveData(data: notes, error: error)
-                print(notes)
+            case .drafts:
+                self.delegate?.didRecieveDatafromCD(data: notes, error: error)
             }
             
-        case .drafts:
-//            notesRepository.getAll() {NotesDict in
-//                //self.delegate?.didRecieveData(data: NotesDict, error: nil)
-//            }
-            //Use this for inspecting the Core Data
-            print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
         }
+//        switch typeOfList {
+//        case .notes:
+//            FirebaseCRUD.shared.readNotesFromFirebase(fetchMoreData: fetchMoreData) { notes, error in
+//                self.delegate?.didRecieveData(data: notes, error: error)
+//                print(notes)
+//            }
+//        case .drafts:
+////            notesRepository.getAll() {NotesDict in
+////                //self.delegate?.didRecieveData(data: NotesDict, error: nil)
+////            }
+//            //Use this for inspecting the Core Data
+//            print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
+//        }
     }
     
 //    func getDataFromCD(fetchMoreData: Bool) -> [SingleNote]{

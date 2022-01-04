@@ -10,9 +10,8 @@ import UIKit
 import Firebase
 
 class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
-    
     func didRecieveUser(data: User?, error: Error?) {
-        if error != nil{
+        if error != nil {
         let alert = Alerts.shared.showAlert(message: error!.localizedDescription, title: "")
         self.present(alert, animated: true)
             Alerts.shared.dismissAlert(alert: alert, completion: nil)

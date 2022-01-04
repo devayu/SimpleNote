@@ -14,6 +14,7 @@ class DetailsScreenViewController: UIViewController {
     var currentViewController: UIViewController?
     lazy var detailsTabVC: UIViewController = {
         let detailsTabVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.detailsTabVC) as! DetailsTabViewController
+        detailsTabVC.note = note
         return detailsTabVC
     }()
     lazy var filesTabVC: UIViewController = {

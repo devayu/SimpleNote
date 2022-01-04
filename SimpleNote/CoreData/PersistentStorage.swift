@@ -38,18 +38,18 @@ final class PersistentStorage
             }
         }
     }
-    
-    func fetchManagedObject<T: NSManagedObject>(managedObject: T.Type) -> [T]?
+    func fetchManagedObject<T: NSManagedObject>(managedObject: T.Type, offsetInt: Int, limitSize: Int) -> [T]?
     {
         do {
-            guard let result = try PersistentStorage.shared.context.fetch(managedObject.fetchRequest()) as? [T] else {return nil}
-            
+            let fetchRequest = NSFetchRequest<Notes>(entityName: "Notes")
+            //let fetchRequest = managedObject.fetchRequest()
+            fetchRequest.fetchOffset = offsetInt
+            fetchRequest.fetchLimit = limitSize
+            guard let result = try PersistentStorage.shared.context.fetch(fetchRequest) as? [T] else {return nil}
             return result
-            
         } catch let error {
             debugPrint(error)
         }
-        
         return nil
     }
 

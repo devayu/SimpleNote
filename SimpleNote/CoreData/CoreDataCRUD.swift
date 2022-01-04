@@ -9,6 +9,8 @@ import Foundation
 import CoreData
 
 class NotesRepository {
+    static let shared = NotesRepository()
+    var resultCount: Int = 0
     func create(request: AddNoteModel) {
         let cdNotes = Notes(context: PersistentStorage.shared.context)
         cdNotes.noteTitle = request.title
@@ -20,17 +22,37 @@ class NotesRepository {
         print("Saving data in CD")
         PersistentStorage.shared.saveContext()
     }
-    func getAll(completion: @escaping ([SingleNote]) -> Void) {
-        let result = PersistentStorage.shared.fetchManagedObject(managedObject: Notes.self)
-        result?.forEach({debugPrint($0.noteTitle as Any)})
+    func getNumberOfData(){
+        let fetchRequest = NSFetchRequest<Notes>(entityName: "Notes")
+        do {
+            let result = try PersistentStorage.shared.context.fetch(fetchRequest)
+            guard result != nil else {return}
+            resultCount = result.count
+            print("resultcount", resultCount)
+        } catch let error {
+            debugPrint(error)
+        }
+    }
+    func getDataFromCD(offsetInt: Int, limitSize: Int, fetchMore: Bool, completion: @escaping ([SingleNote]) -> Void) {
+        var limitSize = limitSize
+        if fetchMore {
+            DataFetchHelper.shared.isPaginating = true
+        }
+        if resultCount <= offsetInt{
+            DataFetchHelper.shared.isPaginating = false
+            DataFetchHelper.shared.reachedEndOfDocument = true
+            completion([])
+        } else if resultCount < offsetInt + limitSize {
+            limitSize = 0
+        }
+        let result = PersistentStorage.shared.fetchManagedObject(managedObject: Notes.self, offsetInt: offsetInt, limitSize: limitSize)
+        print(result!.count,  "Alsopaginating")
         var notesDict2: [SingleNote] = []
         result?.forEach({ (cdNotes) in
             let notes = SingleNote(noteId: cdNotes.noteId!, noteAuthor: cdNotes.noteAuthor!, noteTitle: cdNotes.noteTitle!, noteDescription: cdNotes.noteDesc ?? "Placeholder Description", noteImportance: cdNotes.noteImportance ?? "Low", noteImgUrl: "", noteFileUrl: "")
-//            let notes = SingleNoteCD(noteId: cdNotes.noteId!, noteAuthor: cdNotes.noteAuthor ?? "Placeholder Author", noteTitle: cdNotes.noteTitle!, noteDate: cdNotes.noteDate!, noteDescription: cdNotes.noteDesc ?? "Placeholder Description", noteFiles: ["Placeholder files"], noteImportance: cdNotes.noteImportance ?? "Low")
             notesDict2.append(notes)
         })
-        let notes2 = SingleNote(noteId: "1234", noteAuthor: "Placeholder Author", noteTitle: "titles", noteDescription: "Placeholder Description", noteImportance: "Placeholder files", noteImgUrl: "Low")
-        notesDict2.append(notes2)
+        DataFetchHelper.shared.isPaginating = false
         completion(notesDict2)
     }
     
@@ -49,7 +71,6 @@ class NotesRepository {
         }
         return nil
     }
-    
     private func getCDNotes(byIdentifier id: String) -> Notes? {
         let fetchRequest = NSFetchRequest<Notes>(entityName: "Notes")
         let predicate = NSPredicate(format: "noteId==%@", id)
@@ -57,8 +78,7 @@ class NotesRepository {
         fetchRequest.predicate = predicate
         do {
             let result = try PersistentStorage.shared.context.fetch(fetchRequest).first
-            guard result != nil else {return nil}
-        
+            guard result != nil else {return nil}  
             return result
         } catch let error {
             debugPrint(error)

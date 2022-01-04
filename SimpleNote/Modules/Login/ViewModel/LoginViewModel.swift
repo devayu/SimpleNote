@@ -32,6 +32,6 @@ class LoginViewModel {
         if request.password.isEmpty {
             return ValidationResult(success: false, error: "Please enter your password.", forField: .password)
         }
-        return ValidationResult(success: true, error: "", forField: nil)
+        return ValidationResult(success: true, error: nil, forField: nil)
     }
 }
