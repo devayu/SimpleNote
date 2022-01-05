@@ -15,7 +15,7 @@ class DataFetchHelper {
     func getData(typeOfList: ListTypes, fetchMoreData: Bool, offsetSize: Int, limitSize: Int, completion: @escaping ([SingleNote], Error?) -> Void) {
         switch typeOfList {
         case .notes:
-            FirebaseCRUD.shared.readNotesFromFirebase(fetchMoreData: fetchMoreData) { notes, error in
+            FirebaseCRUD.shared.readNotesFromFirebase(limitSize: limitSize, fetchMoreData: fetchMoreData) { notes, error in
                 guard error==nil else{
                     completion([], error)
                     return

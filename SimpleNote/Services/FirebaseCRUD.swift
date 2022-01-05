@@ -53,10 +53,10 @@ class FirebaseCRUD {
             }
         }
     }
-    func readNotesFromFirebase(fetchMoreData: Bool, completion: @escaping ([SingleNote], Error?) -> Void) {
+    func readNotesFromFirebase(limitSize: Int, fetchMoreData: Bool, completion: @escaping ([SingleNote], Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser?.uid else {return}
         let dbRef = Firestore.firestore().collection("users").document("\(currentUser)").collection("notes")
-        query = dbRef.order(by: "noteDate", descending: true).limit(to: 5)
+        query = dbRef.order(by: "noteDate", descending: true).limit(to: limitSize)
         if fetchMoreData {
             guard lastDocumentSnapshot.documentID != totalDocumentsSnapshot.documentID else {
                 DataFetchHelper.shared.reachedEndOfDocument = true
