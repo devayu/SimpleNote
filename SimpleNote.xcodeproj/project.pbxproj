@@ -81,7 +81,6 @@
 		36907E2D2774677700A1365D /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36907E2B2774677600A1365D /* FieldTableViewCell.xib */; };
 		36907E2E2774677700A1365D /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36907E2C2774677700A1365D /* ButtonTableViewCell.xib */; };
 		36DBDBBC277C3BFA007E2ECF /* DraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBDBBB277C3BFA007E2ECF /* DraftsViewController.swift */; };
-		36DBDBBE277C4595007E2ECF /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBDBBD277C4595007E2ECF /* NotesViewController.swift */; };
 		36EB1D112782D0E300E299D7 /* SimpleNoteSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EB1D102782D0E300E299D7 /* SimpleNoteSignUpTest.swift */; };
 		36EB1D132783176E00E299D7 /* DataFetchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EB1D122783176E00E299D7 /* DataFetchHelper.swift */; };
 /* End PBXBuildFile section */
@@ -176,7 +175,6 @@
 		36907E2B2774677600A1365D /* FieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FieldTableViewCell.xib; sourceTree = "<group>"; };
 		36907E2C2774677700A1365D /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
 		36DBDBBB277C3BFA007E2ECF /* DraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewController.swift; sourceTree = "<group>"; };
-		36DBDBBD277C4595007E2ECF /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		36EB1D102782D0E300E299D7 /* SimpleNoteSignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteSignUpTest.swift; sourceTree = "<group>"; };
 		36EB1D122783176E00E299D7 /* DataFetchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -637,7 +635,6 @@
 			isa = PBXGroup;
 			children = (
 				36DBDBBB277C3BFA007E2ECF /* DraftsViewController.swift */,
-				36DBDBBD277C4595007E2ECF /* NotesViewController.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -865,7 +862,6 @@
 				08A12645277DA02F00F65748 /* ImageViewController.swift in Sources */,
 				36080F3E277510BC00D1B356 /* NetworkMonitor.swift in Sources */,
 				08503392273E4478006CBBB2 /* AppDelegate.swift in Sources */,
-				36DBDBBE277C4595007E2ECF /* NotesViewController.swift in Sources */,
 				0811E9CD274378C600CB6A18 /* SignupModel.swift in Sources */,
 				08E9C73F274CF8E300A7324C /* HomeViewModel.swift in Sources */,
 				08AF6D0027574C3900AFFCF4 /* AddNoteModel.swift in Sources */,
