@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JPY-1a-gID">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JPY-1a-gID">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -147,37 +147,41 @@
                                     <segment title="My Drafts"/>
                                 </segments>
                                 <connections>
-                                    <action selector="didChangeSegment:" destination="Z8c-ho-6WY" eventType="valueChanged" id="gow-Bl-FEj"/>
+                                    <action selector="switchTabs:" destination="Z8c-ho-6WY" eventType="valueChanged" id="4xy-aX-DpR"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PQV-88-8ho">
-                                <rect key="frame" x="16" y="112" width="382" height="750"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjb-MM-Jdn">
+                                <rect key="frame" x="0.0" y="124" width="414" height="738"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zoa-R2-CO5" customClass="FloatingActionUIButton" customModule="SimpleNote" customModuleProvider="target">
+                                        <rect key="frame" x="338" y="662" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="6rK-R6-t04"/>
+                                            <constraint firstAttribute="width" constant="60" id="ay2-ge-5Nh"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="addNoteBtnTapped:" destination="Z8c-ho-6WY" eventType="touchUpInside" id="qsw-s6-vQF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zoa-R2-CO5" customClass="FloatingActionUIButton" customModule="SimpleNote" customModuleProvider="target">
-                                <rect key="frame" x="338" y="786" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="6rK-R6-t04"/>
-                                    <constraint firstAttribute="width" constant="60" id="ay2-ge-5Nh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zoa-R2-CO5" secondAttribute="trailing" constant="16" id="8rO-nE-3w0"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zoa-R2-CO5" secondAttribute="bottom" constant="16" id="Tya-YP-h4c"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="addNoteBtnTapped:" destination="Z8c-ho-6WY" eventType="touchUpInside" id="qsw-s6-vQF"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YNr-oc-5vx"/>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KuE-xW-DVH" firstAttribute="top" secondItem="YNr-oc-5vx" secondAttribute="top" constant="10" id="1Bb-ao-Vmv"/>
+                            <constraint firstItem="hjb-MM-Jdn" firstAttribute="leading" secondItem="YNr-oc-5vx" secondAttribute="leading" id="8aA-lR-j8f"/>
                             <constraint firstItem="YNr-oc-5vx" firstAttribute="trailing" secondItem="KuE-xW-DVH" secondAttribute="trailing" constant="16" id="9SV-xJ-4ju"/>
-                            <constraint firstItem="Zoa-R2-CO5" firstAttribute="bottom" secondItem="YNr-oc-5vx" secondAttribute="bottom" constant="-16" id="GWW-b4-YZp"/>
-                            <constraint firstItem="YNr-oc-5vx" firstAttribute="bottom" secondItem="PQV-88-8ho" secondAttribute="bottom" id="K2K-gF-NON"/>
-                            <constraint firstItem="YNr-oc-5vx" firstAttribute="trailing" secondItem="Zoa-R2-CO5" secondAttribute="trailing" constant="16" id="PZh-nK-OeU"/>
-                            <constraint firstItem="PQV-88-8ho" firstAttribute="top" secondItem="KuE-xW-DVH" secondAttribute="bottom" constant="8" id="bl8-uu-W2l"/>
-                            <constraint firstItem="PQV-88-8ho" firstAttribute="leading" secondItem="YNr-oc-5vx" secondAttribute="leading" constant="16" id="jcs-5I-M22"/>
-                            <constraint firstItem="YNr-oc-5vx" firstAttribute="trailing" secondItem="PQV-88-8ho" secondAttribute="trailing" constant="16" id="l7y-tZ-jY5"/>
+                            <constraint firstItem="YNr-oc-5vx" firstAttribute="bottom" secondItem="hjb-MM-Jdn" secondAttribute="bottom" id="FzB-bu-xLQ"/>
+                            <constraint firstItem="hjb-MM-Jdn" firstAttribute="top" secondItem="KuE-xW-DVH" secondAttribute="bottom" constant="20" id="HzC-Bs-RVP"/>
+                            <constraint firstItem="YNr-oc-5vx" firstAttribute="trailing" secondItem="hjb-MM-Jdn" secondAttribute="trailing" id="OJg-P3-AYk"/>
                             <constraint firstItem="KuE-xW-DVH" firstAttribute="leading" secondItem="YNr-oc-5vx" secondAttribute="leading" constant="16" id="zqr-mJ-plK"/>
                         </constraints>
                     </view>
@@ -185,7 +189,7 @@
                     <connections>
                         <outlet property="addNoteBtn" destination="Zoa-R2-CO5" id="gr0-qn-I9K"/>
                         <outlet property="segmentedController" destination="KuE-xW-DVH" id="CI2-OD-mQS"/>
-                        <outlet property="tableView" destination="PQV-88-8ho" id="NZm-Xf-KvH"/>
+                        <outlet property="viewContainer" destination="hjb-MM-Jdn" id="tib-tN-i0K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IJp-vM-8bF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -243,7 +247,7 @@
                                                 <rect key="frame" x="16" y="196" width="382" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Importance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xx-1w-D2L">
-                                                        <rect key="frame" x="0.0" y="0.0" width="89.5" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -501,7 +505,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKG-ga-pnZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3857.971014492754" y="428.57142857142856"/>
+            <point key="canvasLocation" x="4355" y="-254"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="43S-xX-Slj">
@@ -646,6 +650,67 @@
             </objects>
             <point key="canvasLocation" x="1143" y="448"/>
         </scene>
+        <!--Drafts View Controller-->
+        <scene sceneID="q1M-uy-XZu">
+            <objects>
+                <viewController storyboardIdentifier="DraftsViewController" id="p1E-jk-aoQ" customClass="DraftsViewController" customModule="SimpleNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mHU-eO-xGh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5i4-bt-GHw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aaf-iu-Aqe" customClass="FloatingActionUIButton" customModule="SimpleNote" customModuleProvider="target">
+                                <rect key="frame" x="338" y="786" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="gbE-LY-ug6"/>
+                                    <constraint firstAttribute="width" constant="60" id="kUB-cq-CWr"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="addNoteBtnTapped:" destination="Z8c-ho-6WY" eventType="touchUpInside" id="8Ew-UD-HV3"/>
+                                    <action selector="addNoteBtnTapped:" destination="p1E-jk-aoQ" eventType="touchUpInside" id="d97-eV-dDu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1do-Rv-Y3q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1do-Rv-Y3q" firstAttribute="bottom" secondItem="5i4-bt-GHw" secondAttribute="bottom" id="2D5-sf-2EH"/>
+                            <constraint firstItem="1do-Rv-Y3q" firstAttribute="trailing" secondItem="Aaf-iu-Aqe" secondAttribute="trailing" constant="16" id="e2M-Q0-BfT"/>
+                            <constraint firstItem="1do-Rv-Y3q" firstAttribute="trailing" secondItem="5i4-bt-GHw" secondAttribute="trailing" id="mzY-0H-y5R"/>
+                            <constraint firstItem="5i4-bt-GHw" firstAttribute="top" secondItem="1do-Rv-Y3q" secondAttribute="top" id="uu0-kM-A4u"/>
+                            <constraint firstItem="5i4-bt-GHw" firstAttribute="leading" secondItem="1do-Rv-Y3q" secondAttribute="leading" id="wel-9q-lQV"/>
+                            <constraint firstItem="1do-Rv-Y3q" firstAttribute="bottom" secondItem="Aaf-iu-Aqe" secondAttribute="bottom" constant="16" id="ypF-ol-HBe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addNoteBtn" destination="Aaf-iu-Aqe" id="O5x-6c-vra"/>
+                        <outlet property="tableView" destination="5i4-bt-GHw" id="Flq-hZ-AXo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2dR-7L-MOq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3859" y="429"/>
+        </scene>
+        <!--Notes View Controller-->
+        <scene sceneID="WpM-fG-50g">
+            <objects>
+                <viewController storyboardIdentifier="NotesViewController" id="7mw-O6-UnO" customClass="NotesViewController" customModule="SimpleNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fTk-4Y-VOK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mAH-XR-pp1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XxZ-3s-n3x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3626" y="-262"/>
+        </scene>
         <!--Details Screen View Controller-->
         <scene sceneID="uwy-FG-gkc">
             <objects>
@@ -748,13 +813,13 @@
                                                         <rect key="frame" x="0.0" y="73" width="398" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Importance:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klK-d6-Fgo">
-                                                                <rect key="frame" x="0.0" y="0.0" width="91.5" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="20.5"/>
                                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Importance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQZ-zz-3nI">
-                                                                <rect key="frame" x="96.5" y="0.0" width="301.5" height="20.5"/>
+                                                                <rect key="frame" x="97" y="0.0" width="301" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>

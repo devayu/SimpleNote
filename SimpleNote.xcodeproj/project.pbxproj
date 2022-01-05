@@ -80,6 +80,9 @@
 		36907E2627744AC700A1365D /* SignUpValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36907E2527744AC700A1365D /* SignUpValidation.swift */; };
 		36907E2D2774677700A1365D /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36907E2B2774677600A1365D /* FieldTableViewCell.xib */; };
 		36907E2E2774677700A1365D /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36907E2C2774677700A1365D /* ButtonTableViewCell.xib */; };
+		36DBDBBC277C3BFA007E2ECF /* DraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBDBBB277C3BFA007E2ECF /* DraftsViewController.swift */; };
+		36EB1D112782D0E300E299D7 /* SimpleNoteSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EB1D102782D0E300E299D7 /* SimpleNoteSignUpTest.swift */; };
+		36EB1D132783176E00E299D7 /* DataFetchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EB1D122783176E00E299D7 /* DataFetchHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +174,9 @@
 		36907E2527744AC700A1365D /* SignUpValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidation.swift; sourceTree = "<group>"; };
 		36907E2B2774677600A1365D /* FieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FieldTableViewCell.xib; sourceTree = "<group>"; };
 		36907E2C2774677700A1365D /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
+		36DBDBBB277C3BFA007E2ECF /* DraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewController.swift; sourceTree = "<group>"; };
+		36EB1D102782D0E300E299D7 /* SimpleNoteSignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteSignUpTest.swift; sourceTree = "<group>"; };
+		36EB1D122783176E00E299D7 /* DataFetchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +251,7 @@
 		080BE6F7274CC46A0068EC5E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3647975F277A38410067DC27 /* SubViews */,
 				08E9C737274CE24C00A7324C /* CustomCells */,
 				080BE6F9274CC4B30068EC5E /* HomeViewController.swift */,
 			);
@@ -464,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				085033AB273E4480006CBBB2 /* SimpleNoteTests.swift */,
+				36EB1D102782D0E300E299D7 /* SimpleNoteSignUpTest.swift */,
 				08C1B806277DC1AA00404EA4 /* SimpleNoteAuthTests.swift */,
 				08F0911E2782CF3E0022691D /* SimpleNoteAddNoteTests.swift */,
 			);
@@ -601,6 +609,7 @@
 			isa = PBXGroup;
 			children = (
 				08C082C62750B0B900E02F31 /* NavigationHelper.swift */,
+				36EB1D122783176E00E299D7 /* DataFetchHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -620,6 +629,14 @@
 				08E9C741274E295100A7324C /* HomeVCExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3647975F277A38410067DC27 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				36DBDBBB277C3BFA007E2ECF /* DraftsViewController.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		36907E112774458400A1365D /* Cells */ = {
@@ -839,6 +856,8 @@
 				08503396273E4478006CBBB2 /* LoginViewController.swift in Sources */,
 				0811E9D1274378E800CB6A18 /* SignupViewModel.swift in Sources */,
 				3600B39E2775B8A90034791E /* CoreDataCRUD.swift in Sources */,
+				36EB1D132783176E00E299D7 /* DataFetchHelper.swift in Sources */,
+				36DBDBBC277C3BFA007E2ECF /* DraftsViewController.swift in Sources */,
 				08E9C73A274CE27C00A7324C /* CustomTableViewCell.swift in Sources */,
 				08A12645277DA02F00F65748 /* ImageViewController.swift in Sources */,
 				36080F3E277510BC00D1B356 /* NetworkMonitor.swift in Sources */,
@@ -892,6 +911,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				085033AC273E4480006CBBB2 /* SimpleNoteTests.swift in Sources */,
+				36EB1D112782D0E300E299D7 /* SimpleNoteSignUpTest.swift in Sources */,
 				08F0911F2782CF3E0022691D /* SimpleNoteAddNoteTests.swift in Sources */,
 				08C1B807277DC1AA00404EA4 /* SimpleNoteAuthTests.swift in Sources */,
 			);

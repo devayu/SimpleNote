@@ -45,6 +45,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 print("Deleted")
             }
         }
+//    func didRecieveDatafromFB(data: [NSDictionary], error: Error?) {
+//        if error == nil {
+//            noteList.append(contentsOf: data)
+//            tableView.reloadData()
+//        } else {
+//            let alert = Alerts.shared.showAlert(message: error?.localizedDescription ?? "error placeholder", title: "")
+//            self.present(alert, animated: true, completion: nil)
+//            Alerts.shared.dismissAlert(alert: alert, completion: nil)
+//        }
+//    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let note = noteList[indexPath.row]
         let detailsVC = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.detailsVC) as? DetailsScreenViewController
@@ -52,4 +62,5 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(detailsVC!, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
 }

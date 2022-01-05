@@ -7,6 +7,17 @@
 
 import Foundation
 import Firebase
+
+struct SingleNoteCD {
+    let noteId: String
+    let noteAuthor: String
+    let noteTitle: String
+    let noteDate: Date
+    let noteDescription: String
+    let noteFiles: [String]
+    let noteImportance: String
+}
+
 struct SingleNote {
     var noteId: String = "noteID placeholder"
     var noteAuthor: String = "noteAuthor placeholder"

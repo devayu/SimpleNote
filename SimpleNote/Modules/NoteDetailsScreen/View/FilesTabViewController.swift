@@ -32,7 +32,7 @@ class FilesTabViewController: UIViewController {
             tapToFullScreenPdf = UITapGestureRecognizer(target: self, action: #selector(viewPdfInFullScreen))
             pdfThumbnailImage.addGestureRecognizer(tapToFullScreenPdf)
         }
-        if note.noteFileUrl != nil {
+        if note.noteImgUrl != nil {
             tapToFullScreenImg = UITapGestureRecognizer(target: self, action: #selector(viewImgInFullScreen))
             imageView.addGestureRecognizer(tapToFullScreenImg)
         }

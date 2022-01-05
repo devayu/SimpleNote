@@ -10,9 +10,8 @@ import UIKit
 import Firebase
 
 class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
-    
     func didRecieveUser(data: User?, error: Error?) {
-        if error != nil{
+        if error != nil {
         let alert = Alerts.shared.showAlert(message: error!.localizedDescription, title: "")
         self.present(alert, animated: true)
             Alerts.shared.dismissAlert(alert: alert, completion: nil)
@@ -75,62 +74,53 @@ class SignUpTableViewController: UIViewController, RecievedUserFromFirebase {
         self.navigationItem.title = "Sign Up"
         navigationController?.navigationBar.prefersLargeTitles = true
         let currentUser = Auth.auth().currentUser
-        if currentUser != nil{
+        if currentUser != nil {
             print(currentUser)
         }
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         table.register(FieldTableViewCell.nib(), forCellReuseIdentifier: FieldTableViewCell.identifier)
         table.register(ButtonTableViewCell.nib(), forCellReuseIdentifier: ButtonTableViewCell.identifier)
         table.dataSource = self
         table.delegate = self
-        
         signUpViewModel.delegate = self
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeKeyboardObservers()
     }
-    
     func removeKeyboardObservers() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
     @objc private func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height+75, right: 0)
             }
     }
-    
     @objc private func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             }
     }
-    
     func signUpTap2() {
-        
-        for cells in table.visibleCells{
-            if cells.tag == 1012{
+        for cells in table.visibleCells {
+            if cells.tag == 1012 {
                 data["fname"] = (cells as! FieldTableViewCell).field.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             }
-            if cells.tag == 1013{
+            if cells.tag == 1013 {
                 data["lname"] = (cells as! FieldTableViewCell).field.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             }
-            if cells.tag == 1014{
+            if cells.tag == 1014 {
                 data["email"] = (cells as! FieldTableViewCell).field.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             }
-            if cells.tag == 1015{
+            if cells.tag == 1015 {
                 data["pass"] = (cells as! FieldTableViewCell).field.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             }
-            if cells.tag == 1016{
+            if cells.tag == 1016 {
                 data["repass"] = (cells as! FieldTableViewCell).field.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             }
         }
-        
         print(data)
         let isValid = signUpViewModel.validateEmptyFields(info: data)
         if !isValid.success {

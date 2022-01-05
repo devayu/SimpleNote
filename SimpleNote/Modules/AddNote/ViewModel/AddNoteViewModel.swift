@@ -60,4 +60,10 @@ class AddNoteViewModel {
         }
         return NoteValidationResult(success: true, error: nil, forField: .none)
     }
+    
+    func singleNotetoAddNoteModel(noteConvert: SingleNote) -> AddNoteModel{
+        let current = Date()
+        let noteToAdd = AddNoteModel(noteId: noteConvert.noteId, title: noteConvert.noteTitle, author: noteConvert.noteAuthor, date: current, importance: noteConvert.noteImportance, description: noteConvert.noteDescription, imgURL: URL(string: ""), fileURL: URL(string: ""))
+        return noteToAdd
+    }
 }
