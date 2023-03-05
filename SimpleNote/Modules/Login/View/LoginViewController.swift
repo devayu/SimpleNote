@@ -27,6 +27,7 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        removeKeyboardObservers()
         navigationController?.navigationBar.isHidden = false
     }
     private func initLoginVC() {
@@ -53,6 +54,8 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
         } else {
             emailTextField.resignFirstResponder()
             passTextField.resignFirstResponder()
+            let alert = Alerts.shared.showAlertWithSpinner(message: "", title: "Processing")
+            present(alert, animated: true, completion: nil)
             loginViewModel.loginUser(request: request)
         }
     }
@@ -60,8 +63,9 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
         if user != nil {
             NavigationHelper.shared.navigateToCleanStack(to: HomeViewController.self, identifier: Constants.Storyboard.homeVC, storyboard: storyboard!)
         } else {
+            Alerts.shared.dismissAnyLoadingAlertsIfPresent()
             let alert = Alerts.shared.showAlert(message: error!.localizedDescription, title: "")
-            self.present(alert, animated: true)
+            present(alert, animated: true, completion: nil)
             Alerts.shared.dismissAlert(alert: alert, completion: nil)
         }
     }

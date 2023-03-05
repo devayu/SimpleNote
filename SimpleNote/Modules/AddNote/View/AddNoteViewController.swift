@@ -15,10 +15,18 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
     @IBOutlet weak var selectedImgTxt: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var selectedFileTxt: UILabel!
+    var titleData: String = ""
+    var descData: String = ""
+    var authorData: String = ""
+
     lazy var addNoteVM: AddNoteViewModel = {
         return AddNoteViewModel()
     }()
     override func viewDidLoad() {
+        //cdNotesRepository.getAll()
+        titleTxt.text = titleData
+        authorTxt.text = authorData
+        descriptionTxt.text = descData
         super.viewDidLoad()
         initAddNoteVC()
     }
@@ -42,9 +50,34 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
             "color": UIColor.systemRed
         ]
     ]
+    func checkForUnsavedChanges() {
+        if let authorTxt = authorTxt.text, let titleTxt = titleTxt.text, let descTxt = descriptionTxt.text {
+            if !authorTxt.isEmpty || !titleTxt.isEmpty || !descTxt.isEmpty {
+                let alert = Alerts.shared.showAlert(message: "Are you sure you want to go back?", title: "You have unsaved changes")
+                let addToDraftAction = UIAlertAction(title: "Save as Draft", style: .default) { _ in
+                    let noteId = UUID().uuidString
+                    let request = AddNoteModel(noteId: noteId, title: titleTxt ?? "", author: authorTxt ?? "", date: self.datePicker.date, importance: self.importanceTxt.text!, description: descTxt ?? "", imgURL: self.addNoteVM.imgUrl, fileURL: self.addNoteVM.fileUrl)
+                    cdNotesRepository.create(request: request)
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
+                    alert.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+
+                alert.addAction(addToDraftAction)
+                alert.addAction(yesAction)
+                alert.addAction(noAction)
+                present(alert, animated: true, completion: nil)
+            } else {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    }
     @IBAction func addBtnTapped(_ sender: Any) {
         let noteId = UUID().uuidString
-        let request = AddNoteModel(noteId: noteId, title: titleTxt.text ?? "", author: authorTxt.text ?? "", date: datePicker.date, importance: importanceTxt.text!, description: descriptionTxt.text ?? "")
+        let request = AddNoteModel(noteId: noteId, title: titleTxt.text ?? "", author: authorTxt.text ?? "", date: datePicker.date, importance: importanceTxt.text!, description: descriptionTxt.text ?? "", imgURL: addNoteVM.imgUrl, fileURL: addNoteVM.fileUrl)
         let validationResult =  addNoteVM.validateFields(title: request.title, author: request.author, description: request.description)
         if !validationResult.success {
             switch validationResult.forField {
@@ -58,22 +91,31 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
                 break
             }
         } else {
+            if NetworkMonitor.shared.isConnected {
             addNoteVM.addNote(addRequest: request)
+                }
+            else {
+                let alert = Alerts.shared.showAlert(message: "", title: "No internet detected. Do you want to save to drafts?")
+                let deleteAction = UIAlertAction(title: "Delete Note", style: .destructive) { _ in
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                let addToDraftAction = UIAlertAction(title: "Save as Draft", style: .default) { _ in
+                    print("add to draft")
+                    cdNotesRepository.create(request: request)
+//                    self.didAddNote(success: false, error: "Added note to Drafts ")
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                let continueAction = UIAlertAction(title: "Continue writing", style: .default, handler: nil)
+                alert.addAction(deleteAction)
+                alert.addAction(addToDraftAction)
+                alert.addAction(continueAction)
+                self.present(alert, animated: true, completion: nil)
+                
+            }
         }
     }
     @IBAction func cancelBtnTapped(_ sender: Any) {
-        let alert = Alerts.shared.showAlert(message: "", title: "Are you sure you want to cancel?")
-        let deleteAction = UIAlertAction(title: "Delete Note", style: .destructive) { _ in
-            self.navigationController?.popToRootViewController(animated: true)
-        }
-        let addToDraftAction = UIAlertAction(title: "Save as Draft", style: .default) { _ in
-            print("add to draft")
-        }
-        let continueAction = UIAlertAction(title: "Continue writing", style: .default, handler: nil)
-        alert.addAction(deleteAction)
-        alert.addAction(addToDraftAction)
-        alert.addAction(continueAction)
-        self.present(alert, animated: true, completion: nil)
+        checkForUnsavedChanges()
     }
     func didAddNote(success: Bool, error: String?) {
         if success {
@@ -95,10 +137,13 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
         descriptionTxt.text = ""
     }
     private func initAddNoteVC() {
+        initSwipeRightGestureToGoBack()
         self.navigationItem.title = "Add a Note"
+        self.navigationItem.hidesBackButton = true
         descriptionTxt.layer.cornerRadius = 5.0
         descriptionTxt.clipsToBounds = true
         titleTxt.becomeFirstResponder()
+        datePicker.maximumDate = datePicker.date
         self.importanceDropdown.menu = createMenu()
         self.importanceDropdown.showsMenuAsPrimaryAction = true
         self.selectedImgTxt.isHidden = true
@@ -109,7 +154,9 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
         let addImageBtn = UIBarButtonItem(image: UIImage(systemName: "photo"), style: .plain, target: self, action: #selector(imgSelector))
         let addFileBtn = UIBarButtonItem(image: UIImage(systemName: "folder.badge.plus"), style: .plain, target: self, action: #selector(fileSelector))
         navigationItem.rightBarButtonItems = [addFileBtn, addImageBtn]
-//        let keyboardToolbar = UIToolbar()
+        let newBackButton = UIBarButtonItem(title: " Go Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(backBtnTapped))
+        self.navigationItem.leftBarButtonItem = newBackButton
+        //        let keyboardToolbar = UIToolbar()
 //        keyboardToolbar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50)
 //        keyboardToolbar.barStyle = .default
 //        keyboardToolbar.items = [
@@ -119,6 +166,9 @@ class AddNoteViewController: UIViewController, AddNoteViewModelDelegate {
 //        titleTxt.inputAccessoryView = keyboardToolbar
 //        authorTxt.inputAccessoryView = keyboardToolbar
 //        descriptionTxt.inputAccessoryView = keyboardToolbar
+    }
+    @objc private func backBtnTapped() {
+        checkForUnsavedChanges()
     }
     @objc private func hideKey() {
         self.view.endEditing(true)    }

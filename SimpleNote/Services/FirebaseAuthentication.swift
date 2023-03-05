@@ -8,7 +8,6 @@
 import Foundation
 import Firebase
 import CoreData
-//let firebasecrud = FirebaseCrud()
 
 class FirebaseAuthentication {
     static let shared = FirebaseAuthentication()
@@ -44,7 +43,6 @@ class FirebaseAuthentication {
  //        let landingPage = SignUpViewController()
  //        landingPage.toLandingPage()
      }
-    
     func signOutUser(completion: @escaping (Bool, Error?) -> Void) {
         do {
             try Auth.auth().signOut()

@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="386" height="173"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mja-xk-Nc4" customClass="CustomTextField" customModule="SimpleNote" customModuleProvider="target">
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mja-xk-Nc4" customClass="CustomTextField" customModule="SimpleNote" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="386" height="153"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>

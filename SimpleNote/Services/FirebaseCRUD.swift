@@ -7,94 +7,87 @@
 
 import Foundation
 import Firebase
+struct CustomError: LocalizedError {
+    let message: String
+    
+    init(_ message: String) {
+        self.message = message
+    }
+    public var errorDescription: String? {
+        return message
+    }
+}
 class FirebaseCRUD {
     static let shared = FirebaseCRUD()
-    
+    private var lastDocumentSnapshot: DocumentSnapshot!
+    private var totalDocumentsSnapshot: DocumentSnapshot!
+    private var query: Query!
+    var isDataPaginating: Bool = false
+    var reachedEndOfDocument: Bool = false
+    var didAddNewNote: Bool = false
     func newUser(uid: String, fname: String, lname: String, completion: @escaping (SignUpResponse)->Void) {
-            
-            let db = Firestore.firestore()
-            
-            if let currentUser = Auth.auth().currentUser?.uid {
-                
-                db.collection("users").document("\(currentUser)").setData(["firstName": fname, "lastName": lname, "notes":[]], merge: true) { error in
-                    
-                    if error != nil {
-                        print("User created but data couldn't be added")
-                        completion(SignUpResponse(isUserCreated: false, error: error))
-                        return
-                    }
-                    else{
-                        completion(SignUpResponse(isUserCreated: true, error: nil))
-                    }
+        let db = Firestore.firestore()
+        if let currentUser = Auth.auth().currentUser?.uid {
+            db.collection("users").document("\(currentUser)").setData(["firstName": fname, "lastName": lname, "notes":[]], merge: true) { error in
+                if error != nil {
+                    print("User created but data couldn't be added")
+                    completion(SignUpResponse(isUserCreated: false, error: error))
+                    return
+                } else {
+                    completion(SignUpResponse(isUserCreated: true, error: nil))
                 }
             }
+        }
     }
     func addNoteToFirebase(request: AddNoteModel, completion: @escaping (Bool, Error?) -> Void) {
         let dbRef = Firestore.firestore()
         if let currentUser = Auth.auth().currentUser?.uid {
-            let dataToAdd = ["noteId": request.noteId, "noteTitle": request.title, "noteAuthor": request.author, "noteDate": request.date, "noteImportance": request.importance, "noteDesc": request.description] as [String: Any]
+            let dataToAdd = ["noteId": request.noteId, "noteTitle": request.title, "noteAuthor": request.author, "noteDate": request.date, "noteImportance": request.importance, "noteDesc": request.description, "noteImgUrl": request.imgURL?.lastPathComponent, "noteFileUrl": request.fileURL?.lastPathComponent] as [String: Any]
             dbRef.collection("users").document("\(currentUser)").collection("notes").addDocument(data: dataToAdd) { error in
                 guard error == nil else {
                     completion(false, error)
                     return
                 }
+                FirebaseCRUD.shared.didAddNewNote = true
                 completion(true, nil)
             }
         }
     }
-    func readNotesFromFirebase(paginateData: Bool, completion: @escaping ([NSDictionary], Error?) -> Void) {
-        if let currentUser = Auth.auth().currentUser?.uid {
-            let dbRef = Firestore.firestore().collection("users").document("\(currentUser)").collection("notes")
-            let initialBatchOfData = dbRef.order(by: "noteDate", descending: true).limit(to: 5)
-            var notes: [NSDictionary] = []
-            initialBatchOfData.addSnapshotListener { snapshot, error in
-                guard error == nil else {
-                    completion([], error)
-                    return
-                }
-                if paginateData {
-                    guard let lastSnapshot = snapshot?.documents.last else {
-                        return
-                    }
-                    let nextBatchOfData = dbRef.order(by: "noteDate", descending: true).start(afterDocument: lastSnapshot).addSnapshotListener { snapshot, error in
-                        guard error == nil else {
-                            print(error)
-                            return
-                        }
-                        print("fetching more")
-                        snapshot?.documents.forEach({ document in
-                            notes.append(document.data() as NSDictionary)
-                        })
-                        print(notes)
-                    }
-                } else {
-                    print("no pagination")
-                    snapshot?.documents.forEach({ document in
-                        notes.append(document.data() as NSDictionary)
-                    })
-                }
+    func readNotesFromFirebase(limitSize: Int, fetchMoreData: Bool, completion: @escaping ([SingleNote], Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser?.uid else {return}
+        let dbRef = Firestore.firestore().collection("users").document("\(currentUser)").collection("notes")
+        query = dbRef.order(by: "noteDate", descending: true).limit(to: limitSize)
+        if fetchMoreData {
+            guard lastDocumentSnapshot.documentID != totalDocumentsSnapshot.documentID else {
+                DataFetchHelper.shared.reachedEndOfDocument = true
+                return
             }
-//            dbRef.collection("users").document("\(currentUser)").collection("notes").order(by: "noteDate", descending: true).limit(to: 5).getDocuments { snapshot, error in
-//                guard error == nil else {
-//                    completion([], error)
-//                    return
-//                }
-//                completion(notes, nil)
-//            }
-//            dbRef.collection("users").document("\(currentUser)").addSnapshotListener { snapshot, error in
-//                guard error == nil else {
-//                    completion([], error)
-//                    return
-//                }
-//                if let notes = snapshot?.get("notes") as? NSArray {
-//                    completion(notes.reversed() as NSArray, nil)
-//                }
-//            }
+            query = query.start(afterDocument: lastDocumentSnapshot)
+            DataFetchHelper.shared.isPaginating = true
         }
-    }
-    
-    private func _paginate(lastSnapshot: QueryDocumentSnapshot, documentPath: CollectionReference){
-        
+        var notes: [SingleNote] = []
+        query.getDocuments { snapshot, error in
+            guard error == nil else {
+                completion([], error)
+                return
+            }
+            if snapshot?.isEmpty == true {
+                completion([], CustomError("Seems Like You don't have any saved notes. Try adding one"))
+                return
+            }
+            snapshot?.documents.forEach({ document in
+                let data = document.data()
+                var note = SingleNote(noteId: (data[NoteFields.id.rawValue] ?? "an error occured" )as! String, noteAuthor: (data[NoteFields.author.rawValue] ?? "an error occured") as! String, noteTitle: (data[NoteFields.title.rawValue] ?? "an error occured") as! String, noteDate: (data[NoteFields.date.rawValue] ?? Timestamp(date: Date(timeIntervalSince1970: 1640597786))) as! Timestamp, noteDescription: (data[NoteFields.description.rawValue] ?? "an error occured") as! String, noteImportance: (data[NoteFields.importance.rawValue] ?? "an error occured") as! String)
+                if let imgUrl = data[NoteFields.imgUrl.rawValue], let fileUrl = data[NoteFields.fileUrl.rawValue] {
+                    note.noteImgUrl = imgUrl as? String
+                    note.noteFileUrl = fileUrl as? String
+                }
+                notes.append(note)
+            })
+            self.lastDocumentSnapshot = snapshot!.documents.last
+            DataFetchHelper.shared.isPaginating = false
+            completion(notes, nil)
+        }
     }
     func uploadFiles(fileUrl: URL, noteId: String, completion: @escaping (Bool, Error?) -> Void) {
         let storage = Storage.storage().reference()
@@ -108,10 +101,11 @@ class FirebaseCRUD {
             }
         }
     }
-    func downloadFiles(fileName: String, completion: @escaping (Result<Data, Error>) -> Void) {
+    func downloadFiles(for noteId: String, fileName: String, completion: @escaping (Result<Data, Error>) -> Void) {
         let storage = Storage.storage().reference()
         if let currentUser = Auth.auth().currentUser?.uid {
-            storage.child("\(currentUser)/\(fileName)").downloadURL { imgUrl, err in
+            storage.child("\(currentUser)/\(noteId)/\(fileName)").downloadURL { imgUrl, err in
+                print(imgUrl)
                 guard let url = imgUrl, err == nil else {
                     completion(.failure(err!))
                     return
@@ -127,4 +121,22 @@ class FirebaseCRUD {
             }
         }
     }
+    func getAllDocumentsSnapshot() {
+        guard let currentUser = Auth.auth().currentUser?.uid else {return}
+        let dbRef = Firestore.firestore().collection("users").document("\(currentUser)").collection("notes")
+        let query = dbRef.order(by: "noteDate", descending: true)
+        query.addSnapshotListener { docSnapshot, error  in
+            guard error == nil else {return}
+            self.totalDocumentsSnapshot = docSnapshot?.documents.last
+        }
+    }
+    func deleteFromFirebase(noteId: String) {
+            guard let currentUser = Auth.auth().currentUser?.uid else {return}
+            let dbRef = Firestore.firestore().collection("users").document("\(currentUser)").collection("notes")
+            let query = dbRef.whereField("noteId", isEqualTo: noteId)
+            query.getDocuments { snapshot, _ in
+                snapshot?.documents.first?.reference.delete()
+            }
+        }
+
 }
